@@ -48,14 +48,7 @@ def solve(eq, reuse_h, rng, path_to_test = None):
         print("Decrypt {0}".format(decrypt_dict))
         new_test = []
         for key, val in test.items():
-            if val:
-                print(f"Adding {val}")
-                new_test.append(decrypt_dict[key])
-                # yield decrypt_dict[key]
-            else:
-                continue
-                #new_test.append(Not(decrypt_dict[key]))
-                # yield Not(decrypt_dict[key])
+            new_test.append(decrypt_dict[key])
 
         # print(f"Test {new_test} fullfils {test}")
         return new_test
