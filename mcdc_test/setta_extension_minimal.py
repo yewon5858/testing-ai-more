@@ -48,9 +48,13 @@ def solve(eq, reuse_h, rng, path_to_test = None):
         print("Decrypt {0}".format(decrypt_dict))
         new_test = []
         for key, val in test.items():
-            new_test.append(decrypt_dict[key])
+            if val == 1:
+                new_test.append(decrypt_dict[key])
+            else:
+                # val == 0
+                new_test.append(Not(decrypt_dict[key]))
 
-        # print(f"Test {new_test} fullfils {test}")
+        print(f"Test {new_test} fullfils {test}")
         return new_test
 
     def sat_solve(test, variables):
@@ -132,9 +136,9 @@ def solve(eq, reuse_h, rng, path_to_test = None):
     solutions = []
     for test in uniq_test:
         # test = {"a0": 0, "a1": 0}
-        print(f"Decrypting {test}")
+        # print(f"Decrypting {test}")
         test = preprocess(test, decrypt_dict)
-        print(f"Into {test}")
+        # print(f"Into {test}")
 
         if path_to_test is not None:
             print("test: ", test, " path_to_test: ", path_to_test)
