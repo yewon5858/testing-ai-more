@@ -5,8 +5,10 @@ Este proyecto esta realizado por **Gonzalo Contreras Gordo** e **Ismael Barahona
 ## Resumen
 ## Marco teorico
 
+## Dependencias
 ## Instalacion
 Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo
+
 ## Como ejecutar el proyecto
 
 ### Licencia MIT
