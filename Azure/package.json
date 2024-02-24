@@ -1,0 +1,16 @@
+{
+  "name": "azure",
+  "version": "1.0.0",
+  "main": "Completion.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gonzalo Contreras e Ismael Barahona Cánovas",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/openai": "^1.0.0-beta.11"
+  },
+  "devDependencies": {},
+  "description": "",
+  "icon": "/mnt/c/Users/Usuario01/Desktop/Universidad/CUARTO-QUINTO AÑO/Azure/icons/descarga.jpg"
+}
