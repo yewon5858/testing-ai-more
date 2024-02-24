@@ -11,6 +11,9 @@ Se debe emplear el ejecutable de nombre install.sh para obtener todos los requis
 
 ## Como ejecutar el proyecto
 
+##  Api de conexion a LLM
+Empleada una conexion a Azure Microsoft
+
 ### Licencia MIT
 ---
 
