@@ -2,8 +2,9 @@
 ## Autores
 Gonzalo Contreras Gordo e Ismael Barahona Cánovas 
 
-## para ejecutar
-emplear el comando node.exe Completion.js
+## Para ejecutar
+
+Emplear el comando node.exe Completion.js
 --
 ## Dependencias 
 @azure/openai@1.0.0-beta.11
