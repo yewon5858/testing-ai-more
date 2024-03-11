@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+    <style>
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="textInput" placeholder="Enter text...">
+    <button onclick="saveText()">Save</button>
+
+    <script>
+        function saveText() {
+            const inputText = document.getElementById('textInput').value;
+            vscode.postMessage({
+                command: 'saveText',
+                text: inputText
+            });
+        }
+
+        // Escuchar mensajes del WebView
+        window.addEventListener('message', event => {
+            const message = event.data;
+            switch (message.command) {
+                case 'initialize':
+                    // Inicialización del WebView, si es necesaria alguna acción
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
