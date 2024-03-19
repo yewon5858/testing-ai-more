@@ -1,0 +1,29 @@
+# Exclude version control directories and files
+.git
+.gitignore
+files/
+plugin/
+jupyter_notebook/
+boolean_examples/
+
+# Exclude Python bytecode files + venv
+*.pyc
+__pycache__
+venv/
+env/
+
+#Exlude Flask Folders
+flask_session/
+
+# Exclude editor/IDE settings
+.vscode/
+.idea/
+
+# Exclude local development files
+*.log
+.DS_Store
+
+#Documentation
+*.md
+*.jpg
+*.log
