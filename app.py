@@ -5,8 +5,10 @@ from random import Random
 from pysmt.shortcuts import serialize
 from enum import Enum
 
-from setta_extension_minimal import solve
-from pathsearch import LongestMayMerge, LongestPath, LongestBool, LongestBoolMay, BetterSize, RandomReuser
+from mcdc_test import * 
+from mcdc_test.pathsearch import LongestMayMerge
+# from mcdc_test.setta_extension_minimal import solve
+# from mcdc_test.pathsearch import LongestMayMerge, LongestPath, LongestBool, LongestBoolMay, BetterSize, RandomReuser
 from random import Random
 
 app = Flask(__name__)
@@ -41,10 +43,10 @@ class Documentation(Resource):
 class Example_Request(Resource):
     def get(self):
         try: 
-            reuse_h = LongestMayMerge
+            reuse_h = pathsearch.LongestMayMerge
             eq = '(a > 10) & (b < 9)'
             rng = Random(100)
-            result = solve(eq, reuse_h, rng)
+            result = setta_extension_minimal.solve(eq, reuse_h, rng)
             converted_list = convert_fnode_to_string(result)
             return jsonify(converted_list)
         except Exception as ex:
@@ -52,12 +54,12 @@ class Example_Request(Resource):
             abort(500, message="An unexpected error occurred. Please try again later.")
             
 class MyEnum(Enum):
-    LONGEST_MAY_MERGE = LongestMayMerge
-    LONGEST_PATH = LongestPath
-    LONGEST_BOOL = LongestBool
-    LONGEST_BOOL_MAY = LongestBoolMay
-    BETTER_SIZE = BetterSize
-    RANDOM_REUSER = RandomReuser
+    LONGEST_MAY_MERGE = pathsearch.LongestMayMerge
+    LONGEST_PATH = pathsearch.LongestPath
+    LONGEST_BOOL = pathsearch.LongestBool
+    LONGEST_BOOL_MAY = pathsearch.LongestBoolMay
+    BETTER_SIZE = pathsearch.BetterSize
+    RANDOM_REUSER = pathsearch.RandomReuser
     
 enum_map = {
     'LongestMayMerge': MyEnum.LONGEST_MAY_MERGE,
@@ -100,7 +102,7 @@ class Single_Expression_Converter(Resource):
             logger.error("Invalid EXPRESSION. No Expression provided. From IP: %s", request.remote_addr)
             abort(400, message="No expression was provided")
         try: 
-            result = solve(eq, reuse_h.value, rng)
+            result = setta_extension_minimal.solve(eq, reuse_h.value, rng)
             output_ready = convert_fnode_to_string(result)
             return jsonify(output_ready)
         except Exception as ex:
@@ -142,7 +144,7 @@ class Multi_Expression_Converter(Resource):
         try:
             final_result:list = []
             for eq in eqs:
-                result = solve(eq, reuse_h.value, rng)
+                result = pathsearch.solve(eq, reuse_h.value, rng)
                 output_ready = convert_fnode_to_string(result)
                 final_result.append(output_ready)
             return jsonify(final_result)
@@ -174,8 +176,8 @@ class LoggerDeletionInteraction(Resource):
     
 api.add_resource(Documentation, '/Documentation')
 api.add_resource(Example_Request, '/ExampleRequest')
-api.add_resource(Single_Expression_Converter, '/AnlayseExp')
-api.add_resource(Multi_Expression_Converter, '/AnlayseMultiExp')
+api.add_resource(Single_Expression_Converter, '/ExpressionAnalysis')
+api.add_resource(Multi_Expression_Converter, '/MultiExpressionAnalysis')
 api.add_resource(LoggerDeletionInteraction, '/delete/logs')
 
 if __name__ == '__main__':
