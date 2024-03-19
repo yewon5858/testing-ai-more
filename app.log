@@ -1,0 +1,295 @@
+2024-03-19 16:13:07,561 - ERROR - Invalid PATHSEARCH value: Test. From IP: 127.0.0.1
+2024-03-19 16:13:07,563 - INFO - 127.0.0.1 - - [19/Mar/2024 16:13:07] "[31m[1mPOST /AnlayseExp HTTP/1.1[0m" 400 -
+2024-03-19 16:17:40,699 - INFO - 127.0.0.1 - - [19/Mar/2024 16:17:40] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-03-19 16:17:56,393 - CRITICAL - An unexpected error occurred. Exception: 'or' is not defined!
+2024-03-19 16:17:56,394 - ERROR - Exception on /AnlayseExp [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 123, in get_symbol
+    return self.symbols[name]
+KeyError: 'or'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py", line 103, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/setta_extension_minimal.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 375, in nud
+    parser.advance()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 496, in advance
+    self.token = next(self.tokenizer)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 74, in tokenize
+    yield symbol(capture)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 222, in identifier
+    return Identifier(read, env=self.env)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 326, in __init__
+    self.value = env.formula_manager.get_symbol(name)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 125, in get_symbol
+    raise UndefinedSymbolError(name)
+pysmt.exceptions.UndefinedSymbolError: 'or' is not defined!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py", line 108, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-03-19 16:17:56,409 - INFO - 127.0.0.1 - - [19/Mar/2024 16:17:56] "[35m[1mPOST /AnlayseExp HTTP/1.1[0m" 500 -
+2024-03-19 16:18:30,207 - CRITICAL - An unexpected error occurred. Exception: 'and' is not defined!
+2024-03-19 16:18:30,208 - ERROR - Exception on /AnlayseExp [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 123, in get_symbol
+    return self.symbols[name]
+KeyError: 'and'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py", line 103, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/setta_extension_minimal.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 375, in nud
+    parser.advance()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 496, in advance
+    self.token = next(self.tokenizer)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 74, in tokenize
+    yield symbol(capture)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 222, in identifier
+    return Identifier(read, env=self.env)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 326, in __init__
+    self.value = env.formula_manager.get_symbol(name)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 125, in get_symbol
+    raise UndefinedSymbolError(name)
+pysmt.exceptions.UndefinedSymbolError: 'and' is not defined!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py", line 108, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-03-19 16:18:30,216 - INFO - 127.0.0.1 - - [19/Mar/2024 16:18:30] "[35m[1mPOST /AnlayseExp HTTP/1.1[0m" 500 -
+2024-03-19 16:18:33,371 - CRITICAL - An unexpected error occurred. Exception: 'and' is not defined!
+2024-03-19 16:18:33,372 - ERROR - Exception on /AnlayseExp [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 123, in get_symbol
+    return self.symbols[name]
+KeyError: 'and'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py", line 103, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/setta_extension_minimal.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 375, in nud
+    parser.advance()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 496, in advance
+    self.token = next(self.tokenizer)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 74, in tokenize
+    yield symbol(capture)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 222, in identifier
+    return Identifier(read, env=self.env)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 326, in __init__
+    self.value = env.formula_manager.get_symbol(name)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 125, in get_symbol
+    raise UndefinedSymbolError(name)
+pysmt.exceptions.UndefinedSymbolError: 'and' is not defined!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py", line 108, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-03-19 16:18:33,379 - INFO - 127.0.0.1 - - [19/Mar/2024 16:18:33] "[35m[1mPOST /AnlayseExp HTTP/1.1[0m" 500 -
+2024-03-19 16:18:35,003 - CRITICAL - An unexpected error occurred. Exception: 'and' is not defined!
+2024-03-19 16:18:35,005 - ERROR - Exception on /AnlayseExp [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 123, in get_symbol
+    return self.symbols[name]
+KeyError: 'and'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py", line 103, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/setta_extension_minimal.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 375, in nud
+    parser.advance()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 496, in advance
+    self.token = next(self.tokenizer)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 74, in tokenize
+    yield symbol(capture)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 222, in identifier
+    return Identifier(read, env=self.env)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 326, in __init__
+    self.value = env.formula_manager.get_symbol(name)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 125, in get_symbol
+    raise UndefinedSymbolError(name)
+pysmt.exceptions.UndefinedSymbolError: 'and' is not defined!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py", line 108, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-03-19 16:18:35,013 - INFO - 127.0.0.1 - - [19/Mar/2024 16:18:35] "[35m[1mPOST /AnlayseExp HTTP/1.1[0m" 500 -
+2024-03-19 16:18:39,656 - INFO - 127.0.0.1 - - [19/Mar/2024 16:18:39] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-03-19 16:18:44,827 - CRITICAL - An unexpected error occurred. Exception: 'and' is not defined!
+2024-03-19 16:18:44,828 - ERROR - Exception on /AnlayseExp [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 123, in get_symbol
+    return self.symbols[name]
+KeyError: 'and'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py", line 103, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/setta_extension_minimal.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 375, in nud
+    parser.advance()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 496, in advance
+    self.token = next(self.tokenizer)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 74, in tokenize
+    yield symbol(capture)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 222, in identifier
+    return Identifier(read, env=self.env)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 326, in __init__
+    self.value = env.formula_manager.get_symbol(name)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 125, in get_symbol
+    raise UndefinedSymbolError(name)
+pysmt.exceptions.UndefinedSymbolError: 'and' is not defined!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py", line 108, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-03-19 16:18:44,836 - INFO - 127.0.0.1 - - [19/Mar/2024 16:18:44] "[35m[1mPOST /AnlayseExp HTTP/1.1[0m" 500 -
+2024-03-19 16:20:58,984 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py', reloading
+2024-03-19 16:20:59,076 - INFO -  * Restarting with stat
+2024-03-19 16:20:59,927 - WARNING -  * Debugger is active!
+2024-03-19 16:20:59,928 - INFO -  * Debugger PIN: 996-346-300
+2024-03-19 16:22:14,682 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/app.py', reloading
+2024-03-19 16:22:14,772 - INFO -  * Restarting with stat

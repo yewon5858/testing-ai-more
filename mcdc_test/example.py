@@ -9,4 +9,4 @@ if __name__ == '__main__':
     rng = Random(100)
 
     result = solve(eq, reuse_h, rng)
-    print(result)
+    #print(result)
