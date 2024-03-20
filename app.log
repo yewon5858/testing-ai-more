@@ -1,7 +1,24 @@
-2024-03-19 20:10:31,099 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2024-03-20 19:05:50,605 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2024-03-19 20:10:31,103 - INFO - [33mPress CTRL+C to quit[0m
-2024-03-19 20:10:31,113 - INFO -  * Restarting with stat
-2024-03-19 20:10:35,555 - WARNING -  * Debugger is active!
-2024-03-19 20:10:35,559 - INFO -  * Debugger PIN: 996-346-300
-2024-03-19 20:10:36,557 - INFO - 127.0.0.1 - - [19/Mar/2024 20:10:36] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-03-20 19:05:50,606 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-20 19:05:50,610 - INFO -  * Restarting with stat
+2024-03-20 19:05:51,582 - WARNING -  * Debugger is active!
+2024-03-20 19:05:51,636 - INFO -  * Debugger PIN: 508-697-974
+2024-03-20 19:07:30,911 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/example_request.py', reloading
+2024-03-20 19:07:31,003 - INFO -  * Restarting with stat
+2024-03-20 19:07:32,000 - WARNING -  * Debugger is active!
+2024-03-20 19:07:32,001 - INFO -  * Debugger PIN: 508-697-974
+2024-03-20 19:08:28,267 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/helpers/fnodeconverter.py', reloading
+2024-03-20 19:08:28,350 - INFO -  * Restarting with stat
+2024-03-20 19:08:29,335 - WARNING -  * Debugger is active!
+2024-03-20 19:08:29,337 - INFO -  * Debugger PIN: 508-697-974
+2024-03-20 19:09:17,088 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/example_request.py', reloading
+2024-03-20 19:09:17,183 - INFO -  * Restarting with stat
+2024-03-20 19:09:18,244 - WARNING -  * Debugger is active!
+2024-03-20 19:09:18,246 - INFO -  * Debugger PIN: 508-697-974
+2024-03-20 19:28:52,600 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-20 19:28:52,604 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-20 19:28:52,606 - DEBUG - interactive is False
+2024-03-20 19:28:52,606 - DEBUG - platform is linux
+2024-03-20 19:28:52,643 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-20 19:28:52,645 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json

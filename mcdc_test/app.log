@@ -1,0 +1,12 @@
+2024-03-20 19:23:56,780 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-20 19:23:56,787 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-20 19:23:56,789 - DEBUG - interactive is False
+2024-03-20 19:23:56,789 - DEBUG - platform is linux
+2024-03-20 19:23:56,833 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-20 19:23:56,834 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-20 19:27:25,597 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-20 19:27:25,602 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-20 19:27:25,604 - DEBUG - interactive is False
+2024-03-20 19:27:25,605 - DEBUG - platform is linux
+2024-03-20 19:27:25,662 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-20 19:27:25,663 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
