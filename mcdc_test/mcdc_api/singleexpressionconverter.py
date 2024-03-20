@@ -8,6 +8,9 @@ from random import Random
 from mcdc_api.helpers.fnodeconverter import convert_fnode_to_string
 from mcdc_api.helpers.pathsearchenum import enum_map
 from mcdc_api.parser.baseparser import parser_base
+import logging
+
+logger = logging.getLogger(__name__)
 
 ##Single Expressions will be taken as an input
 class Single_Expression_Converter(Resource):

@@ -32,3 +32,37 @@
 2024-03-20 19:52:21,037 - DEBUG - LongestMayMerge: Picking index 0/1
 2024-03-20 19:52:21,044 - INFO - 127.0.0.1 - - [20/Mar/2024 19:52:21] "POST /AnlayseExp HTTP/1.1" 200 -
 2024-03-20 19:52:23,955 - INFO - 127.0.0.1 - - [20/Mar/2024 19:52:23] "GET /delete/logs HTTP/1.1" 200 -
+2024-03-20 22:53:36,498 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-20 22:53:36,503 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-20 22:53:36,504 - DEBUG - interactive is False
+2024-03-20 22:53:36,505 - DEBUG - platform is linux
+2024-03-20 22:53:36,553 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-20 22:53:36,555 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-20 22:53:37,489 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-20 22:53:37,490 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-20 22:53:37,494 - INFO -  * Restarting with stat
+2024-03-20 22:53:37,877 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-20 22:53:37,883 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-20 22:53:37,884 - DEBUG - interactive is False
+2024-03-20 22:53:37,885 - DEBUG - platform is linux
+2024-03-20 22:53:37,928 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-20 22:53:37,930 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-20 22:53:38,410 - WARNING -  * Debugger is active!
+2024-03-20 22:53:38,412 - INFO -  * Debugger PIN: 508-697-974
+2024-03-20 22:53:45,726 - DEBUG - LongestMayMerge: Picking index 0/2
+2024-03-20 22:53:45,727 - DEBUG - LongestMayMerge: Picking index 0/1
+2024-03-20 22:53:45,791 - INFO - 127.0.0.1 - - [20/Mar/2024 22:53:45] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-03-20 22:53:57,902 - INFO - 127.0.0.1 - - [20/Mar/2024 22:53:57] "[31m[1mPOST /AnlayseExp HTTP/1.1[0m" 400 -
+2024-03-20 22:55:00,720 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/singleexpressionconverter.py', reloading
+2024-03-20 22:55:00,808 - INFO -  * Restarting with stat
+2024-03-20 22:55:01,317 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-20 22:55:01,323 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-20 22:55:01,325 - DEBUG - interactive is False
+2024-03-20 22:55:01,325 - DEBUG - platform is linux
+2024-03-20 22:55:01,375 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-20 22:55:01,377 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-20 22:55:01,951 - WARNING -  * Debugger is active!
+2024-03-20 22:55:01,952 - INFO -  * Debugger PIN: 508-697-974
+2024-03-20 22:55:04,861 - INFO - 127.0.0.1 - - [20/Mar/2024 22:55:04] "[31m[1mPOST /AnlayseExp HTTP/1.1[0m" 400 -
+2024-03-20 22:55:05,956 - INFO - 127.0.0.1 - - [20/Mar/2024 22:55:05] "[31m[1mPOST /AnlayseExp HTTP/1.1[0m" 400 -
