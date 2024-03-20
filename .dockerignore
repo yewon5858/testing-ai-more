@@ -4,7 +4,7 @@
 files/
 plugin/
 jupyter_notebook/
-boolean_examples/
+bool_examples/
 
 # Exclude Python bytecode files + venv
 *.pyc

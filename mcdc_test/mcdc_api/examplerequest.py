@@ -4,7 +4,7 @@ from random import Random
 
 from setta_extension_minimal import solve
 from pathsearch import LongestMayMerge
-from helpers.fnodeconverter import convert_fnode_to_string
+from mcdc_api.helpers.fnodeconverter import convert_fnode_to_string
 from random import Random
 
 class Example_Request(Resource):

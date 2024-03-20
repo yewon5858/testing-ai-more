@@ -1,9 +1,0 @@
-flask
-flask-restful
-graphviz
-matplotlib
-more-itertools
-pandas
-pyeda
-pytest
-sortedcontainers

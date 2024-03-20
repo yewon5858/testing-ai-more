@@ -1,14 +1,15 @@
 from flask_restful import Api
 from flask import Flask
 
-from documentation import Documentation
-from examplerequest import Example_Request
-from singleexpressionconverter import Single_Expression_Converter
-from multiexpressionconverter import Multi_Expression_Converter
-from loggermodifyer import LoggerDeletionInteraction
+from mcdc_api.documentation import Documentation
+from mcdc_api.examplerequest import Example_Request
+from mcdc_api.singleexpressionconverter import Single_Expression_Converter
+from mcdc_api.multiexpressionconverter import Multi_Expression_Converter
+from mcdc_api.loggermodifyer import LoggerDeletionInteraction
 
 def build_mcdc_api(app: Flask):
     api = Api(app)   
+    add_requests_to_path(api)
 
 def add_requests_to_path(api: Api): 
     ##Adding to Path

@@ -1,12 +1,34 @@
-2024-03-20 19:23:56,780 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
-2024-03-20 19:23:56,787 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
-2024-03-20 19:23:56,789 - DEBUG - interactive is False
-2024-03-20 19:23:56,789 - DEBUG - platform is linux
-2024-03-20 19:23:56,833 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
-2024-03-20 19:23:56,834 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
-2024-03-20 19:27:25,597 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
-2024-03-20 19:27:25,602 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
-2024-03-20 19:27:25,604 - DEBUG - interactive is False
-2024-03-20 19:27:25,605 - DEBUG - platform is linux
-2024-03-20 19:27:25,662 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
-2024-03-20 19:27:25,663 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-20 19:51:53,374 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-20 19:51:53,377 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-20 19:51:53,379 - DEBUG - interactive is False
+2024-03-20 19:51:53,379 - DEBUG - platform is linux
+2024-03-20 19:51:53,445 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-20 19:51:53,446 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-20 19:51:53,755 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-20 19:51:53,755 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-20 19:51:53,768 - INFO -  * Restarting with stat
+2024-03-20 19:51:54,175 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-20 19:51:54,179 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-20 19:51:54,180 - DEBUG - interactive is False
+2024-03-20 19:51:54,181 - DEBUG - platform is linux
+2024-03-20 19:51:54,222 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-20 19:51:54,223 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-20 19:51:54,520 - WARNING -  * Debugger is active!
+2024-03-20 19:51:54,521 - INFO -  * Debugger PIN: 508-697-974
+2024-03-20 19:51:57,820 - INFO - 127.0.0.1 - - [20/Mar/2024 19:51:57] "GET /delete/logs HTTP/1.1" 200 -
+2024-03-20 19:52:01,692 - INFO - 127.0.0.1 - - [20/Mar/2024 19:52:01] "GET /delete/logs HTTP/1.1" 200 -
+2024-03-20 19:52:05,034 - DEBUG - LongestMayMerge: Picking index 0/2
+2024-03-20 19:52:05,035 - DEBUG - LongestMayMerge: Picking index 0/1
+2024-03-20 19:52:05,066 - INFO - 127.0.0.1 - - [20/Mar/2024 19:52:05] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-03-20 19:52:06,433 - DEBUG - LongestMayMerge: Picking index 0/2
+2024-03-20 19:52:06,433 - DEBUG - LongestMayMerge: Picking index 0/1
+2024-03-20 19:52:06,439 - INFO - 127.0.0.1 - - [20/Mar/2024 19:52:06] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-03-20 19:52:09,926 - DEBUG - LongestMayMerge: Picking index 0/2
+2024-03-20 19:52:09,927 - DEBUG - LongestMayMerge: Picking index 0/1
+2024-03-20 19:52:09,935 - INFO - 127.0.0.1 - - [20/Mar/2024 19:52:09] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-03-20 19:52:15,684 - INFO - 127.0.0.1 - - [20/Mar/2024 19:52:15] "[31m[1mPOST /AnlayseExp HTTP/1.1[0m" 400 -
+2024-03-20 19:52:21,036 - DEBUG - LongestMayMerge: Picking index 0/2
+2024-03-20 19:52:21,037 - DEBUG - LongestMayMerge: Picking index 0/1
+2024-03-20 19:52:21,044 - INFO - 127.0.0.1 - - [20/Mar/2024 19:52:21] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-03-20 19:52:23,955 - INFO - 127.0.0.1 - - [20/Mar/2024 19:52:23] "GET /delete/logs HTTP/1.1" 200 -

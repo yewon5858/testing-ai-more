@@ -5,8 +5,8 @@ from random import Random
 from mcdc_test.setta_extension_minimal import solve
 from random import Random
 
-from helpers.fnodeconverter import convert_fnode_to_string
-from helpers.pathsearchenum import enum_map
+from mcdc_api.helpers.fnodeconverter import convert_fnode_to_string
+from mcdc_api.helpers.pathsearchenum import enum_map
 
 
 ##Multiple Expressions will be taken as an input --> Reduce RoundTrips
