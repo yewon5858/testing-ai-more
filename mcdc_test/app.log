@@ -66,3 +66,457 @@
 2024-03-20 22:55:01,952 - INFO -  * Debugger PIN: 508-697-974
 2024-03-20 22:55:04,861 - INFO - 127.0.0.1 - - [20/Mar/2024 22:55:04] "[31m[1mPOST /AnlayseExp HTTP/1.1[0m" 400 -
 2024-03-20 22:55:05,956 - INFO - 127.0.0.1 - - [20/Mar/2024 22:55:05] "[31m[1mPOST /AnlayseExp HTTP/1.1[0m" 400 -
+2024-03-23 12:07:37,851 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-23 12:07:37,858 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-23 12:07:37,860 - DEBUG - interactive is False
+2024-03-23 12:07:37,862 - DEBUG - platform is linux
+2024-03-23 12:07:37,945 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-23 12:07:37,949 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-23 12:07:39,282 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-23 12:07:39,283 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-23 12:07:39,287 - INFO -  * Restarting with stat
+2024-03-23 12:07:40,156 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-23 12:07:40,165 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-23 12:07:40,168 - DEBUG - interactive is False
+2024-03-23 12:07:40,170 - DEBUG - platform is linux
+2024-03-23 12:07:40,296 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-23 12:07:40,298 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-23 12:07:41,174 - WARNING -  * Debugger is active!
+2024-03-23 12:07:41,256 - INFO -  * Debugger PIN: 151-184-590
+2024-03-23 12:08:06,725 - DEBUG - LongestMayMerge: Picking index 1/2
+2024-03-23 12:08:06,738 - DEBUG - LongestMayMerge: Picking index 0/1
+2024-03-23 12:08:06,968 - INFO - 127.0.0.1 - - [23/Mar/2024 12:08:06] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-03-25 15:42:00,840 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 15:42:00,845 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 15:42:00,847 - DEBUG - interactive is False
+2024-03-25 15:42:00,848 - DEBUG - platform is linux
+2024-03-25 15:42:00,915 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 15:42:00,917 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 15:42:01,880 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-25 15:42:01,881 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-25 15:42:01,888 - INFO -  * Restarting with stat
+2024-03-25 15:42:02,379 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 15:42:02,384 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 15:42:02,386 - DEBUG - interactive is False
+2024-03-25 15:42:02,387 - DEBUG - platform is linux
+2024-03-25 15:42:02,444 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 15:42:02,447 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 15:42:02,985 - WARNING -  * Debugger is active!
+2024-03-25 15:42:03,059 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 15:42:14,891 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 15:42:14,900 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 15:42:14,904 - DEBUG - interactive is False
+2024-03-25 15:42:14,905 - DEBUG - platform is linux
+2024-03-25 15:42:15,015 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 15:42:15,017 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 15:42:15,720 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-25 15:42:15,721 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-25 15:42:15,727 - INFO -  * Restarting with stat
+2024-03-25 15:42:16,479 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 15:42:16,506 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 15:42:16,511 - DEBUG - interactive is False
+2024-03-25 15:42:16,514 - DEBUG - platform is linux
+2024-03-25 15:42:16,690 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 15:42:16,693 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 15:42:17,726 - WARNING -  * Debugger is active!
+2024-03-25 15:42:17,728 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 15:42:18,164 - DEBUG - LongestMayMerge: Picking index 1/2
+2024-03-25 15:42:18,165 - DEBUG - LongestMayMerge: Picking index 0/1
+2024-03-25 15:42:18,238 - INFO - 127.0.0.1 - - [25/Mar/2024 15:42:18] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-03-25 16:13:54,215 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:13:54,223 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:13:54,226 - DEBUG - interactive is False
+2024-03-25 16:13:54,227 - DEBUG - platform is linux
+2024-03-25 16:13:54,340 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:13:54,345 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:13:55,445 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-25 16:13:55,446 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-25 16:13:55,451 - INFO -  * Restarting with stat
+2024-03-25 16:13:56,425 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:13:56,434 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:13:56,438 - DEBUG - interactive is False
+2024-03-25 16:13:56,440 - DEBUG - platform is linux
+2024-03-25 16:13:56,568 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:13:56,572 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:13:57,760 - WARNING -  * Debugger is active!
+2024-03-25 16:13:57,762 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:14:04,049 - CRITICAL - An unexpected error occurred. Exception: 
+2024-03-25 16:14:04,052 - ERROR - Exception on /AnlayseMultiExp [POST]
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py", line 50, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/setta_extension_minimal.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 468, in expression
+    self.token = next(self.tokenizer)
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py", line 56, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-03-25 16:14:04,122 - INFO - 127.0.0.1 - - [25/Mar/2024 16:14:04] "[35m[1mPOST /AnlayseMultiExp HTTP/1.1[0m" 500 -
+2024-03-25 16:14:41,911 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:14:41,917 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:14:41,922 - DEBUG - interactive is False
+2024-03-25 16:14:41,924 - DEBUG - platform is linux
+2024-03-25 16:14:42,010 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:14:42,015 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:14:42,981 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-25 16:14:42,982 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-25 16:14:42,984 - INFO -  * Restarting with stat
+2024-03-25 16:14:43,794 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:14:43,804 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:14:43,806 - DEBUG - interactive is False
+2024-03-25 16:14:43,809 - DEBUG - platform is linux
+2024-03-25 16:14:43,884 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:14:43,887 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:14:44,598 - WARNING -  * Debugger is active!
+2024-03-25 16:14:44,599 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:14:48,266 - CRITICAL - An unexpected error occurred. Exception: 
+2024-03-25 16:14:48,269 - ERROR - Exception on /AnlayseMultiExp [POST]
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py", line 52, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/setta_extension_minimal.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 468, in expression
+    self.token = next(self.tokenizer)
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py", line 58, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-03-25 16:14:48,327 - INFO - 127.0.0.1 - - [25/Mar/2024 16:14:48] "[35m[1mPOST /AnlayseMultiExp HTTP/1.1[0m" 500 -
+2024-03-25 16:17:15,403 - DEBUG - LongestMayMerge: Picking index 1/2
+2024-03-25 16:17:15,491 - INFO - 127.0.0.1 - - [25/Mar/2024 16:17:15] "POST /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:17:31,196 - DEBUG - LongestMayMerge: Picking index 1/2
+2024-03-25 16:17:31,209 - DEBUG - LongestMayMerge: Picking index 1/2
+2024-03-25 16:17:31,215 - INFO - 127.0.0.1 - - [25/Mar/2024 16:17:31] "POST /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:17:38,495 - DEBUG - LongestMayMerge: Picking index 1/2
+2024-03-25 16:17:38,501 - CRITICAL - An unexpected error occurred. Exception: Syntax error at token '<pysmt.parsing.Constant object at 0x7f9834456590>'.
+2024-03-25 16:17:38,502 - ERROR - Exception on /AnlayseMultiExp [POST]
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py", line 52, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/setta_extension_minimal.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 473, in expression
+    left = t.led(self, left)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 542, in led
+    right = parser.expression(self.lbp)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 92, in nud
+    raise PysmtSyntaxError("Syntax error at token '%s'." % parser.token)
+pysmt.exceptions.PysmtSyntaxError: Syntax error at token '<pysmt.parsing.Constant object at 0x7f9834456590>'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py", line 58, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-03-25 16:17:38,510 - INFO - 127.0.0.1 - - [25/Mar/2024 16:17:38] "[35m[1mPOST /AnlayseMultiExp HTTP/1.1[0m" 500 -
+2024-03-25 16:17:42,102 - DEBUG - LongestMayMerge: Picking index 1/2
+2024-03-25 16:17:42,107 - DEBUG - LongestMayMerge: Picking index 1/2
+2024-03-25 16:17:42,115 - INFO - 127.0.0.1 - - [25/Mar/2024 16:17:42] "POST /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:20:09,382 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:20:09,488 - INFO -  * Restarting with stat
+2024-03-25 16:20:09,943 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:20:09,949 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:20:09,951 - DEBUG - interactive is False
+2024-03-25 16:20:09,951 - DEBUG - platform is linux
+2024-03-25 16:20:10,000 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:20:10,002 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:22:13,970 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:22:13,976 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:22:13,977 - DEBUG - interactive is False
+2024-03-25 16:22:13,978 - DEBUG - platform is linux
+2024-03-25 16:22:14,028 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:22:14,030 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:22:14,637 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-25 16:22:14,638 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-25 16:22:14,640 - INFO -  * Restarting with stat
+2024-03-25 16:22:15,328 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:22:15,337 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:22:15,341 - DEBUG - interactive is False
+2024-03-25 16:22:15,342 - DEBUG - platform is linux
+2024-03-25 16:22:15,409 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:22:15,411 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:22:15,903 - WARNING -  * Debugger is active!
+2024-03-25 16:22:15,904 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:22:18,480 - INFO - 127.0.0.1 - - [25/Mar/2024 16:22:18] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:22:59,687 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:22:59,782 - INFO -  * Restarting with stat
+2024-03-25 16:23:00,335 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:23:00,341 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:23:00,343 - DEBUG - interactive is False
+2024-03-25 16:23:00,343 - DEBUG - platform is linux
+2024-03-25 16:23:00,399 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:23:00,401 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:23:01,064 - WARNING -  * Debugger is active!
+2024-03-25 16:23:01,065 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:23:10,594 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:23:10,748 - INFO -  * Restarting with stat
+2024-03-25 16:23:11,486 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:23:11,491 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:23:11,493 - DEBUG - interactive is False
+2024-03-25 16:23:11,494 - DEBUG - platform is linux
+2024-03-25 16:23:11,544 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:23:11,546 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:23:12,113 - WARNING -  * Debugger is active!
+2024-03-25 16:23:12,115 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:23:12,513 - INFO - 127.0.0.1 - - [25/Mar/2024 16:23:12] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:23:13,522 - INFO - 127.0.0.1 - - [25/Mar/2024 16:23:13] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:29:06,420 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:29:06,506 - INFO -  * Restarting with stat
+2024-03-25 16:29:06,899 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:29:06,905 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:29:06,907 - DEBUG - interactive is False
+2024-03-25 16:29:06,907 - DEBUG - platform is linux
+2024-03-25 16:29:06,959 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:29:06,961 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:29:07,573 - WARNING -  * Debugger is active!
+2024-03-25 16:29:07,574 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:29:13,801 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:29:13,897 - INFO -  * Restarting with stat
+2024-03-25 16:29:14,353 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:29:14,358 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:29:14,360 - DEBUG - interactive is False
+2024-03-25 16:29:14,361 - DEBUG - platform is linux
+2024-03-25 16:29:14,409 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:29:14,411 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:29:14,972 - WARNING -  * Debugger is active!
+2024-03-25 16:29:14,973 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:29:16,329 - INFO - 127.0.0.1 - - [25/Mar/2024 16:29:16] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:29:18,570 - INFO - 127.0.0.1 - - [25/Mar/2024 16:29:18] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:29:26,568 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:29:26,663 - INFO -  * Restarting with stat
+2024-03-25 16:29:27,148 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:29:27,154 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:29:27,156 - DEBUG - interactive is False
+2024-03-25 16:29:27,156 - DEBUG - platform is linux
+2024-03-25 16:29:27,206 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:29:27,208 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:29:27,802 - WARNING -  * Debugger is active!
+2024-03-25 16:29:27,803 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:29:32,541 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:29:32,547 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:29:32,549 - DEBUG - interactive is False
+2024-03-25 16:29:32,550 - DEBUG - platform is linux
+2024-03-25 16:29:32,602 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:29:32,604 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:29:33,144 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-25 16:29:33,146 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-25 16:29:33,150 - INFO -  * Restarting with stat
+2024-03-25 16:29:33,571 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:29:33,578 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:29:33,580 - DEBUG - interactive is False
+2024-03-25 16:29:33,581 - DEBUG - platform is linux
+2024-03-25 16:29:33,646 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:29:33,648 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:29:34,214 - WARNING -  * Debugger is active!
+2024-03-25 16:29:34,215 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:29:37,335 - INFO - 127.0.0.1 - - [25/Mar/2024 16:29:37] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:29:38,385 - INFO - 127.0.0.1 - - [25/Mar/2024 16:29:38] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:31:26,421 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:31:26,502 - INFO -  * Restarting with stat
+2024-03-25 16:31:26,924 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:31:26,930 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:31:26,932 - DEBUG - interactive is False
+2024-03-25 16:31:26,933 - DEBUG - platform is linux
+2024-03-25 16:31:26,991 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:31:26,994 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:31:27,544 - WARNING -  * Debugger is active!
+2024-03-25 16:31:27,545 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:31:29,397 - INFO - 127.0.0.1 - - [25/Mar/2024 16:31:29] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:31:30,434 - INFO - 127.0.0.1 - - [25/Mar/2024 16:31:30] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:33:50,833 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:33:50,928 - INFO -  * Restarting with stat
+2024-03-25 16:33:51,373 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:33:51,377 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:33:51,379 - DEBUG - interactive is False
+2024-03-25 16:33:51,379 - DEBUG - platform is linux
+2024-03-25 16:33:51,424 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:33:51,426 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:33:51,976 - WARNING -  * Debugger is active!
+2024-03-25 16:33:51,977 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:33:55,051 - INFO - 127.0.0.1 - - [25/Mar/2024 16:33:55] "[35m[1mGET /AnlayseMultiExp HTTP/1.1[0m" 500 -
+2024-03-25 16:34:12,371 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:34:12,542 - INFO -  * Restarting with stat
+2024-03-25 16:34:13,343 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:34:13,350 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:34:13,354 - DEBUG - interactive is False
+2024-03-25 16:34:13,355 - DEBUG - platform is linux
+2024-03-25 16:34:13,484 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:34:13,487 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:36:46,534 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:36:46,542 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:36:46,543 - DEBUG - interactive is False
+2024-03-25 16:36:46,544 - DEBUG - platform is linux
+2024-03-25 16:36:46,598 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:36:46,601 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:36:47,118 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-25 16:36:47,118 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-25 16:36:47,120 - INFO -  * Restarting with stat
+2024-03-25 16:36:47,641 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:36:47,646 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:36:47,648 - DEBUG - interactive is False
+2024-03-25 16:36:47,649 - DEBUG - platform is linux
+2024-03-25 16:36:47,698 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:36:47,700 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:36:48,289 - WARNING -  * Debugger is active!
+2024-03-25 16:36:48,290 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:36:52,141 - INFO - 127.0.0.1 - - [25/Mar/2024 16:36:52] "[35m[1mGET /AnlayseMultiExp HTTP/1.1[0m" 500 -
+2024-03-25 16:36:53,796 - INFO - 127.0.0.1 - - [25/Mar/2024 16:36:53] "[35m[1mGET /AnlayseMultiExp HTTP/1.1[0m" 500 -
+2024-03-25 16:37:27,827 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:37:27,833 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:37:27,834 - DEBUG - interactive is False
+2024-03-25 16:37:27,835 - DEBUG - platform is linux
+2024-03-25 16:37:27,899 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:37:27,901 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:37:28,494 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-25 16:37:28,495 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-25 16:37:28,498 - INFO -  * Restarting with stat
+2024-03-25 16:37:29,017 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:37:29,022 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:37:29,024 - DEBUG - interactive is False
+2024-03-25 16:37:29,025 - DEBUG - platform is linux
+2024-03-25 16:37:29,082 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:37:29,084 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:37:29,767 - WARNING -  * Debugger is active!
+2024-03-25 16:37:29,769 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:37:32,700 - INFO - 127.0.0.1 - - [25/Mar/2024 16:37:32] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 16:38:22,917 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:38:23,013 - INFO -  * Restarting with stat
+2024-03-25 16:38:23,501 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:38:23,506 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:38:23,508 - DEBUG - interactive is False
+2024-03-25 16:38:23,509 - DEBUG - platform is linux
+2024-03-25 16:38:23,569 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:38:23,571 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:38:24,330 - WARNING -  * Debugger is active!
+2024-03-25 16:38:24,331 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:38:34,864 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/multiexpressionconverter.py', reloading
+2024-03-25 16:38:34,979 - INFO -  * Restarting with stat
+2024-03-25 16:38:36,051 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:38:36,057 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:38:36,060 - DEBUG - interactive is False
+2024-03-25 16:38:36,061 - DEBUG - platform is linux
+2024-03-25 16:38:36,136 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:38:36,138 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:38:36,865 - WARNING -  * Debugger is active!
+2024-03-25 16:38:36,867 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:39:11,048 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/singleexpressionconverter.py', reloading
+2024-03-25 16:39:11,149 - INFO -  * Restarting with stat
+2024-03-25 16:39:11,617 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:39:11,623 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:39:11,626 - DEBUG - interactive is False
+2024-03-25 16:39:11,627 - DEBUG - platform is linux
+2024-03-25 16:39:11,681 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:39:11,682 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:40:06,193 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:40:06,199 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:40:06,201 - DEBUG - interactive is False
+2024-03-25 16:40:06,201 - DEBUG - platform is linux
+2024-03-25 16:40:06,255 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:40:06,257 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:40:06,873 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-25 16:40:06,874 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-25 16:40:06,877 - INFO -  * Restarting with stat
+2024-03-25 16:40:07,323 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:40:07,329 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:40:07,331 - DEBUG - interactive is False
+2024-03-25 16:40:07,332 - DEBUG - platform is linux
+2024-03-25 16:40:07,392 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:40:07,394 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:40:08,022 - WARNING -  * Debugger is active!
+2024-03-25 16:40:08,024 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:40:11,039 - INFO - 127.0.0.1 - - [25/Mar/2024 16:40:11] "GET /AnlayseExp HTTP/1.1" 200 -
+2024-03-25 16:40:34,216 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test/mcdc_api/singleexpressionconverter.py', reloading
+2024-03-25 16:40:34,450 - INFO -  * Restarting with stat
+2024-03-25 16:40:35,419 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 16:40:35,426 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 16:40:35,428 - DEBUG - interactive is False
+2024-03-25 16:40:35,429 - DEBUG - platform is linux
+2024-03-25 16:40:35,490 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 16:40:35,492 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 16:40:36,095 - WARNING -  * Debugger is active!
+2024-03-25 16:40:36,097 - INFO -  * Debugger PIN: 559-103-837
+2024-03-25 16:40:43,260 - INFO - 127.0.0.1 - - [25/Mar/2024 16:40:43] "GET /AnlayseMultiExp HTTP/1.1" 200 -

@@ -21,7 +21,19 @@ class Single_Expression_Converter(Resource):
     
     ##For Documentation how to access the endpoint
     def get(self):
-        return jsonify({'message': 'Hello, to the MC/DC test generator!'})    
+        result = [
+            {'The body needs the following': {
+                'PATHSEARCH': 'One of the following options: ' + str(enum_map.keys()), # Convert keys to string
+                'RANDOM': 'Any positive integer',
+                'EXPRESSION': 'A non-empty boolean expressions'
+            }}, 
+            {'Example': {
+                'PATHSEARCH': 'LongestMayMerge',
+                'RANDOM': '5',
+                'EXPRESSION': 'a > 10'
+            }}
+        ]
+        return jsonify(result) 
  
     def post(self):
         args = self.parser_single_expression.parse_args(strict=True)

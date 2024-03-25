@@ -3,21 +3,29 @@ FROM python:3.8-slim
 LABEL Lukas Sebastian Hofmann <lukhofma@ucm.es>
 
 # Install system dependencies
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+# RUN apt-get update && \
+#     apt-get install -y --no-install-recommends \
+#     gcc \
+#     make \
+#     libgmp3-dev \
+#     graphviz \
+#     python3-dev \
+#     expect && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y \
     gcc \
+    g++ \
     make \
     libgmp3-dev \
     graphviz \
     python3-dev \
-    expect && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    pkg-config
 
-# Install PySMT solver (MSat)
-RUN pip install pysmt && \
-    pysmt-install --check && \
-    expect -c 'spawn pysmt-install --msat; expect "Continue? \[Y\]es/\[N\]o"; send "yes\n"; interact'
+RUN pip install pysmt
+RUN pysmt-install --check
+RUN echo "yes" | pysmt-install --confirm-agreement --msat
 
 WORKDIR /app
 COPY requirements.txt /app

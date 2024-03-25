@@ -7,7 +7,11 @@ from random import Random
 
 from mcdc_api.helpers.fnodeconverter import convert_fnode_to_string
 from mcdc_api.helpers.pathsearchenum import enum_map
+from mcdc_api.parser.baseparser import parser_base
+import logging
+from collections import OrderedDict
 
+logger = logging.getLogger(__name__)
 
 ##Multiple Expressions will be taken as an input --> Reduce RoundTrips
 class Multi_Expression_Converter(Resource):
@@ -16,14 +20,21 @@ class Multi_Expression_Converter(Resource):
         self.parser_multi_expression.add_argument('EXPRESSION', action='append', type=str, required=True) ###convert this to list input
         super(Multi_Expression_Converter, self).__init__()
     
-        ##For Documentation how to access the endpoint
+    ##For Documentation how to access the endpoint
     def get(self):
-        return jsonify({
-            'The body needs the following': {
+        result = [
+            {'The body needs the following': {
                 'PATHSEARCH': 'One of the following options: ' + str(enum_map.keys()), # Convert keys to string
                 'RANDOM': 'Any positive integer',
                 'EXPRESSION': 'A non-empty list of boolean expressions'
-            }})   
+            }}, 
+            {'Example': {
+                'PATHSEARCH': 'LongestMayMerge',
+                'RANDOM': '5',
+                'EXPRESSION': '["a > 10", "a = 10"]'
+            }}
+        ]
+        return jsonify(result)
         
     def post(self):
         args = self.parser_multi_expression.parse_args(strict=True)
@@ -43,7 +54,9 @@ class Multi_Expression_Converter(Resource):
             abort(400, message="No expression was provided")
         try:
             final_result:list = []
+            print(eqs)
             for eq in eqs:
+                print(eq)
                 result = solve(eq, reuse_h.value, rng)
                 output_ready = convert_fnode_to_string(result)
                 final_result.append(output_ready)
