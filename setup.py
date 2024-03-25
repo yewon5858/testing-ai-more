@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+
 #pip3 install -e .
 
 # Leemos de requirements.txt la informacion requerida de cada paquete para usarlo 
@@ -20,5 +21,4 @@ setup(
     install_requires=required_packages,
     #duda de si probar mas versiones dado que dijimos que con la 3.10 no iba el motor 
     python_requires ='>=3.8',
-      
 )

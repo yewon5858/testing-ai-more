@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./mcdc_test/librerias/van_juntos_o_peta"
+    ]
+}

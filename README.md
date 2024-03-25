@@ -1,3 +1,27 @@
+# TFG:Generación automática de casos de prueba mediante el uso de redes neuronales/ Automatic test case generation using neural network
+
+## Autores
+Este proyecto esta realizado por **Gonzalo Contreras Gordo** e **Ismael Barahona Cánovas**
+## Resumen
+## Marco teorico
+
+## Dependencias
+## Instalacion
+Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo
+
+## Como ejecutar el proyecto
+
+##  Api de conexion a LLM
+Empleada una conexion a Azure Microsoft
+
+### Licencia MIT
+---
+
+
+
+![](https://informatica.ucm.es/data/cont/media/www/pag-78821/escudofdigrande.png)
+
+
 # Plugin
 To open the interface it is necesary to create a conda environment:
 
@@ -128,10 +152,3 @@ The labels indicate the decision number in the [TCAS II decisions](https://githu
 For example 1:6 means the first decision contains 6 conditions. The closer the curves are to the top left the more the n+1 solutions.
 
 ![](./LPB.png)
-
-
-
-
-      
-
-
