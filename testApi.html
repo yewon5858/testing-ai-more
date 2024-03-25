@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+</head>
+<body>
+    <script>
+        let baseUrl = 'http://localhost:5000'; 
+        let exp = "(a > 10) | (b < 9)"
+        let exps = ["(a > 10) | (b < 9)", "a = 10 & a = 11 "]
+        async function makeSingleRequest() {
+            try {
+                const url = baseUrl + '/AnlayseExp';
+                const requestBody = {
+                    "PATHSEARCH": "LongestMayMerge",
+                    "RANDOM": 5,
+                    "EXPRESSION": exp
+                };
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                const responseData = await response.json();
+                console.log('Response from server:', responseData);
+            } catch (error) {
+                console.error('Error making request:', error.message);
+            }
+        }
+
+        async function makeMultiRequest() {
+            try {
+                const url = baseUrl + '/AnlayseMultiExp';
+                const requestBody = {
+                    "PATHSEARCH": "LongestMayMerge",
+                    "RANDOM": 5,
+                    "EXPRESSION": exps
+                };
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                const responseData = await response.json();
+                console.log('Response from server:', responseData);
+            } catch (error) {
+                console.error('Error making request:', error.message);
+            }
+        }
+
+        function setBase(base) {
+            this.baseUrl = base;
+            console.log(this.baseUrl)
+        }
+
+        makeSingleRequest();
+        makeMultiRequest();
+    </script>
+</body>
+</html>
