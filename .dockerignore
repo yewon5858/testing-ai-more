@@ -5,6 +5,9 @@ files/
 plugin/
 jupyter_notebook/
 bool_examples/
+Azure/
+gotogpt/
+testaigenerator/
 
 # Exclude Python bytecode files + venv
 *.pyc
@@ -18,6 +21,9 @@ flask_session/
 # Exclude editor/IDE settings
 .vscode/
 .idea/
+.docker
+.dockerignore
+Dockerfile
 
 # Exclude local development files
 *.log
@@ -27,3 +33,5 @@ flask_session/
 *.md
 *.jpg
 *.log
+*.png
+install.sh

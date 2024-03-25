@@ -1,5 +1,5 @@
-flask
-flask-restful
+Flask==3.0.2
+Flask-RESTful==0.3.10
 astunparse==1.6.3
 graphviz==0.20.1
 matplotlib==3.7.3
