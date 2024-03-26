@@ -1,10 +1,9 @@
-## EXTENSION CONECTADA A AZURE MICROSOFT CON EL MODELO GPT-TURBO-35
+## EXTENSION CONECTADA A AZURE MICROSOFT CON EL MODELO GPT-TURBO-3.5
 ## Autores
 Gonzalo Contreras Gordo e Ismael Barahona Cánovas 
 
 ## Para ejecutar
-Emplear el comando node.exe Completion.js
---
+Usar la opcion creada en el menu contextual
 ## Dependencias 
 
 @azure/openai@1.0.0-beta.11

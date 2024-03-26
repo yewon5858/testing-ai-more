@@ -1,17 +1,49 @@
 {
-  "name": "azure",
-  "version": "1.0.0",
-  "main": "Completion.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Gonzalo Contreras e Ismael Barahona Cánovas",
-  "license": "ISC",
-  "dependencies": {
-    "@azure/openai": "^1.0.0-beta.11",
-    "dotenv": "^16.4.5"
-  },
-  "devDependencies": {},
-  "description": "",
-  "icon": "/mnt/c/Users/Usuario01/Desktop/Universidad/CUARTO-QUINTO AÑO/Azure/icons/descarga.jpg"
-}
+    "name": "executeia",
+    "displayName": "ExecuteIA",
+    "description": "Context menu to make ia works",
+    "author": "Gonzalo Contreras e Ismael Barahona Cánovas",
+    "license": "ISC",
+    "version": "0.0.5",
+    "engines": {
+      "vscode": "^1.87.0"
+    },
+    "categories": [
+      "Other"
+    ],
+    "activationEvents": [],
+    "main": "./Completion.js",
+    "contributes": {
+      "commands": [{
+        "command": "executeia.EjecutarIA",
+        "title": "Ejecutar extension de IA"
+      }
+    ],
+    "menus": {
+        "editor/context": [
+            {
+                "command": "executeia.EjecutarIA",
+                "group": "navigation",
+                "when": "editorFocus",
+                "title": "Execute Other Extension"
+            }
+        ]
+    }
+    },
+    "scripts": {
+      "lint": "eslint .",
+      "pretest": "npm run lint",
+      "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+      "@types/vscode": "^1.87.0",
+      "@types/mocha": "^10.0.3",
+      "@types/node": "18.x",
+      "eslint": "^8.52.0",
+      "glob": "^10.3.10",
+      "mocha": "^10.2.0",
+      "typescript": "^5.2.2",
+      "@vscode/test-electron": "^2.3.6"
+    }
+  }
+  
