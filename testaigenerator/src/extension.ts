@@ -1,8 +1,18 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as path from 'path';
 
 let twsl: vscode.Terminal;
+
+//Interfaz de Configuración:
+interface Configuration {
+    terminalName: string;
+    shellPath: string;
+    pyenvActivation: string;
+    directoryPath: string;
+}
 
 // Función para ejecutar setta
 function run_setta(context: vscode.ExtensionContext) {
@@ -16,27 +26,50 @@ function run_exec(context: vscode.ExtensionContext, eq: string) {
     twsl.sendText(`python exec.py ` + eq);
 }
 
-//FUNCION PARA PREPARAR EL ENTORNO EN LA TERMINAL
+//FUNCION PARA PREPARAR EL ENTORNO Y LA TERMINAL
 function preparePyenv(){
-    //Crear terminal wsl
-    twsl = vscode.window.createTerminal({
-        name: 'TestAI_Gen', // Puedes cambiar el nombre si lo deseas
-        shellPath: 'wsl', // Especifica el ejecutable de WSL
-        shellArgs: [], // Argumentos adicionales para el shell de WSL si es necesario
-    });
-    twsl.show();
-    //Comandos de preparacion
-    twsl.sendText('pyenv activate TFG');
-    twsl.sendText('cd /mnt/c/TFG/testaigenerator/mcdc_test');
-    twsl.sendText('clear');
 
-    if (twsl) {
-        // La terminal está abierta
-        vscode.window.showInformationMessage('Entorno preparado, no cerrar el terminal TestAI_Gen');
-    }else{
-        vscode.window.showInformationMessage('Error al preparar el entorno');
+    //Path to config.json
+    const workspaceFolders = vscode.workspace.workspaceFolders;
+    if (!workspaceFolders || workspaceFolders.length === 0) {
+        vscode.window.showErrorMessage('No se encontraron carpetas en el espacio de trabajo.');
+        return;
     }
+    const workspaceFolder = workspaceFolders[0];
+    const parentFolder = vscode.Uri.joinPath(workspaceFolder.uri, '../'); //Directorio padre
+    const configFilePath = vscode.Uri.joinPath(parentFolder, 'config.json');
 
+    //Read config.json
+    console.log(configFilePath); // Agregar esta línea para verificar la ruta
+    fs.readFile(configFilePath.fsPath, 'utf8', (err,data) => {
+        if(err){
+            vscode.window.showErrorMessage('Error al leer el archivo de configuración.');
+            return;
+        }
+
+        try{
+            const config: Configuration = JSON.parse(data);
+
+            //Crear terminal wsl
+            twsl = vscode.window.createTerminal({
+                name: config.terminalName, // Puedes cambiar el nombre si lo deseas
+                shellPath: config.shellPath, // Especifica el ejecutable de WSL
+                shellArgs: [], // Argumentos adicionales para el shell de WSL si es necesario
+            });
+            twsl.show();
+            //Comandos de preparacion
+            twsl.sendText(config.pyenvActivation);
+            twsl.sendText(`cd ${config.directoryPath}`);
+            twsl.sendText('clear');
+
+            // La terminal está abierta
+            vscode.window.showInformationMessage(`Entorno preparado, no cerrar el terminal ${twsl.name}`);
+        }
+        catch{
+            vscode.window.showInformationMessage('Error al preparar el entorno');
+
+        }
+    });
 }
 
 // This method is called when your extension is activated

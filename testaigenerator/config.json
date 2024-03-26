@@ -1,0 +1,6 @@
+{
+    "terminalName": "TestAI_Gen",
+    "shellPath": "wsl",
+    "pyenvActivation": "pyenv activate TFG",
+    "directoryPath": "/mnt/c/TFG/testaigenerator/mcdc_test"
+}
