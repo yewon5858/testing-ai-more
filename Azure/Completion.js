@@ -3,8 +3,6 @@
 const vscode = require('vscode');
 const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 require('dotenv').config(); // Load environment variables from .env file
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"];
 const azureApiKey = process.env["AZURE_OPENAI_API_KEY"];
 
