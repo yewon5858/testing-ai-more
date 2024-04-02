@@ -43,7 +43,7 @@ async function readConfig(): Promise<Configuration>{
 
 let twsl: vscode.Terminal;
 
-//Ejecutar py-MCDC + parametro
+//Ejecutar py-MCDC + argumento
 function run_exec(context: vscode.ExtensionContext, eq: string) {
     // Ejecutar el script Python en el terminal
     twsl.sendText(`python exec.py ` + eq);
@@ -76,8 +76,8 @@ function prepareEnvironment(configDetails: Configuration){
 
 async function generateTestCases(configDetails:Configuration, eq: string) {
         try {
-            const endpoint = process.env[configDetails.endpoint];
-            const azureApiKey = process.env[configDetails.apiKey];
+            const endpoint = configDetails.endpoint;
+            const azureApiKey = configDetails.apiKey;
 
             const messages = [
                 { role: "system", content: "You are a helpful chatgpt." },
@@ -87,7 +87,7 @@ async function generateTestCases(configDetails:Configuration, eq: string) {
                 { role: "assistant", content: "Sure, what boolean expresion are you working with?" },
                 { role: "user", content: "With the following boolean expression:"+eq+"." },
                 { role: "user", content: "Represent the solution as a list in Python, where each test case is a dictionary with the format {variable: value}" },
-                { role: "user", content: "Respond with only the Python list, no explanations or extra text, just the requested list please." }
+                { role: "user", content: "Respond exclusively with the Python list, no explanations, notes or extra text, just the requested pyhton list." }
             ];
             console.log("== RESPUESTA DEL CHAT==");
             const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
