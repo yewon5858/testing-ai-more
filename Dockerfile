@@ -2,18 +2,6 @@ FROM python:3.8-slim
 
 LABEL Lukas Sebastian Hofmann <lukhofma@ucm.es>
 
-# Install system dependencies
-# RUN apt-get update && \
-#     apt-get install -y --no-install-recommends \
-#     gcc \
-#     make \
-#     libgmp3-dev \
-#     graphviz \
-#     python3-dev \
-#     expect && \
-#     apt-get clean && \
-#     rm -rf /var/lib/apt/lists/*
-
 RUN apt-get update && apt-get install -y \
     gcc \
     g++ \
