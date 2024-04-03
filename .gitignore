@@ -26,7 +26,7 @@ node_modules/
 *.d.ts
 
 # Ignore Visual Studio Code workspace settings
-.vscode/
+#.vscode/
 
 # Ignore IDE-specific files
 .idea/
