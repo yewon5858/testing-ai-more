@@ -520,3 +520,27 @@ werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server e
 2024-03-25 16:40:36,095 - WARNING -  * Debugger is active!
 2024-03-25 16:40:36,097 - INFO -  * Debugger PIN: 559-103-837
 2024-03-25 16:40:43,260 - INFO - 127.0.0.1 - - [25/Mar/2024 16:40:43] "GET /AnlayseMultiExp HTTP/1.1" 200 -
+2024-03-25 20:09:47,007 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 20:09:47,013 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 20:09:47,015 - DEBUG - interactive is False
+2024-03-25 20:09:47,016 - DEBUG - platform is linux
+2024-03-25 20:09:47,082 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 20:09:47,085 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 20:09:58,816 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 20:09:58,822 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 20:09:58,825 - DEBUG - interactive is False
+2024-03-25 20:09:58,825 - DEBUG - platform is linux
+2024-03-25 20:09:58,875 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 20:09:58,877 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 20:09:59,408 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-03-25 20:09:59,409 - INFO - [33mPress CTRL+C to quit[0m
+2024-03-25 20:09:59,424 - INFO -  * Restarting with stat
+2024-03-25 20:09:59,884 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
+2024-03-25 20:09:59,889 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
+2024-03-25 20:09:59,890 - DEBUG - interactive is False
+2024-03-25 20:09:59,891 - DEBUG - platform is linux
+2024-03-25 20:09:59,942 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
+2024-03-25 20:09:59,944 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
+2024-03-25 20:10:00,528 - WARNING -  * Debugger is active!
+2024-03-25 20:10:00,603 - INFO -  * Debugger PIN: 132-371-652

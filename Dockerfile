@@ -39,4 +39,5 @@ ENV FLASK_ENV=production
 ENV PYTHONPATH=/app/mcdc_test
 
 EXPOSE 5000
+#CMD ["gunicorn", "-w", "4", "FLASK_APP:app"] --> This is for server optimization
 CMD ["flask", "run", "--host=0.0.0.0", "--port=5000", "--no-debugger"]
