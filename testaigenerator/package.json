@@ -14,19 +14,15 @@
   "contributes": {
     "commands": [
       {
-        "command": "testaigenerator.helloWorld",
-        "title": "Hello World"
-      },
-      {
-        "command": "testaigenerator.settaexec",
-        "title": "Setta execution (example)"
-      },
-      {
         "command": "testaigenerator.exec_input",
         "title": "Solve MCDC"
       },{
         "command": "testaigenerator.exec_select",
         "title": "Select MCDC"
+      },
+      {
+        "command": "executeia.EjecutarIA",
+        "title": "Ejecutar extension de IA"
       }
     ],
     "menus" : {
@@ -35,6 +31,12 @@
             "command": "testaigenerator.exec_select",
             "group": "navigation",
             "when": "editorFocus"
+        },
+        {
+          "command": "executeia.EjecutarIA",
+          "group": "navigation",
+          "when": "editorFocus",
+          "title": "Execute Other Extension"
         }
     ]
     }
