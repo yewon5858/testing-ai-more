@@ -2,7 +2,7 @@
     "terminalName": "TestAI_Gen",
     "shellPath": "wsl",
     "pyenvActivation": "pyenv activate TFG",
-    "directoryPath": "/mnt/c/TFG/testaigenerator/mcdc_test",
+    "directoryPath": "~/_Projects/_Bachelor_Master/testing-ai/mcdc_test",
     "endpoint" : "https://test-ia.openai.azure.com/",
     "apiKey" : "ac73454962444b47b2edb042e4033cd7"
 }
