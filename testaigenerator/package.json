@@ -16,7 +16,8 @@
       {
         "command": "testaigenerator.exec_input",
         "title": "Solve MCDC"
-      },{
+      },
+      {
         "command": "testaigenerator.exec_select",
         "title": "Select MCDC"
       },
@@ -25,12 +26,12 @@
         "title": "Ejecutar extension de IA"
       }
     ],
-    "menus" : {
+    "menus": {
       "editor/context": [
         {
-            "command": "testaigenerator.exec_select",
-            "group": "navigation",
-            "when": "editorFocus"
+          "command": "testaigenerator.exec_select",
+          "group": "navigation",
+          "when": "editorFocus"
         },
         {
           "command": "executeia.EjecutarIA",
@@ -38,7 +39,7 @@
           "when": "editorFocus",
           "title": "Execute Other Extension"
         }
-    ]
+      ]
     }
   },
   "scripts": {
@@ -50,14 +51,17 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.86.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.86.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.9"
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@azure/openai": "^1.0.0-beta.12"
   }
 }
