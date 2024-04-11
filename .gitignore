@@ -33,8 +33,5 @@ node_modules/
 *.suo
 *.ntvs*
 
-# Ignore package-lock.json for npm projects
-package-lock.json
-
 # Ignore pipenv environment
 Pipfile.lock
