@@ -1,8 +1,0 @@
-2024-04-12 14:45:37,775 - DEBUG - matplotlib data path: /usr/local/lib/python3.10/dist-packages/matplotlib/mpl-data
-2024-04-12 14:45:37,781 - DEBUG - CONFIGDIR=/home/lukas/.config/matplotlib
-2024-04-12 14:45:37,783 - DEBUG - interactive is False
-2024-04-12 14:45:37,784 - DEBUG - platform is linux
-2024-04-12 14:45:37,833 - DEBUG - CACHEDIR=/home/lukas/.cache/matplotlib
-2024-04-12 14:45:37,835 - DEBUG - Using fontManager instance from /home/lukas/.cache/matplotlib/fontlist-v330.json
-2024-04-12 14:45:38,394 - WARNING -  * Debugger is active!
-2024-04-12 14:45:38,395 - INFO -  * Debugger PIN: 187-511-615
