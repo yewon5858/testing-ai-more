@@ -113,6 +113,7 @@ async function activate(context) {
     //PYENV------------------------------------------------------------------------------
     //Comando llamada solve + argumento INPUT
     let exec_input = vscode.commands.registerCommand('testaigenerator.exec_input', async () => {
+        console.log("Starting with MCDC_Framework interaction");
         //Input eq
         const eq = await vscode.window.showInputBox({
             prompt: 'Escribe la condición',
@@ -120,15 +121,17 @@ async function activate(context) {
         });
         if (eq !== undefined) {
             vscode.window.showInformationMessage(`La eq a estudiar es: ${eq}`);
-            run_exec(context, "'" + eq + "'");
+            //run_exec(context, "'"+eq+"'");
         }
         else {
             vscode.window.showErrorMessage('No se ingresó ningún parámetro.');
         }
+        console.log("Done with MCDC_Framework interaction");
     });
     context.subscriptions.push(exec_input);
     //Comando llamada solve + argumento SELECCION
     let exec_select = vscode.commands.registerCommand('testaigenerator.exec_select', async () => {
+        console.log("Starting with MCDC_Framework interaction");
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
             vscode.window.showErrorMessage('No hay ningún editor abierto.');
@@ -139,7 +142,8 @@ async function activate(context) {
             vscode.window.showErrorMessage('No hay texto seleccionado.');
             return;
         }
-        run_exec(context, "'" + eq + "'");
+        console.log("Done with MCDC_Framework interaction");
+        //run_exec(context, "'"+eq+"'");
     });
     context.subscriptions.push(exec_select);
     //LLMs-------------------------------------------------------------------------------
@@ -155,7 +159,8 @@ async function activate(context) {
             vscode.window.showErrorMessage('No hay texto seleccionado.');
             return;
         }
-        generateTestCases(configDetails, expresion);
+        console.log("Done with AI interaction");
+        //generateTestCases(configDetails, expresion);
     });
     context.subscriptions.push(llmGenerator);
 }
