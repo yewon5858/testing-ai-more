@@ -8,14 +8,14 @@ import sys
 import time
 from pyeda.boolalg.bdd import expr2bdd, bdd2expr, _iter_all_paths, _path2point, BDDNode, BDDNODEZERO, BDDNODEONE, BDDVariable, BinaryDecisionDiagram
 from pyeda.boolalg.expr import expr
-from paquetes.ayuda_path.mcdc_helpers import *
+from mcdc_model.core_expression_analyser.mcdc_helpers import *
 from sortedcontainers import SortedList
 from pyeda.inter import bddvars
 from functools import reduce
 from itertools import permutations, repeat, product, chain, tee
 
-from paquetes.ayuda_path.vsplot import plot
-from paquetes.ayuda_path.tcasii import test_mcdc
+from mcdc_model.core_expression_analyser.vsplot import plot
+from mcdc_model.core_expression_analyser.tcasii import test_mcdc
 
 
 class bcolors:

@@ -12,12 +12,12 @@ from typing import List
 from matplotlib import pyplot as plt
 from sortedcontainers import SortedList
 
-from paquetes.ayuda_path.tcasii import *
-from paquetes.ayuda_path.comparePlotResults import results_better, results_better_n_plus_1
-from paquetes.ayuda_path.vsplot import plot
-from paquetes.ayuda_path.mcdctestgen import run_experiment, calc_reuse, calc_may_reuse
+from mcdc_model.core_expression_analyser.tcasii import *
+from mcdc_model.core_expression_analyser.comparePlotResults import results_better, results_better_n_plus_1
+from mcdc_model.core_expression_analyser.vsplot import plot
+from mcdc_model.core_expression_analyser.mcdctestgen import run_experiment, calc_reuse, calc_may_reuse
 from pyeda.boolalg.bdd import _path2point, BDDNODEZERO, BDDNODEONE, BDDZERO, BDDONE, _iter_all_paths, bdd2expr
-from paquetes.ayuda_path.mcdc_helpers import uniformize, instantiate, unique_tests, size, merge_Maybe_except_c, negate, \
+from mcdc_model.core_expression_analyser.mcdc_helpers import uniformize, instantiate, unique_tests, size, merge_Maybe_except_c, negate, \
     lrlr, xor, replace_final_question_marks, better_size2, Path
 
 logger = None  # lazy

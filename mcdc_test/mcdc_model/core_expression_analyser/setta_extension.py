@@ -16,7 +16,7 @@ import string
 import sys
 import ast
 import copy
-from paquetes.ayuda_setta.cSolver import oSolver
+from mcdc_model.helpers_csolver.cSolver import oSolver
 
 def solve(eq, reuse_h, rng, path_to_test = None):
     """type: (str, callable, Random) -> list"""

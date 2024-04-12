@@ -2,7 +2,7 @@ import sys
 import numpy as np
 from itertools import permutations
 
-from paquetes.ayuda_path import tcasii
+from mcdc_model.core_expression_analyser import tcasii
 
 def compareresult(hs):
     BoolTF = map(lambda vals: map(lambda v: v == min(vals), vals), zip(*hs))
