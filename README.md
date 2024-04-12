@@ -8,6 +8,32 @@ Describtion this repo is a monorepo and therefor it contains the following compo
   - **Azure**: A prototype to connect and interact with AzureGPT.
   - **ChatGPT**: A prototype to connect and interact with ChatGPT.
 
+# testaigenerator
+
+## Describtion
+
+## How to use the VSCode Plugin
+
+## Dependencies
+
+- "@azure/openai": "^1.0.0-beta.12"
+- openai@^4.0.0
+
+## Installing Dependencies & Build
+
+# MCDC-Backend
+The MCDC-Backend provides multiple endpoint to reach. The two main ones are:
+
+  - /AnlayseExp 
+  - /AnlayseMultiExp 
+
+## How to use the MCDC_Backend
+
+## Dependencies
+
+## Docker 
+
+Use "docker build -t mcdc_test_backend ." to build locally the docker image. Afterwards you can run "docker run -p 5000:5000 mcdc_test_backend" to start the container.
 
 # py-mcdc
 This project aims at generating test cases satisfying modified condition decision coverage (MC/DC) criterion based on reduced ordered decision diagrams (roBDDs).
@@ -116,11 +142,3 @@ The labels indicate the decision number in the [TCAS II decisions](https://githu
 For example 1:6 means the first decision contains 6 conditions. The closer the curves are to the top left the more the n+1 solutions.
 
 ![](./LPB.png)
-
-## MCDC-Backend
-
-### Flask Describtion
-
-### Docker 
-
-Use "docker build -t mcdc_test_backend ." to build locally the docker image. Afterwards you can run "docker run -p 5000:5000 mcdc_test_backend" to start the container.
