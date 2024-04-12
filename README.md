@@ -25,7 +25,7 @@ Describtion this repo is a monorepo and therefor it contains the following compo
 The MCDC-Backend provides multiple endpoint to reach. The two main ones are:
 
   - /AnlayseExp 
-  - /AnlayseMultiExp 
+  - /AnlayseMultiExp
 
 ## How to use the MCDC_Backend
 
