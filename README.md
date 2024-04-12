@@ -1,49 +1,13 @@
-# TFG:Generación automática de casos de prueba mediante el uso de redes neuronales/ Automatic test case generation using neural network
+# Large Language Modul integration VSCode Plugin (SmartMCDC-VS-Plugin)
 
-## Autores
-Este proyecto esta realizado por **Gonzalo Contreras Gordo** e **Ismael Barahona Cánovas**
-## Resumen
-## Marco teorico
+Describtion this repo is a monorepo and therefor it contains the following components:
 
-## Dependencias
-## Instalacion
-Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo
+  - **py-mcdc** by Faustin Ahishakiye, José Ignacio Requeno Jarabo, Kars Michael Kristensen,  Volker Stolz [Link to the original Repo](https://github.com/selabhvl/py-mcdc). It is in the folder **mcdc_test**.
+  - **API-Endpoint**: A flask RESTful webservice which proviedes the access to the **py-mcdc** test generation.
+  - **testaigenerator**: The implementation of the interface integration of LLMs and the py-mcdc into VSCode.
+  - **Azure**: A prototype to connect and interact with AzureGPT.
+  - **ChatGPT**: A prototype to connect and interact with ChatGPT.
 
-## Como ejecutar el proyecto
-
-##  Api de conexion a LLM
-Empleada una conexion a Azure Microsoft
-
-### Licencia MIT
----
-
-
-
-![](https://informatica.ucm.es/data/cont/media/www/pag-78821/escudofdigrande.png)
-
-
-# Plugin
-To open the interface it is necesary to create a conda environment:
-
-conda create -n jupyterlab-tfm-ext --override-channels --strict-channel-priority -c conda-forge -c nodefaults jupyterlab=4 nodejs=18 git copier jinja2-time
-
-After that, we need to install all python dependencies of the jupyter environment:
-
-pip install -ve .
-
-Then we need to activate the conda environment previously created:
-
-conda activate jupyterlab-tfm-ext
-
-From this environment we need to deploy the interface and start a jupyter lab instance, so from to different terminals we should run:
-
-jlpm run watch
-
-and 
-
-jupyter lab
-
-Note that the watch command must be run inside the plugin directory, while the jupyter instance can be initialiced from any directory.
 
 # py-mcdc
 This project aims at generating test cases satisfying modified condition decision coverage (MC/DC) criterion based on reduced ordered decision diagrams (roBDDs).
