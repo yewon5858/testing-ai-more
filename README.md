@@ -22,46 +22,50 @@ Describtion this repo is a monorepo and therefor it contains the following compo
 ## Installing Dependencies & Build
 
 # MCDC-Backend
-The MCDC-Backend provides a quick way for machine to machine client-server based interaction pattern. In the following the dependencies, how to use the backend as well as the installation is explain. 
+
+The MCDC-Backend provides a streamlined solution for machine-to-machine client-server interactions. Below, you'll find details on dependencies, how to utilize the backend, and installation instructions.
 
 ## Dependencies
-  - Flask==3.0.2
-  - Flask-RESTful==0.3.10
-  - flask_cors==4.0.0
-  - gunicorn==21.2.0
-  - Additional dependencies of the **py-mcdc** framework. 
+
+- Flask==3.0.2
+- Flask-RESTful==0.3.10
+- flask_cors==4.0.0
+- gunicorn==21.2.0
+- Additional dependencies required by the **py-mcdc** framework.
 
 ## Installing Dependencies & Build
 
-The MCDC-Backend requieres some base setup. We recommand to use a Debian-based systems (e.g. Ubuntu, Mint): First of all you have to follow the steps describte in the **"Installing Dependencies & Build"** section of the **py-mcdc**. Usually in this process also the depencies for flask are installed. However, make sure that Flask==3.0.2, flask-RESTful==0.3.10, flask_cors==4.0.0 and gunicorn==21.2.0 are installed via the python package manager. 
+The MCDC-Backend requires initial setup. We recommend using Debian-based systems (e.g., Ubuntu, Mint). Firstly, follow the steps outlined in the **"Installing Dependencies & Build"** section of the **py-mcdc** repository. Typically, this process includes installing Flask dependencies. However, ensure that Flask==3.0.2, flask-RESTful==0.3.10, flask_cors==4.0.0, and gunicorn==21.2.0 are installed via the Python package manager.
 
-After your installation you can navigate to the mcdc_test directory and execute `python3 app.py`. Please, consider that depending on your python installation it can be either `python3` or just `python`.
+Once installed, navigate to the `mcdc_test` directory and execute `python3 app.py`. Please note that depending on your Python installation, it may be either `python3` or `python`.
 
-An easier way to get the MCDC-Backend running is by embracing the facilities of docker. Herefor you have to install on your local machine docker desktop and or the docker enginge [Docker install guide for Ubunut](https://docs.docker.com/engine/install/ubuntu/) or [Docker install guide for Windows](https://docs.docker.com/desktop/install/windows-install/)
+Alternatively, you can use Docker for a simplified setup. Install Docker Desktop or the Docker Engine on your local machine ([Docker install guide for Ubuntu](https://docs.docker.com/engine/install/ubuntu/) or [Docker install guide for Windows](https://docs.docker.com/desktop/install/windows-install/)).
 
-### Docker 
-Go to the base directory where the `Dockerfile` is located and run: `docker build -t mcdc_test_backend .` to build locally the docker image. Afterwards you can execute `docker run -p 5000:5000 mcdc_test_backend` to start the container. From now on the endpoints should be reachable via `"insert your address":5000/"insert endpoint"`. Working with docker can help you reduce the workaround to get the basic setup for the mcdc_test framework.
+### Docker
+Navigate to the base directory containing the `Dockerfile` and run: `docker build -t mcdc_test_backend .` to locally build the Docker image. Then, execute `docker run -p 5000:5000 mcdc_test_backend` to start the container. The endpoints should now be accessible via `"your_address":5000/"your_endpoint"`. Using Docker can simplify the setup process for the mcdc_test framework.
 
-## How to use the MCDC_Backend
-The MCDC-Backend provides multiple endpoint to reach. The two main ones are:
+## How to Use the MCDC_Backend
 
-  - /AnlayseExp - HTTP-Request-Method(s):
-    - GET: Returns a describtion of the POST-Request for expression analyse
-    - POST: Returns all MCDC states for one expression
-  - /AnlayseMultiExp
-    - GET: Returns a describtion of the POST-Request for expression analyse of multiple expressions
-    - POST: Returns all MCDC states for any amount of expressions (that the server can handle)
+The MCDC-Backend offers multiple endpoints for interaction, with two main ones:
 
-The following endpoints are for basic interaction for startes.
-  - /Documentation - HTTP-Request-Method(s):
-    - GET: Returns a short describtion of the API ENDPOINTS
-  - /ExampleRequest  - HTTP-Request-Method(s):
-    - GET: Based on a predifned expression a MCDC-States for testing are returned
-  - delete/logs - HTTP-Request-Method(s):
-    - GET: Gets the current log file
-    - DELETE: Delets and rests the current log file 
+- /AnlayseExp - HTTP-Request-Method(s):
+  - GET: Provides a description of the POST-Request for expression analysis.
+  - POST: Returns all MCDC states for a given expression.
 
-The endpoints are reachable from "INSERT HERE YOUR SERVER IP":5000. Examples of requests can be found in the postman_api_examples directory.
+- /AnlayseMultiExp
+  - GET: Describes the POST-Request for analyzing multiple expressions.
+  - POST: Returns MCDC states for any number of expressions that the server can handle.
+
+Additionally, the following endpoints offer basic functionality:
+- /Documentation - HTTP-Request-Method(s):
+  - GET: Provides a brief overview of the API ENDPOINTS.
+- /ExampleRequest  - HTTP-Request-Method(s):
+  - GET: Returns predefined MCDC-States for testing, based on a specified expression.
+- /delete/logs - HTTP-Request-Method(s):
+  - GET: Retrieves the current log file.
+  - DELETE: Deletes and resets the current log file.
+
+Access these endpoints at "YOUR_SERVER_IP:5000". Sample requests can be found in the `postman_api_examples` directory.
 
 # py-mcdc
 This project aims at generating test cases satisfying modified condition decision coverage (MC/DC) criterion based on reduced ordered decision diagrams (roBDDs).
