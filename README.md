@@ -25,11 +25,27 @@ Describtion this repo is a monorepo and therefor it contains the following compo
 The MCDC-Backend provides multiple endpoint to reach. The two main ones are:
 
   - /AnlayseExp 
+    - POST
   - /AnlayseMultiExp
+    - POST
+  - /Documentation
+  - /ExampleRequest
+  - delete/logs 
+
+The endpoints are reachable from "INSERT HERE YOUR SERVER IP":5000
+
+## Dependencies
+  - Flask==3.0.2
+  - Flask-RESTful==0.3.10
+  - flask_cors==4.0.0
+  - gunicorn==21.2.0
 
 ## How to use the MCDC_Backend
 
-## Dependencies
+The MCDC-Backend can be started 
+
+
+
 
 ## Docker 
 

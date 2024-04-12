@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# Instalar las dependencias del sistema
+# Install requirements
+pip3 install -r requirements.txt
+
+# Install system dependencies
 sudo apt-get install -y gcc make libgmp3-dev
 
-# Instalar Requisitos // mirar si funciona con .
-pip install -r requirements.txt
+# Install pysmt
+pip3 install pysmt
 
-# Instalar solver MSat en pysmt 
+# Check for the installation status of pysmt
+pysmt-install --check
+
+# Install MSat solver in pysmt
 pysmt-install --msat
 
- #Mostramos un mensaje de finalizacion
- echo "Todos los elementos necesarios han sido instalados en su entorno"
+# Display a completion message
+echo "All necessary elements have been installed in your environment"
