@@ -1,14 +1,38 @@
 # Large Language Modul integration VSCode Plugin (SmartMCDC-VS-Plugin)
 
-Describtion this repo is a monorepo and therefor it contains the following components:
+This repository is a monorepo containing the following components:
 
-  - **py-mcdc** by Faustin Ahishakiye, José Ignacio Requeno Jarabo, Kars Michael Kristensen,  Volker Stolz [Link to the original Repo](https://github.com/selabhvl/py-mcdc). It is in the folder **mcdc_test**.
-  - **API-Endpoint**: A flask RESTful webservice which proviedes the access to the **py-mcdc** test generation.
-  - **testaigenerator**: The implementation of the interface integration of LLMs and the py-mcdc into VSCode.
-  - **Azure**: A prototype to connect and interact with AzureGPT.
-  - **ChatGPT**: A prototype to connect and interact with ChatGPT.
+  - **py-mcdc**: Developed by Faustin Ahishakiye, José Ignacio Requeno Jarabo, Kars Michael Kristensen, and Volker Stolz. This component is located in the folder mcdc_test. Link to the original Repo.
+  - **API-Endpoint**: A Flask RESTful web service providing access to the test generation functionality of py-mcdc.
+  - **testaigenerator**: An implementation of the interface integrating Language Models (LLMs) and py-mcdc into VSCode.
+  - **Azure**: A prototype for connecting and interacting with AzureGPT.
+  - **ChatGPT**: A prototype for connecting and interacting with ChatGPT.
 
 # testaigenerator
+
+----
+Installation of vscode plugin
+
+- Set it up in a Linux based OS
+- Install nvs (if multiple node versions are requiered)
+- Install node 
+- Install a npm version >= 16
+- Then execute npm install (or ci)
+(- Then tsc on the extension file)
+- Sometime the command: npm run compile has to be executed before the plugin can be started
+- Just open the project folder (of aitestgeneration) and then press F5
+- Change the configer file to the needs of the user 
+(I have to configer that the docker will be called) 
+- before running the plugin be sure to run the docker file 
+
+
+--> I have to reinstall the node and npm correctly on my local machine !!! 
+--> Something went here badly wrong
+--> Maybe my problem was that I had to reinstall the azure/openai libary
+--> The students forgot to add the dependency of azure/openai to the package.json aka package-lock.json
+--> Do not remove package-lock from git
+--> Get the package-lock.json and package,json from the students reposetories
+----
 
 ## Describtion
 
