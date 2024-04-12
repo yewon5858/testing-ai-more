@@ -22,34 +22,46 @@ Describtion this repo is a monorepo and therefor it contains the following compo
 ## Installing Dependencies & Build
 
 # MCDC-Backend
-The MCDC-Backend provides multiple endpoint to reach. The two main ones are:
-
-  - /AnlayseExp 
-    - POST
-  - /AnlayseMultiExp
-    - POST
-  - /Documentation
-  - /ExampleRequest
-  - delete/logs 
-
-The endpoints are reachable from "INSERT HERE YOUR SERVER IP":5000
+The MCDC-Backend provides a quick way for machine to machine client-server based interaction pattern. In the following the dependencies, how to use the backend as well as the installation is explain. 
 
 ## Dependencies
   - Flask==3.0.2
   - Flask-RESTful==0.3.10
   - flask_cors==4.0.0
   - gunicorn==21.2.0
+  - Additional dependencies of the **py-mcdc** framework. 
+
+## Installing Dependencies & Build
+
+The MCDC-Backend requieres some base setup. We recommand to use a Debian-based systems (e.g. Ubuntu, Mint): First of all you have to follow the steps describte in the **"Installing Dependencies & Build"** section of the **py-mcdc**. Usually in this process also the depencies for flask are installed. However, make sure that Flask==3.0.2, flask-RESTful==0.3.10, flask_cors==4.0.0 and gunicorn==21.2.0 are installed via the python package manager. 
+
+After your installation you can navigate to the mcdc_test directory and execute `python3 app.py`. Please, consider that depending on your python installation it can be either `python3` or just `python`.
+
+An easier way to get the MCDC-Backend running is by embracing the facilities of docker. Herefor you have to install on your local machine docker desktop and or the docker enginge [Docker install guide for Ubunut](https://docs.docker.com/engine/install/ubuntu/) or [Docker install guide for Windows](https://docs.docker.com/desktop/install/windows-install/)
+
+### Docker 
+Go to the base directory where the `Dockerfile` is located and run: `docker build -t mcdc_test_backend .` to build locally the docker image. Afterwards you can execute `docker run -p 5000:5000 mcdc_test_backend` to start the container. From now on the endpoints should be reachable via `"insert your address":5000/"insert endpoint"`. Working with docker can help you reduce the workaround to get the basic setup for the mcdc_test framework.
 
 ## How to use the MCDC_Backend
+The MCDC-Backend provides multiple endpoint to reach. The two main ones are:
 
-The MCDC-Backend can be started 
+  - /AnlayseExp - HTTP-Request-Method(s):
+    - GET: Returns a describtion of the POST-Request for expression analyse
+    - POST: Returns all MCDC states for one expression
+  - /AnlayseMultiExp
+    - GET: Returns a describtion of the POST-Request for expression analyse of multiple expressions
+    - POST: Returns all MCDC states for any amount of expressions (that the server can handle)
 
+The following endpoints are for basic interaction for startes.
+  - /Documentation - HTTP-Request-Method(s):
+    - GET: Returns a short describtion of the API ENDPOINTS
+  - /ExampleRequest  - HTTP-Request-Method(s):
+    - GET: Based on a predifned expression a MCDC-States for testing are returned
+  - delete/logs - HTTP-Request-Method(s):
+    - GET: Gets the current log file
+    - DELETE: Delets and rests the current log file 
 
-
-
-## Docker 
-
-Use "docker build -t mcdc_test_backend ." to build locally the docker image. Afterwards you can run "docker run -p 5000:5000 mcdc_test_backend" to start the container.
+The endpoints are reachable from "INSERT HERE YOUR SERVER IP":5000. Examples of requests can be found in the postman_api_examples directory.
 
 # py-mcdc
 This project aims at generating test cases satisfying modified condition decision coverage (MC/DC) criterion based on reduced ordered decision diagrams (roBDDs).
