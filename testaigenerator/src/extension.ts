@@ -2,6 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as fs from 'fs';
+import * as path from 'path';
 
 const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 
@@ -46,7 +47,24 @@ let twsl: vscode.Terminal;
 //Ejecutar py-MCDC + argumento
 function run_exec(context: vscode.ExtensionContext, eq: string) {
     // Ejecutar el script Python en el terminal
-    twsl.sendText(`python exec.py ` + eq);
+    twsl.sendText(`python exec.py ${eq} | tail -n 1 > out.txt`);
+
+    setTimeout(() => {
+        //obtener salida por mensaje informativo
+        const rutaArchivo = vscode.Uri.file(path.join(context.extensionPath, '/mcdc_test/out.txt'));
+
+        // Leer el contenido del archivo
+        vscode.workspace.fs.readFile(rutaArchivo).then(data => {
+            // Convertir los datos binarios a cadena
+            const contenido = Buffer.from(data).toString('utf-8');
+            
+            // Hacer lo que necesites con el contenido del archivo
+            console.log(contenido);
+            vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): `+ contenido);
+        }, error => {
+            console.error('Error al leer el archivo:', error);
+        });
+    }, 3000);
 }
 
 //Prepare terminal and environment
@@ -59,7 +77,7 @@ function prepareEnvironment(configDetails: Configuration){
             shellArgs: [],
         });
         twsl.show();
-        twsl.sendText(configDetails.pyenvActivation);
+        twsl.sendText(`pyenv activate ${configDetails.pyenvActivation}`);
         twsl.sendText(`cd ${configDetails.directoryPath}`);
         twsl.sendText('clear');
 
@@ -73,34 +91,70 @@ function prepareEnvironment(configDetails: Configuration){
 }
 
 //LLMs-----------------------------------------------------------------------------------
+function contenidoEntreCorchetes(texto: string): string[] {
+    const contenido: string[] = [];
+    let dentroCorchetes = false;
+    let contenidoActual = '';
 
-async function generateTestCases(configDetails:Configuration, eq: string) {
-        try {
-            const endpoint = configDetails.endpoint;
-            const azureApiKey = configDetails.apiKey;
-
-            const messages = [
-                { role: "system", content: "You are a helpful chatgpt." },
-                { role: "user", content: "I need help with a conditional statement." },
-                { role: "assistant", content: "Sure, what conditional statement are you working with?" },
-                { role: "user", content: "Generate a set of test cases that satisfy the MC/DC coverage criterion for the following boolean expression." },
-                { role: "assistant", content: "Sure, what boolean expresion are you working with?" },
-                { role: "user", content: "With the following boolean expression:"+eq+"." },
-                { role: "user", content: "Represent the solution as a list in Python, where each test case is a dictionary with the format {variable: value}" },
-                { role: "user", content: "Respond exclusively with the Python list, no explanations, notes or extra text, just the requested pyhton list." }
-            ];
-            console.log("== RESPUESTA DEL CHAT==");
-            const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
-            const deploymentId = "generacion-de-casos";
-            const result = await client.getChatCompletions(deploymentId, messages);
-
-            for (const choice of result.choices) {
-                vscode.window.showInformationMessage(choice.message.content);
-            }
-        } catch (error) {
-            console.error('Error generating test cases:', error);
-            vscode.window.showErrorMessage('Failed to generate test cases. See console for details.');
+    for (const caracter of texto) {
+        if (caracter === '[') {
+            dentroCorchetes = true;
+            contenidoActual = '['; // Corchete de apertura
+        } 
+        else if (caracter === ']') {
+            dentroCorchetes = false;
+            contenidoActual += ']'; // Corchete de cierre
+            contenido.push(contenidoActual);
+            contenidoActual = ''; 
+        } 
+        else if (dentroCorchetes) {
+            contenidoActual += caracter;
         }
+    }
+
+    return contenido;
+}
+
+async function generateTestCases(configDetails:Configuration, eq: string) {   
+    try {
+
+        const endpoint = configDetails.endpoint;
+        const azureApiKey = configDetails.apiKey;
+
+        const messages = [
+            { role: "system", content: "You are an expert generating test cases that satisfy the MC/DC coverage criterion." },
+            { role: "user", content: "I need help with test case generation, that satisfy the MC/DC coverage criterion" },
+            { role: "assistant", content: "Okay, I'm an expert in that criterion. Tell me what I need to do ?" },
+            { role: "user", content: "I provide you an example, in this case the boolean expression is (a<10)&(b<9)." },
+            { role: "user", content: "And the output I get is in the style [{a: 0, b: 0}, {a: 11, b: 0}, {a: 11, b: 9}]." },
+            { role: "user", content: "Giving you boolean expressions, can you provide me with responses in the same style as the one I just showed you?" },        
+            { role: "assistant", content: "Of course! What type of test cases are you trying to generate?" },
+            { role: "user", content: "I want to generate the minimum test cases that satisfy the MC/DC coverage criterion for a boolean expression." },
+            { role: "assistant", content: "Understood. Please provide the boolean expression for which you want to generate test cases." },
+            { role: "user", content: "The boolean expression is as follows: "+eq+"." },
+            { role: "user", content: "Respond with only the Python list, no explanations or extra text, just the requested list please." }
+        ];
+        console.log("== RESPUESTA DEL CHAT==");
+        const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
+        const deploymentId = "generacion-de-casos";
+        const result = await client.getChatCompletions(deploymentId, messages);
+        // desplegable en la ventana creada 
+        for (const choice of result.choices) {
+            const answer = contenidoEntreCorchetes(choice.message.content);
+            vscode.window.showInformationMessage(`Casos de prueba generados (LLM): `+answer);
+            /*
+            twsl.show();
+            twsl.sendText(`echo `+answer);
+            */
+        }
+
+        // Mostrar la lista de valores de prueba en la consola
+        const testCasesMessage = result.choices[result.choices.length - 1].message.content
+        console.log(testCasesMessage);
+    } catch (error) {
+        console.error('Error generating test cases:', error);
+        vscode.window.showErrorMessage('Failed to generate test cases. See console for details.');
+    }
 
 }
 
