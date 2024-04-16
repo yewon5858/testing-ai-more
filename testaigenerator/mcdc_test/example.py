@@ -10,3 +10,13 @@ if __name__ == '__main__':
 
     result = solve(eq, reuse_h, rng)
     print(result)
+
+# (x > 0) & (y < 10)
+
+# (x = 0) & (y = 0)
+
+# (x >= 0) & (y >= 0) & (x + y <= 100)
+
+# (w >= x) & (x = y) & (y >= z)
+
+# ((x > 0) & (y < 0)) & ((x < 0) & (y > 0))
