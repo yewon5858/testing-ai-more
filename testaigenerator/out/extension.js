@@ -57,20 +57,23 @@ let twsl;
 function run_exec(context, eq) {
     // Ejecutar el script Python en el terminal
     twsl.sendText(`python exec.py ${eq} | tail -n 1 > out.txt`);
-    setTimeout(() => {
-        //obtener salida por mensaje informativo
-        const rutaArchivo = vscode.Uri.file(path.join(context.extensionPath, '/mcdc_test/out.txt'));
+    //Obtener salida por mensaje informativo
+    const rutaArchivo = vscode.Uri.file(path.join(context.extensionPath, '/mcdc_test/out.txt'));
+    //Creacion de watcher para el fichero de salida
+    const watcher = vscode.workspace.createFileSystemWatcher(rutaArchivo.fsPath);
+    //Registra un cambio en el archivo
+    watcher.onDidChange((event) => {
         // Leer el contenido del archivo
         vscode.workspace.fs.readFile(rutaArchivo).then(data => {
-            // Convertir los datos binarios a cadena
             const contenido = Buffer.from(data).toString('utf-8');
-            // Hacer lo que necesites con el contenido del archivo
             console.log(contenido);
             vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): ` + contenido);
         }, error => {
             console.error('Error al leer el archivo:', error);
         });
-    }, 3000);
+    });
+    // Dispose del watcher cuando el contexto se desactive
+    context.subscriptions.push(watcher);
 }
 //Prepare terminal and environment
 function prepareEnvironment(configDetails) {
