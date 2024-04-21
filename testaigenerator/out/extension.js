@@ -28,6 +28,7 @@ exports.deactivate = exports.activate = void 0;
 // Import the module and reference it with the alias vscode in your code below
 const vscode = __importStar(require("vscode"));
 const fs = __importStar(require("fs"));
+const path = __importStar(require("path"));
 const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 async function readConfig() {
     const workspaceFolders = vscode.workspace.workspaceFolders;
@@ -55,7 +56,24 @@ let twsl;
 //Ejecutar py-MCDC + argumento
 function run_exec(context, eq) {
     // Ejecutar el script Python en el terminal
-    twsl.sendText(`python exec.py ` + eq);
+    twsl.sendText(`python exec.py ${eq} | tail -n 1 > out.txt`);
+    //Obtener salida por mensaje informativo
+    const rutaArchivo = vscode.Uri.file(path.join(context.extensionPath, '/mcdc_test/out.txt'));
+    //Creacion de watcher para el fichero de salida
+    const watcher = vscode.workspace.createFileSystemWatcher(rutaArchivo.fsPath);
+    //Registra un cambio en el archivo
+    watcher.onDidChange((event) => {
+        // Leer el contenido del archivo
+        vscode.workspace.fs.readFile(rutaArchivo).then(data => {
+            const contenido = Buffer.from(data).toString('utf-8');
+            console.log(contenido);
+            vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): ` + contenido);
+        }, error => {
+            console.error('Error al leer el archivo:', error);
+        });
+    });
+    // Dispose del watcher cuando el contexto se desactive
+    context.subscriptions.push(watcher);
 }
 //Prepare terminal and environment
 function prepareEnvironment(configDetails) {
@@ -67,7 +85,7 @@ function prepareEnvironment(configDetails) {
             shellArgs: [],
         });
         twsl.show();
-        twsl.sendText(configDetails.pyenvActivation);
+        twsl.sendText(`pyenv activate ${configDetails.pyenvActivation}`);
         twsl.sendText(`cd ${configDetails.directoryPath}`);
         twsl.sendText('clear');
         //Environment ready to use
@@ -78,27 +96,60 @@ function prepareEnvironment(configDetails) {
     }
 }
 //LLMs-----------------------------------------------------------------------------------
+function contenidoEntreCorchetes(texto) {
+    const contenido = [];
+    let dentroCorchetes = false;
+    let contenidoActual = '';
+    for (const caracter of texto) {
+        if (caracter === '[') {
+            dentroCorchetes = true;
+            contenidoActual = '['; // Corchete de apertura
+        }
+        else if (caracter === ']') {
+            dentroCorchetes = false;
+            contenidoActual += ']'; // Corchete de cierre
+            contenido.push(contenidoActual);
+            contenidoActual = '';
+        }
+        else if (dentroCorchetes) {
+            contenidoActual += caracter;
+        }
+    }
+    return contenido;
+}
 async function generateTestCases(configDetails, eq) {
     try {
         const endpoint = configDetails.endpoint;
         const azureApiKey = configDetails.apiKey;
         const messages = [
-            { role: "system", content: "You are a helpful chatgpt." },
-            { role: "user", content: "I need help with a conditional statement." },
-            { role: "assistant", content: "Sure, what conditional statement are you working with?" },
-            { role: "user", content: "Generate a set of test cases that satisfy the MC/DC coverage criterion for the following boolean expression." },
-            { role: "assistant", content: "Sure, what boolean expresion are you working with?" },
-            { role: "user", content: "With the following boolean expression:" + eq + "." },
-            { role: "user", content: "Represent the solution as a list in Python, where each test case is a dictionary with the format {variable: value}" },
-            { role: "user", content: "Respond exclusively with the Python list, no explanations, notes or extra text, just the requested pyhton list." }
+            { role: "system", content: "You are an expert generating test cases that satisfy the MC/DC coverage criterion." },
+            { role: "user", content: "I need help with test case generation, that satisfy the MC/DC coverage criterion" },
+            { role: "assistant", content: "Okay, I'm an expert in that criterion. Tell me what I need to do ?" },
+            { role: "user", content: "I provide you an example, in this case the boolean expression is (a<10)&(b<9)." },
+            { role: "user", content: "And the output I get is in the style [{a: 0, b: 0}, {a: 11, b: 0}, {a: 11, b: 9}]." },
+            { role: "user", content: "Giving you boolean expressions, can you provide me with responses in the same style as the one I just showed you?" },
+            { role: "assistant", content: "Of course! What type of test cases are you trying to generate?" },
+            { role: "user", content: "I want to generate the minimum test cases that satisfy the MC/DC coverage criterion for a boolean expression." },
+            { role: "assistant", content: "Understood. Please provide the boolean expression for which you want to generate test cases." },
+            { role: "user", content: "The boolean expression is as follows: " + eq + "." },
+            { role: "user", content: "Respond with only the Python list, no explanations or extra text, just the requested list please." }
         ];
         console.log("== RESPUESTA DEL CHAT==");
         const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
         const deploymentId = "generacion-de-casos";
         const result = await client.getChatCompletions(deploymentId, messages);
+        // desplegable en la ventana creada 
         for (const choice of result.choices) {
-            vscode.window.showInformationMessage(choice.message.content);
+            const answer = contenidoEntreCorchetes(choice.message.content);
+            vscode.window.showInformationMessage(`Casos de prueba generados (LLM): ` + answer);
+            /*
+            twsl.show();
+            twsl.sendText(`echo `+answer);
+            */
         }
+        // Mostrar la lista de valores de prueba en la consola
+        const testCasesMessage = result.choices[result.choices.length - 1].message.content;
+        console.log(testCasesMessage);
     }
     catch (error) {
         console.error('Error generating test cases:', error);
