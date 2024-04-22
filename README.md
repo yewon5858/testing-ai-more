@@ -51,7 +51,8 @@ Toda esta informacion esta presente en el archivo config.json en el cual tenemos
 - [ ] "endpoint" : "https://test-ia.openai.azure.com/", el endpoint proporcionado por Azure    
 - [ ] "apiKey" : "ac73454962444b47b2edb042e4033cd7"  la apikey obtenida a traves de Azure  
 En este caso al seleccionar la opcion de generar por libreria ejecutamos el comando.  
-`python exec.py 'expresion'`  
+`python exec.py 'expresion'`
+Todo esto se puede ver representado al comentar la linea 67 de extension.ts, pues esta realiza un clear de la consola para mejorar asi la estetica     
 En caso de seleccionar la opcion de generar por LLM
 
 ## Estado  
