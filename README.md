@@ -30,7 +30,7 @@ Uso de Typescript
 Uso de Python  
 ## Instalación
 Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo  
-Para que la conexion a traves de la plataforma Azure debemos instalar la libreria de cliente de Azure OpenAI
+Para que la conexion a traves de la plataforma Azure debemos instalar la libreria de cliente de Azure OpenAI, empleando el siguiente comando en nuestro cmd del proyecto
 `npm install @azure/openai`
 
 ## Como ejecutar el proyecto
