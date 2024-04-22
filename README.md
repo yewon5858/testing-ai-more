@@ -44,8 +44,6 @@ En este caso al seleccionar la opcion de generar por libreria ejecutamos el coma
 python exec.py '(a<10)&(b<9)'
 En caso de seleccionar la opcion de generar por LLM
 
-##  Extension 
-Empleada una conexion a Azure Microsoft
 ## Estado  
 En desarrollo
 ## Ejemplo  
