@@ -31,7 +31,7 @@ Uso de Python
 ## Instalación
 Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo  
 Para que la conexion a traves de la plataforma Azure debemos instalar la libreria de cliente de Azure OpenAI
-npm install @azure/openai
+`npm install @azure/openai`
 
 ## Como ejecutar el proyecto
 Para la ejecucion del proyecto empleamos el entorno virtual wsl.  
