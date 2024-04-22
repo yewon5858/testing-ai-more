@@ -1,4 +1,4 @@
-# TFG:Generación automática de casos de prueba mediante el uso de redes neuronales/ Automatic test case generation using neural network
+# TFG: Generación automática de casos de prueba mediante el uso de redes neuronales/ Automatic test case generation using neural network
 
 ## Autores
 Este proyecto esta realizado por **Gonzalo Contreras Gordo** e **Ismael Barahona Cánovas**
@@ -13,7 +13,7 @@ El criterio MC/DC siendo un criterio de cobertura que destaca por su alta fiabil
 
 
 ## Dependencias
-## Instalacion
+## Instalación
 Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo
 
 
@@ -21,7 +21,9 @@ Se debe emplear el ejecutable de nombre install.sh para obtener todos los requis
 
 ##  Extension 
 Empleada una conexion a Azure Microsoft
-
+## Estado  
+En desarrollo
+## Ejemplo  
 ### Licencia MIT
 ---
 
