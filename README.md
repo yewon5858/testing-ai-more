@@ -41,7 +41,7 @@ Toda esta informacion esta extraida del archivo config.json en el cual tenemos e
 - [ ] "apiKey" : "ac73454962444b47b2edb042e4033cd7"  la apikey obtenida a traves de Azure   
     
 En este caso al seleccionar la opcion de generar por libreria ejecutamos el comando.
-python exec.py '(a<10)&(b<9)'
+python exec.py 'expresion'  
 En caso de seleccionar la opcion de generar por LLM
 
 ## Estado  
