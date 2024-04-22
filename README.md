@@ -11,7 +11,6 @@ El criterio MC/DC siendo un criterio de cobertura que destaca por su alta fiabil
 ->Cada decisión del programa ha tomado todas sus posibles evaluaciones al menos una vez.  
 ->Cada condición en una decisión afecta de manera independiente en la evaluación de la decisión.  
 
-
 ## Dependencias
 +-- @azure/openai@1.0.0-beta.12  
 +-- @types/mocha@10.0.6  
@@ -30,7 +29,7 @@ npm install @azure/openai
 
 ## Como ejecutar el proyecto
 Para la ejecucion del proyecto empleamos el entorno virtual wsl.  
-En este caso se ha creado una creacion de un entorno preciso para asegurar su correcto desarrollo.  
+En este caso se ha creado un entorno preciso para asegurar su correcto desarrollo.  
 Usando pyenv activate tfg, se activa el entorno creado en wsl  
 Cambiamos al directorio donde tenemos localizado nuestro codigo cd "/mnt/c/Users/Usuario01/Desktop/Universidad/CUARTO-QUINTO AÑO/TFG/testing-ai-tfm/testing-ai-tfm/testaigenerator/mcdc_test"  
 Toda esta informacion esta extraida del archivo config.json en el cual tenemos estos apartados:    
