@@ -35,7 +35,7 @@ El criterio MC/DC siendo un criterio de cobertura que destaca por su alta fiabil
 +-- chalk copy@npm:chalk@5.3.0  
 +-- debug copy@npm:debug@4.3.4  
 +-- dotenv@16.4.5  
-+-- eslint@8.56.0
++-- eslint@8.56.0  
 +-- http-proxy-agent copy@npm:http-proxy-agent@5.0.0  
 +-- https-proxy-agent copy@npm:https-proxy-agent@5.0.1  
 +-- ms copy@npm:ms@2.1.2  
