@@ -21,7 +21,8 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 +-- @vscode/test-cli@0.0.4  
 +-- @vscode/test-electron@2.3.9  
 +-- eslint@8.56.0  
-`-- typescript@5.3.3   
+`-- typescript@5.3.3
+## Dependencias en el entorno de wsl   
 ## Instalación
 Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo  
 Para que la conexion a traves de la plataforma Azure debemos instalar la libreria de cliente de Azure OpenAI
