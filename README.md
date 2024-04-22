@@ -13,16 +13,16 @@ El criterio MC/DC siendo un criterio de cobertura que destaca por su alta fiabil
 
 
 ## Dependencias
-+-- @azure/openai@1.0.0-beta.12
-+-- @types/mocha@10.0.6
-+-- @types/node@18.19.17
-+-- @types/vscode@1.86.0
-+-- @typescript-eslint/eslint-plugin@6.21.0
-+-- @typescript-eslint/parser@6.21.0
-+-- @vscode/test-cli@0.0.4
-+-- @vscode/test-electron@2.3.9
-+-- eslint@8.56.0
-`-- typescript@5.3.3 
++-- @azure/openai@1.0.0-beta.12  
++-- @types/mocha@10.0.6  
++-- @types/node@18.19.17  
++-- @types/vscode@1.86.0  
++-- @typescript-eslint/eslint-plugin@6.21.0  
++-- @typescript-eslint/parser@6.21.0  
++-- @vscode/test-cli@0.0.4  
++-- @vscode/test-electron@2.3.9  
++-- eslint@8.56.0  
+`-- typescript@5.3.3   
 ## Instalación
 Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo
 
