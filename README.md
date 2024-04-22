@@ -40,7 +40,7 @@ El criterio MC/DC siendo un criterio de cobertura que destaca por su alta fiabil
 +-- https-proxy-agent copy@npm:https-proxy-agent@5.0.1  
 +-- ms copy@npm:ms@2.1.2  
 +-- tslib@2.6.2  
-+-- typescript@5.3.3
++-- typescript@5.3.3  
 `-- undici-types copy@npm:undici-types@5.26.5  
 ## Instalación
 Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo
