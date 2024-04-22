@@ -24,13 +24,13 @@ El criterio MC/DC siendo un criterio de cobertura que destaca por su alta fiabil
 +-- @azure/openai@1.0.0-beta.11  
 +-- @tootallnate copy/once@npm:@tootallnate/once@2.0.0  
 +-- @types copy/node@npm:@types/node@20.11.25  
-+-- @types/mocha@10.0.6
-+-- @types/node@18.19.17
-+-- @types/vscode@1.86.0
-+-- @typescript-eslint/eslint-plugin@6.21.0
-+-- @typescript-eslint/parser@6.21.0
-+-- @vscode/test-cli@0.0.4
-+-- @vscode/test-electron@2.3.9
++-- @types/mocha@10.0.6  
++-- @types/node@18.19.17  
++-- @types/vscode@1.86.0  
++-- @typescript-eslint/eslint-plugin@6.21.0  
++-- @typescript-eslint/parser@6.21.0  
++-- @vscode/test-cli@0.0.4  
++-- @vscode/test-electron@2.3.9  
 +-- agent-base copy@npm:agent-base@6.0.2  
 +-- chalk copy@npm:chalk@5.3.0  
 +-- debug copy@npm:debug@4.3.4  
