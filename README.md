@@ -1,5 +1,6 @@
 # TFG: Generación automática de casos de prueba mediante el uso de redes neuronales/ Automatic test case generation using neural network
-
+## Estado  
+En desarrollo
 ## Autores
 Este proyecto esta realizado por **Gonzalo Contreras Gordo** e **Ismael Barahona Cánovas**
 ## Resumen
@@ -54,9 +55,6 @@ En este caso al seleccionar la opcion de generar por libreria ejecutamos el coma
 `python exec.py 'expresion'`
 Todo esto se puede ver representado al comentar la linea 67 de extension.ts, pues esta realiza un clear de la consola para mejorar asi la estetica     
 En caso de seleccionar la opcion de generar por LLM
-
-## Estado  
-En desarrollo
 ## Ejemplo
 Desde el archivo extension.ts entrar en modo depuracion usando el F5.Seleccionar una expresion booleana de enteros, emplear el boton derecho para abrir el menu contextual     
 ![](https://github.com/TGF-2023-24/testing-ai/assets/79473853/0d61cf5b-303e-4bb2-9d1e-fb4718c98ea9)  
