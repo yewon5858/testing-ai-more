@@ -50,8 +50,8 @@ Toda esta informacion esta presente en el archivo config.json en el cual tenemos
 - [ ] "directoryPath": "ruta a /testaigenerator/mcdc_test",    
 - [ ] "endpoint" : "https://test-ia.openai.azure.com/", el endpoint proporcionado por Azure    
 - [ ] "apiKey" : "ac73454962444b47b2edb042e4033cd7"  la apikey obtenida a traves de Azure  
-En este caso al seleccionar la opcion de generar por libreria ejecutamos el comando.
-python exec.py 'expresion'  
+En este caso al seleccionar la opcion de generar por libreria ejecutamos el comando.  
+`python exec.py 'expresion'`  
 En caso de seleccionar la opcion de generar por LLM
 
 ## Estado  
