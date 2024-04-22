@@ -56,7 +56,14 @@ En caso de seleccionar la opcion de generar por LLM
 
 ## Estado  
 En desarrollo
-## Ejemplo  
+## Ejemplo
+Desde el archivo extension.ts entrar en modo depuracion usando el F5.Seleccionar una expresion booleana de enteros, emplear el boton derecho para abrir el menu contextual   
+![Captura de pantalla 2024-04-22 123802](https://github.com/TGF-2023-24/testing-ai/assets/79473853/0d61cf5b-303e-4bb2-9d1e-fb4718c98ea9)
+Seleccionar el metodo de generacion de casos de prueba que deseamos emplear  
+- [ ] NOMBRE DE GENERAR POR LLM  
+- [ ] NOMBRE DE GENERAR POR LIBRERIA   
+Se nos mostrara la salida con los casos de prueba en un popup abajo a la derecha de la ventana de depuracion.  
+
 ### Licencia MIT
 ---
 
