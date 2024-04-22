@@ -45,8 +45,40 @@ Installation of vscode plugin
 
 ## Installing Dependencies & Build
 
-# MCDC-Backend
+## Dependencias
++-- @azure-rest/core-client@1.2.0     
++-- @azure/abort-controller@2.0.0  
++-- @azure/core-auth@1.6.0  
++-- @azure/core-rest-pipeline@1.14.0  
++-- @azure/core-sse@2.0.0  
++-- @azure/core-tracing@1.0.1  
++-- @azure/core-util@1.7.0  
++-- @azure/logger@1.0.4  
++-- @azure/openai@1.0.0-beta.11  
++-- @tootallnate copy/once@npm:@tootallnate/once@2.0.0  
++-- @types copy/node@npm:@types/node@20.11.25  
++-- @types/mocha@10.0.6
++-- @types/node@18.19.17
++-- @types/vscode@1.86.0
++-- @typescript-eslint/eslint-plugin@6.21.0
++-- @typescript-eslint/parser@6.21.0
++-- @vscode/test-cli@0.0.4
++-- @vscode/test-electron@2.3.9
++-- agent-base copy@npm:agent-base@6.0.2  
++-- chalk copy@npm:chalk@5.3.0  
++-- debug copy@npm:debug@4.3.4  
++-- dotenv@16.4.5  
++-- eslint@8.56.0
++-- http-proxy-agent copy@npm:http-proxy-agent@5.0.0  
++-- https-proxy-agent copy@npm:https-proxy-agent@5.0.1  
++-- ms copy@npm:ms@2.1.2  
++-- tslib@2.6.2  
++-- typescript@5.3.3
+`-- undici-types copy@npm:undici-types@5.26.5  
+## Instalación
+Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo
 
+# MCDC-Backend
 The MCDC-Backend provides a streamlined solution for machine-to-machine client-server interactions. Below, you'll find details on dependencies, how to utilize the backend, and installation instructions.
 
 ## Dependencies
