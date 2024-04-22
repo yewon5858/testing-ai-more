@@ -23,6 +23,12 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 +-- eslint@8.56.0  
 `-- typescript@5.3.3
 ## Dependencias en el entorno de wsl   
+ `apt-get install gcc`
+ `apt-get install make`
+ `apt-get install libgmp3-dev`
+ `pip install pysmt`
+ `pysmt-install --check`
+ `pysmt-install --msat`
 ## Entorno de desarrollo  
 Uso de VS Code   
 Uso de wsl  
