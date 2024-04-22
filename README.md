@@ -35,17 +35,14 @@ Para que la conexion a traves de la plataforma Azure debemos instalar la libreri
 
 ## Como ejecutar el proyecto
 Para la ejecucion del proyecto empleamos el entorno virtual wsl.  
-En este caso se ha creado un entorno preciso para asegurar su correcto desarrollo.  
-Usando pyenv activate tfg, se activa el entorno creado en wsl  
-Cambiamos al directorio donde tenemos localizado nuestro codigo cd "/mnt/c/Users/Usuario01/Desktop/Universidad/CUARTO-QUINTO AÑO/TFG/testing-ai-tfm/testing-ai-tfm/testaigenerator/mcdc_test"  
-Toda esta informacion esta extraida del archivo config.json en el cual tenemos estos apartados:    
+En este caso se ha creado un entorno preciso para asegurar su correcto desarrollo.    
+Toda esta informacion esta presente en el archivo config.json en el cual tenemos estos apartados:    
 - [ ] "terminalName": "TestAI_Gen", un nombre para diferenciar la terminal que se emplea para el desarrollo de nuestra expresion   
 - [ ] "shellPath": "wsl",  se refleja el uso de wsl   
 - [ ] "pyenvActivation": "pyenv activate (nombre del entorno creado en wsl)",   activamos el entorno para tener todas las dependencias instaladas  
 - [ ] "directoryPath": "ruta a /testaigenerator/mcdc_test",    
 - [ ] "endpoint" : "https://test-ia.openai.azure.com/", el endpoint proporcionado por Azure    
-- [ ] "apiKey" : "ac73454962444b47b2edb042e4033cd7"  la apikey obtenida a traves de Azure   
-    
+- [ ] "apiKey" : "ac73454962444b47b2edb042e4033cd7"  la apikey obtenida a traves de Azure  
 En este caso al seleccionar la opcion de generar por libreria ejecutamos el comando.
 python exec.py 'expresion'  
 En caso de seleccionar la opcion de generar por LLM
