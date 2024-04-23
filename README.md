@@ -67,10 +67,10 @@ Para el funcionamiento de la extension en visual
 |zipp                |3.18.1|    
 
  ## Preparacion del entorno de wsl de manera automatica  
- Primero debemos crear nuestro entorno con python 
- Segundo paso transformar nuestro install.sh con el comando -->`dos2unix install.sh`  
- Tercer paso ejecutar el archivo .sh -->`./install.sh`  
- Ya tendriamos nuestro entorno preparado para poder ser usado en la extension  
+ - [ ]Primero debemos crear nuestro entorno con python 
+- [ ] Segundo paso transformar nuestro install.sh con el comando -->`dos2unix install.sh`  
+- [ ] Tercer paso ejecutar el archivo .sh -->`./install.sh`  
+- [ ] Ya tendriamos nuestro entorno preparado para poder ser usado en la extension  
 ## Paso a paso de la creacion del entorno de wsl
 En nuestro caso al emplear windows como sistema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux, pues resultaba más comodo para ejecutar el codigo de mcdc_test.  
 Para el correcto funcionamiento de este entorno hemos empleado los siguientes pasos:
