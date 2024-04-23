@@ -76,7 +76,7 @@ Para el correcto funcionamiento de este entorno hemos empleado los siguientes pa
      - [ ]   `pysmt-install --msat`  
      - [ ]    `pysmt-install --check`  
 
-## Entorno de desarrollo  
+## Herramientas de desarrollo  
 Uso de VS Code   
 Uso de wsl  
 Uso de Typescript  
