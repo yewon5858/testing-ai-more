@@ -28,36 +28,36 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
  gcc  
  make  
  libgmp3-dev    
-Package             Version  
-------------------- -----------
-contourpy           1.1.1  
-cycler              0.12.1  
-exceptiongroup      1.2.1  
-fonttools           4.51.0  
-graphviz            0.20.3  
-importlib_resources 6.4.0  
-iniconfig           2.0.0  
-kiwisolver          1.4.5  
-matplotlib          3.7.5  
-more-itertools      10.2.0  
-numpy               1.24.4  
-packaging           24.0  
-pandas              2.0.3  
-pillow              10.3.0  
-pip                 23.0.1  
-pluggy              1.5.0  
-pyeda               0.29.0  
-pyparsing           3.1.2  
-PySMT               0.9.5  
-pytest              8.1.1  
-python-dateutil     2.9.0.post0  
-pytz                2024.1  
-setuptools          56.0.0  
-six                 1.16.0  
-sortedcontainers    2.4.0  
-tomli               2.0.1  
-tzdata              2024.1  
-zipp                3.18.1  
+|Package           |   Version|  
+|-------------------|-----------|
+|contourpy          |1.1.1  |
+|cycler             | 0.12.1 | 
+|exceptiongroup     |1.2.1  |
+|fonttools          | 4.51.0  |
+|graphviz           | 0.20.3  |
+|importlib_resources |6.4.0  |
+|iniconfig           |2.0.0  |
+|kiwisolver          |1.4.5  |
+|matplotlib          |3.7.5  |
+|more-itertools      |10.2.0  |
+|numpy               |1.24.4 | 
+|packaging           |24.0  |
+|pandas              |2.0.3  |
+|pillow              |10.3.0  |
+|pip                 |23.0.1  |
+|pluggy              |1.5.0  |
+|pyeda               |0.29.0  |
+|pyparsing           |3.1.2  |
+|PySMT               |0.9.5  |
+|pytest              |8.1.1  |
+|python-dateutil     |2.9.0.post0|  
+|pytz                |2024.1  |
+|setuptools          |56.0.0  |
+|six                 |1.16.0  |
+|sortedcontainers    |2.4.0  |
+|tomli               |2.0.1  |
+|tzdata              |2024.1 | 
+|zipp                |3.18.1|  
  
 ## Pasos de creacion de entorno de wsl
 En nuestro caso al emplear windows como sintema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux pues resultaba mas comodo para ejecutar el codigo de mcdc_test.  
