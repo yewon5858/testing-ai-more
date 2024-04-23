@@ -13,7 +13,9 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 ->Cada condición en una decisión afecta de manera independiente en la evaluación de la decisión.  
 
 ## Dependencias de la extension
-+-- @azure/openai@1.0.0-beta.12  
+Para emplear la conexion con Azure  
++-- @azure/openai@1.0.0-beta.12 
+Para el funcionamiento de la extension en visual   
 +-- @types/mocha@10.0.6  
 +-- @types/node@18.19.17  
 +-- @types/vscode@1.86.0  
