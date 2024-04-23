@@ -24,19 +24,45 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 +-- eslint@8.56.0  
 `-- typescript@5.3.3
 ## Dependencias en el entorno de wsl  
- pyeda
- python 3.8
+ python             3.8.18
  gcc
  make
  libgmp3-dev
-
+ contourpy           1.1.1
+ cycler              0.12.1
+ exceptiongroup      1.2.1
+ fonttools           4.51.0
+ graphviz            0.20.3
+ importlib_resources 6.4.0
+ iniconfig           2.0.0
+ kiwisolver          1.4.5
+ matplotlib          3.7.5
+ more-itertools      10.2.0
+ numpy               1.24.4
+ packaging           24.0
+ pandas              2.0.3
+ pillow              10.3.0
+ pip                 23.0.1
+ pluggy              1.5.0
+ pyeda               0.29.0
+ pyparsing           3.1.2
+ pytest              8.1.1
+ python-dateutil     2.9.0.post0
+ pytz                2024.1
+ setuptools          56.0.0
+ six                 1.16.0
+ sortedcontainers    2.4.0
+ tomli               2.0.1
+ tzdata              2024.1
+ zipp                3.18.1
  
 ## Pasos de creacion de entorno de wsl
 En nuestro caso al emplear windows como sintema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux pues resultaba mas comodo para ejecutar el codigo de mcdc_test.  
 Para el correcto funcionamiento de este entorno hemos empleado los siguientes pasos:
-- [ ] Creamos un entorno virtual con python 3.8 --> `pyenv virtualenv 3.8 <nombre del entorno>`
-- [ ]En caso de no activares el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`
-  - - [ ]
+- [ ] Creamos un entorno virtual con python 3.8 --> `pyenv virtualenv 3.8 <nombre del entorno>`  
+- [ ] En caso de no activares el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`  
+- [ ] Para instalar todas las dependencias necesarias usamos el comando -->`pip install -r requirements.txt`
+- [ ]   
 Necesitamos permisos de administrador por lo tanto todo comando sera precedido por sudo 
  `apt-get install gcc`
  `apt-get install make`
