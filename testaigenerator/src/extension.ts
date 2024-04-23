@@ -168,7 +168,7 @@ export async function activate(context: vscode.ExtensionContext) {
         const configDetails = await readConfig();
         prepareEnvironment(configDetails);
 
-    //PYENV------------------------------------------------------------------------------
+    //PYMCDC------------------------------------------------------------------------------
 
     //Comando llamada solve + argumento INPUT
     let exec_input = vscode.commands.registerCommand('testaigenerator.exec_input', async () => {
@@ -182,7 +182,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
         if (eq !== undefined) {
             vscode.window.showInformationMessage(`La eq a estudiar es: ${eq}`);
-            //run_exec(context, "'"+eq+"'");
+            run_exec(context, "'"+eq+"'");
         } else {
             vscode.window.showErrorMessage('No se ingresó ningún parámetro.');
         }
@@ -232,6 +232,27 @@ export async function activate(context: vscode.ExtensionContext) {
 		
     });
 	context.subscriptions.push(llmGenerator);
+
+    //BOTH LLM & pyMCDC
+    //Comando llamada solve + argumento INPUT
+    let exec_input = vscode.commands.registerCommand('testaigenerator.exec_input', async () => {
+
+        //Input eq
+        const eq = await vscode.window.showInputBox({
+            prompt: 'Escribe la condición',
+            placeHolder: 'Eq'
+        });
+
+        if (eq !== undefined) {
+            vscode.window.showInformationMessage(`La eq a estudiar es: ${eq}`);
+            run_exec(context, "'"+eq+"'");
+            generateTestCases(configDetails, eq);
+        } else {
+            vscode.window.showErrorMessage('No se ingresó ningún parámetro.');
+        }
+
+    });
+    context.subscriptions.push(exec_input);
 
 }
 
