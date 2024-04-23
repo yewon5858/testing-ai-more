@@ -12,7 +12,7 @@ pip3 install pysmt
 # Check for the installation status of pysmt
 pysmt-install --check
 
-# Install MSat solver in pysmt
+# Instalar solver MSat en pysmt 
 pysmt-install --msat
 
 # Display a completion message
