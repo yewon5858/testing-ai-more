@@ -45,6 +45,7 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
  pip                 23.0.1  
  pluggy              1.5.0  
  pyeda               0.29.0  
+ PySMT               0.9.5  
  pyparsing           3.1.2  
  pytest              8.1.1  
  python-dateutil     2.9.0.post0  
