@@ -85,9 +85,8 @@ Para el correcto funcionamiento de este entorno hemos empleado los siguientes pa
      - [ ] `pysmt-install --msat`  
      - [ ] Este ultimo es una forma de controlar si la instalacion de pysmt se ha llevado de manera correcta  `pysmt-install --check`  
 
-
 ## Instalación
-Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo  
+Se debe configurar previamente el entorno virtual en wsl con cualquera de los dos metodos mencionados.   
 Para que la conexion a traves de la plataforma Azure debemos instalar la libreria de cliente de Azure OpenAI, empleando el siguiente comando en nuestro cmd del proyecto
 `npm install @azure/openai`  
 Para la instalacion de los node_modules podemos emplear sobre el fallo de importacion de fs para instalar las librerias de tipos necesarias, o realizar la instalacion de las librerias a mano     
