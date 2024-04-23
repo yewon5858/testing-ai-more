@@ -59,7 +59,7 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 |tzdata              |2024.1 | 
 |zipp                |3.18.1|  
  
-## Pasos de creacion de entorno de wsl
+## Paso a paso de la creacion del entorno de wsl
 En nuestro caso al emplear windows como sintema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux pues resultaba mas comodo para ejecutar el codigo de mcdc_test.  
 Para el correcto funcionamiento de este entorno hemos empleado los siguientes pasos:
 - [ ] Creamos un entorno virtual con python 3.8 --> `pyenv virtualenv 3.8 <nombre del entorno>`  
