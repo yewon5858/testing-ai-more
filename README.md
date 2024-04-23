@@ -24,13 +24,14 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 +-- eslint@8.56.0  
 `-- typescript@5.3.3
 ## Dependencias en el entorno de wsl  
- python             3.8.18  
- gcc  
- make  
- libgmp3-dev    
+  
 |Package           |   Version|  
 |-------------------|-----------|
-|contourpy          |1.1.1  |
+| python             |3.8.18  |
+ |gcc                 |11.4.0 |   
+ |make                |4.3|
+ |gmp                | 3|
+ |contourpy          |1.1.1  |
 |cycler             | 0.12.1 | 
 |exceptiongroup     |1.2.1  |
 |fonttools          | 4.51.0  |
