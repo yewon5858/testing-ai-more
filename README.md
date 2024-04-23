@@ -11,7 +11,11 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 ->Toda condición en una decisión del programa ha tomado todas sus posibles evaluaciones al menos una vez.  
 ->Cada decisión del programa ha tomado todas sus posibles evaluaciones al menos una vez.  
 ->Cada condición en una decisión afecta de manera independiente en la evaluación de la decisión.  
-
+## Herramientas de desarrollo  
+Uso de VS Code   
+Uso de wsl  
+Uso de Typescript  
+Uso de Python 3.8  
 ## Dependencias de la extension
 Para emplear la conexion con Azure  
 +-- @azure/openai@1.0.0-beta.12   
@@ -76,11 +80,7 @@ Para el correcto funcionamiento de este entorno hemos empleado los siguientes pa
      - [ ]   `pysmt-install --msat`  
      - [ ]    `pysmt-install --check`  
 
-## Herramientas de desarrollo  
-Uso de VS Code   
-Uso de wsl  
-Uso de Typescript  
-Uso de Python 3.8  
+
 ## Instalación
 Se debe emplear el ejecutable de nombre install.sh para obtener todos los requisitos necesarios para poder ejecutar de una manera correcta este proyecto en su dispositivo  
 Para que la conexion a traves de la plataforma Azure debemos instalar la libreria de cliente de Azure OpenAI, empleando el siguiente comando en nuestro cmd del proyecto
