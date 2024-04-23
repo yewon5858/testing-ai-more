@@ -24,7 +24,8 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 +-- eslint@8.56.0  
 `-- typescript@5.3.3
 ## Dependencias en el entorno de wsl  
- pyeda  
+ pyeda
+ python 3.8
  `apt-get install gcc`
  `apt-get install make`
  `apt-get install libgmp3-dev`
