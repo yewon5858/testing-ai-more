@@ -99,6 +99,7 @@ Toda esta informacion esta presente en el archivo config.json en el cual tenemos
 
 Empleamos F5 para abrir el modo depuracion y en este momento podemos seleccionar una expresion booleana y realizar boton derecho para seleccionar en el menu contextual cual de los dos generadores queremos emplear
 o podemos hacerlo a traves de la barra de comandos  
+Tras seleccionar un metodo de generacion ya directamente nos saldra la respuesta a nuestra expresion en formato lista de python con cada elemento formado por los casos de prueba  
 ## Ejemplo
 Desde el archivo extension.ts entrar en modo depuracion usando el F5.Seleccionar una expresion booleana de enteros, emplear el boton derecho para abrir el menu contextual     
 ![](https://github.com/TGF-2023-24/testing-ai/assets/79473853/0d61cf5b-303e-4bb2-9d1e-fb4718c98ea9)  
