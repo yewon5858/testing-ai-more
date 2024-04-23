@@ -35,7 +35,7 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 En nuestro caso al emplear windows como sintema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux pues resultaba mas comodo para ejecutar el codigo de mcdc_test.  
 Para el correcto funcionamiento de este entorno hemos empleado los siguientes pasos:
 - [ ] Creamos un entorno virtual con python 3.8 --> `pyenv virtualenv 3.8 <nombre del entorno>`
-- - [ ]
+- [ ]En caso de no activares el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`
   - - [ ]
 Necesitamos permisos de administrador por lo tanto todo comando sera precedido por sudo 
  `apt-get install gcc`
