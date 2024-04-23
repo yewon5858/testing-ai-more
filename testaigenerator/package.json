@@ -15,28 +15,27 @@
     "commands": [
       {
         "command": "testaigenerator.exec_input",
-        "title": "Solve MCDC"
+        "title": "Generate MC/DC testcases"
       },{
         "command": "testaigenerator.exec_select",
-        "title": "Select MCDC"
+        "title": "Generate testcases (pyMCDC)"
       },
       {
         "command": "executeia.EjecutarIA",
-        "title": "Ejecutar extension de IA"
+        "title": "Generate testcases (LLM)"
       }
     ],
     "menus" : {
       "editor/context": [
         {
-            "command": "testaigenerator.exec_select",
-            "group": "navigation",
-            "when": "editorFocus"
+          "command": "testaigenerator.exec_select",
+          "group": "navigation",
+          "when": "editorFocus"
         },
         {
           "command": "executeia.EjecutarIA",
           "group": "navigation",
-          "when": "editorFocus",
-          "title": "Execute Other Extension"
+          "when": "editorFocus"
         }
     ]
     }
