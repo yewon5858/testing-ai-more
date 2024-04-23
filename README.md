@@ -66,7 +66,7 @@ Para el funcionamiento de la extension en visual
 |tzdata              |2024.1 | 
 |zipp                |3.18.1|    
 
- ##Preparacion del entorno de wsl de manera automatica  
+ ## Preparacion del entorno de wsl de manera automatica  
  Primero debemos crear nuestro entorno con python 
  Segundo paso transformar nuestro install.sh con el comando -->`dos2unix install.sh`  
  Tercer paso ejecutar el archivo .sh -->`./install.sh`  
