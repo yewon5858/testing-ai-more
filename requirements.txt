@@ -1,8 +1,8 @@
+astunparse==1.6.3
 Flask==3.0.2
 Flask-RESTful==0.3.10
 flask_cors==4.0.0
 gunicorn==21.2.0
-astunparse==1.6.3
 graphviz==0.20.1
 matplotlib==3.7.3
 more_itertools==10.1.0
@@ -12,3 +12,6 @@ pyeda==0.28.0
 PySMT==0.9.5
 pytest==7.4.2
 sortedcontainers==2.4.0
+
+#Y para instalar el solver MSat, ejecuta:
+# pysmt-install --msat
