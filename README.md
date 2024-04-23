@@ -67,7 +67,8 @@ Para el funcionamiento de la extension en visual
 |zipp                |3.18.1|    
 
  ## Preparacion del entorno de wsl de manera automatica  
-- [ ] Primero debemos crear nuestro entorno con python 
+- [ ] Primero debemos crear nuestro entorno con python -->`pyenv virtualenv 3.8 <nombre del entorno>`
+- [ ] En caso de no activares el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`   
 - [ ] Segundo paso transformar nuestro install.sh con el comando -->`dos2unix install.sh`  
 - [ ] Tercer paso ejecutar el archivo .sh -->`./install.sh`  
 - [ ] Ya tendriamos nuestro entorno preparado para poder ser usado en la extension  
