@@ -12,7 +12,7 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 ->Cada decisión del programa ha tomado todas sus posibles evaluaciones al menos una vez.  
 ->Cada condición en una decisión afecta de manera independiente en la evaluación de la decisión.  
 
-## Dependencias
+## Dependencias de la extension
 +-- @azure/openai@1.0.0-beta.12  
 +-- @types/mocha@10.0.6  
 +-- @types/node@18.19.17  
