@@ -96,6 +96,7 @@ Toda esta informacion esta presente en el archivo config.json en el cual tenemos
 - [ ] "directoryPath": "ruta a /testaigenerator/mcdc_test",    
 - [ ] "endpoint" : "https://test-ia.openai.azure.com/", el endpoint proporcionado por Azure    
 - [ ] "apiKey" : "ac73454962444b47b2edb042e4033cd7"  la apikey obtenida a traves de Azure  
+
 Empleamos F5 para abrir el modo depuracion y en este momento podemos seleccionar una expresion booleana y realizar boton derecho para seleccionar en el menu contextual cual de los dos generadores queremos emplear
 o podemos hacerlo a traves de la barra de comandos  
 ## Ejemplo
