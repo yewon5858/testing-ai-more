@@ -26,16 +26,26 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 ## Dependencias en el entorno de wsl  
  pyeda
  python 3.8
+ gcc
+ make
+ libgmp3-dev
+
+ 
+## Pasos de creacion de entorno de wsl
+En nuestro caso al emplear windows como sintema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux pues resultaba mas comodo para ejecutar el codigo de mcdc_test.  
+Para el correcto funcionamiento de este entorno hemos empleado los siguientes pasos:
+- [ ] Creamos un entorno virtual con python 3.8 --> `pyenv virtualenv 3.8 <nombre del entorno>`
+- - [ ]
+  - - [ ]
+Necesitamos permisos de administrador por lo tanto todo comando sera precedido por sudo 
  `apt-get install gcc`
  `apt-get install make`
  `apt-get install libgmp3-dev`
  `pip install pysmt`
  `pysmt-install --check`
  `pysmt-install --msat`
- 
-## Pasos de creacion de entorno de wsl
-En nuestro caso al emplear windows como sintema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux pues resultaba mas comodo para ejecutar el codigo de mcdc_test
-Para el correcto funcionamiento de este entorno hemos empleado los siguientes pasos
+
+
 ## Entorno de desarrollo  
 Uso de VS Code   
 Uso de wsl  
