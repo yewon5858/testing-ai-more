@@ -83,7 +83,7 @@ Para el correcto funcionamiento de este entorno hemos empleado los siguientes pa
      - [ ] `apt-get install make`  
      - [ ] `apt-get install libgmp3-dev`  
      - [ ] `pysmt-install --msat`  
-     - [ ] `pysmt-install --check`  
+     - [ ] Este ultimo es una forma de controlar si la instalacion de pysmt se ha llevado de manera correcta  `pysmt-install --check`  
 
 
 ## Instalación
