@@ -14,7 +14,7 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 
 ## Dependencias de la extension
 Para emplear la conexion con Azure  
-+-- @azure/openai@1.0.0-beta.12 
++-- @azure/openai@1.0.0-beta.12   
 Para el funcionamiento de la extension en visual   
 +-- @types/mocha@10.0.6  
 +-- @types/node@18.19.17  
