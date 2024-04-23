@@ -82,7 +82,7 @@ function prepareEnvironment(configDetails: Configuration){
         });
         twsl.show();
         twsl.sendText(`pyenv activate ${configDetails.pyenvActivation}`);
-        twsl.sendText(`cd ${configDetails.directoryPath}`);
+        twsl.sendText(`cd "${configDetails.directoryPath}"`);
         twsl.sendText('clear');
 
         //Environment ready to use
