@@ -23,7 +23,7 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
 +-- @vscode/test-electron@2.3.9  
 +-- eslint@8.56.0  
 `-- typescript@5.3.3
-## Dependencias en el entorno de wsl   
+## Dependencias en el entorno de wsl  
  pyeda  
  `apt-get install gcc`
  `apt-get install make`
@@ -31,6 +31,10 @@ El criterio **MC/DC** siendo un criterio de cobertura que destaca por su alta fi
  `pip install pysmt`
  `pysmt-install --check`
  `pysmt-install --msat`
+ 
+## Pasos de creacion de entorno de wsl
+En nuestro caso al emplear windows como sintema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux pues resultaba mas comodo para ejecutar el codigo de mcdc_test
+Para el correcto funcionamiento de este entorno hemos empleado los siguientes pasos
 ## Entorno de desarrollo  
 Uso de VS Code   
 Uso de wsl  
