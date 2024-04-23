@@ -62,12 +62,12 @@ Para el correcto funcionamiento de este entorno hemos empleado los siguientes pa
 - [ ] Creamos un entorno virtual con python 3.8 --> `pyenv virtualenv 3.8 <nombre del entorno>`  
 - [ ] En caso de no activares el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`  
 - [ ] Para instalar todas las dependencias necesarias usamos el comando -->`pip install -r requirements.txt`
+- [ ] Dado que no se encuentra en el requirements.txt debemos instalar a mano Pysmt -->  `pip install pysmt`
 - [ ]   
 Necesitamos permisos de administrador por lo tanto todo comando sera precedido por sudo 
  `apt-get install gcc`
  `apt-get install make`
  `apt-get install libgmp3-dev`
- `pip install pysmt`
  `pysmt-install --check`
  `pysmt-install --msat`
 
