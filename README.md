@@ -67,7 +67,7 @@ Para el funcionamiento de la extension en visual
 |zipp                |3.18.1|  
  
 ## Paso a paso de la creacion del entorno de wsl
-En nuestro caso al emplear windows como sintema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux pues resultaba mas comodo para ejecutar el codigo de mcdc_test.  
+En nuestro caso al emplear windows como sistema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux, pues resultaba más comodo para ejecutar el codigo de mcdc_test.  
 Para el correcto funcionamiento de este entorno hemos empleado los siguientes pasos:
 - [ ] Creamos un entorno virtual con python 3.8 --> `pyenv virtualenv 3.8 <nombre del entorno>`  
 - [ ] En caso de no activares el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`  
