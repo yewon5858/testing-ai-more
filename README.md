@@ -64,14 +64,12 @@ Para el correcto funcionamiento de este entorno hemos empleado los siguientes pa
 - [ ] En caso de no activares el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`  
 - [ ] Para instalar todas las dependencias necesarias usamos el comando -->`pip install -r requirements.txt`
 - [ ] Dado que no se encuentra en el requirements.txt debemos instalar a mano Pysmt -->  `pip install pysmt`
-- [ ]   
-Necesitamos permisos de administrador por lo tanto todo comando sera precedido por sudo 
- `apt-get install gcc`
- `apt-get install make`
- `apt-get install libgmp3-dev`
- `pysmt-install --check`
- `pysmt-install --msat`
-
+- [ ] Emplear los comandos siguientes (Necesitamos permisos de administrador por lo tanto todo comando sera precedido por sudo ):  
+     - [ ]    `apt-get install gcc`  
+     - [ ]     `apt-get install make`  
+     - [ ]  `apt-get install libgmp3-dev`  
+     - [ ]   `pysmt-install --msat`  
+     - [ ]    `pysmt-install --check`  
 
 ## Entorno de desarrollo  
 Uso de VS Code   
