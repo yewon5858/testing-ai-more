@@ -96,10 +96,8 @@ Toda esta informacion esta presente en el archivo config.json en el cual tenemos
 - [ ] "directoryPath": "ruta a /testaigenerator/mcdc_test",    
 - [ ] "endpoint" : "https://test-ia.openai.azure.com/", el endpoint proporcionado por Azure    
 - [ ] "apiKey" : "ac73454962444b47b2edb042e4033cd7"  la apikey obtenida a traves de Azure  
-En este caso al seleccionar la opcion de generar por libreria ejecutamos el comando.  
-`python exec.py 'expresion'`
-Todo esto se puede ver representado al comentar la linea 67 de extension.ts, pues esta realiza un clear de la consola para mejorar asi la estetica     
-En caso de seleccionar la opcion de generar por LLM
+Empleamos F5 para abrir el modo depuracion y en este momento podemos seleccionar una expresion booleana y realizar boton derecho para seleccionar en el menu contextual cual de los dos generadores queremos emplear
+o podemos hacerlo a traves de la barra de comandos  
 ## Ejemplo
 Desde el archivo extension.ts entrar en modo depuracion usando el F5.Seleccionar una expresion booleana de enteros, emplear el boton derecho para abrir el menu contextual     
 ![](https://github.com/TGF-2023-24/testing-ai/assets/79473853/0d61cf5b-303e-4bb2-9d1e-fb4718c98ea9)  
