@@ -85,9 +85,6 @@ tcas_num_cond = [5, 7, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 12, 12, 12, 13, 1
 tcas_dict = dict(zip(tcas, tcas_num_cond))
 
 
-
-
-
 def test_to_str(test):
     # type: (dict) -> str
     # print(sorted(test))

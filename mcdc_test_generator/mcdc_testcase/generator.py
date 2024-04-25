@@ -12,7 +12,6 @@ from pyeda.boolalg.expr import expr
 from random import Random
 import string
 
-# from paquetes.ayuda_setta.cSolver import *
 from pysmt.parsing import parse
 from pysmt.typing import INT, BOOL
 from pysmt.shortcuts import Symbol, Not, Solver

@@ -1,28 +1,18 @@
 import collections
 import copy
-import csv
-import itertools
+from itertools import chain, repeat, accumulate, takewhile, tee
 import functools
 import sys
-
-from itertools import chain, repeat, accumulate, takewhile
-from random import seed
 from typing import List
 
-from matplotlib import pyplot as plt
 from sortedcontainers import SortedList
 
-#from paquetes.ayuda_path.tcasii import *
-
-from paquetes.ayuda_path.comparePlotResults import results_better, results_better_n_plus_1
-from paquetes.ayuda_path.vsplot import plot
-from paquetes.ayuda_path.mcdctestgen import run_experiment, calc_reuse, calc_may_reuse
-from pyeda.boolalg.bdd import _path2point, BDDNODEZERO, BDDNODEONE, BDDZERO, BDDONE, _iter_all_paths, bdd2expr
-from paquetes.ayuda_path.mcdc_helpers import uniformize, instantiate, unique_tests, size, merge_Maybe_except_c, negate, \
+from pyeda.boolalg.bdd import _path2point, _iter_all_paths, BDDNODEZERO, BDDNODEONE, BDDZERO, BDDONE
+from mcdc_testcase.engine.mcdc_testgen import calc_reuse, calc_may_reuse
+from mcdc_testcase.engine.mcdc_helpers import uniformize, instantiate, unique_tests, size, merge_Maybe_except_c, negate, \
     lrlr, xor, replace_final_question_marks, better_size2, Path
 
-logger = None  # lazy
-
+from mcdc_testcase.engine import logger
 
 def bfs_upto_c(f, c):
     # type: (BinaryDecisionDiagram, BDDNode) -> (List[BDDNode], BDDNode)
@@ -55,7 +45,7 @@ def memoized_generator(f):
     def wrapper(*args, **kwargs):
         k = args, frozenset(kwargs.items())
         it = cache[k] if k in cache else f(*args, **kwargs)
-        cache[k], result = itertools.tee(it)
+        cache[k], result = tee(it)
         return result
     return wrapper
 
@@ -231,7 +221,6 @@ def random_ranked(cls, rng, choices, rank):
     els_it = takewhile(lambda p: rank(p) == pred_0, the_list)
     els = list(els_it)
     i = rng.randint(0, len(els)-1)
-    logger = logging.getLogger("MCDC")
     logger.debug("{}: Picking index {}/{}".format(cls.__class__.__name__, i, len(els)))
     # print("{}: Picking index {}/{}".format(cls.__class__.__name__, i, len(els)))
     return els[i]
@@ -693,65 +682,9 @@ def run_one_pathsearch(f, reuse_h, rng):
         test_case_pairs = instantiate(test_case_pairs)
         # Note: there was no guarantee yet if the pair is fully merged, the heuristics should make sure.
     assert len(test_case_pairs.keys()) == len(f.inputs), "obvious ({})".format(len(test_case_pairs.keys()))
-    # Lifted from bdd.py:
+
     # TODO -- eliminate: test_case = instantiate(test_case_pairs)
     replace_final_question_marks(test_case_pairs)
     uniq_test = unique_tests(test_case_pairs)
     num_test_cases = len(uniq_test)
     return test_case_pairs, num_test_cases, uniq_test
-
-
-if __name__ == "__main__":
-    try:
-        maxRounds = int(sys.argv[1])
-    except IndexError:
-        maxRounds = 42
-
-    try:
-        rngRounds = int(sys.argv[2])
-    except IndexError:
-        rngRounds = 3
-
-    RNGseed = 11
-    # XXX Oh wow, it's even worse; MP uses a global random state?!
-    #     https://github.com/numpy/numpy/issues/9650#issuecomment-327144993
-    seed(RNGseed)
-
-    # LongestPath and LongestMayMerge seem identical.
-    hs = [LongestMayMerge, LongestPath, LongestBool, LongestBoolMay, BetterSize, RandomReuser]
-    # f = tcasii.makeLarge(tcasii.D1)
-    # allKeys, plot_data, t_list = run_experiment((maxRounds, rngRounds), hs, [f], [len(f.inputs)], run_one_pathsearch)
-    # t_list = execution time
-    allKeys, plot_data, t_list = run_experiment((maxRounds, rngRounds), hs, tcasii.tcas, tcasii.tcas_num_cond, run_one_pathsearch)
-
-    # plot_data and wall_clock_list must have the same length
-    assert len(t_list) == len(plot_data)
-
-    # TODO: Pity, for now you'll have to wait again for plotting.
-    # Probably we could sneak in a callback again if we really need it.
-    def only_nplus1(args):
-        hi, resultMap = args
-        result_vec = []
-        for vs in resultMap.values():
-            (ns, count) = vs[0]
-            if (ns == tcasii.tcas_num_cond[hi]+1):
-                result_vec.append(count)
-            else:
-                # Obvs wouldn't work so well with masking:
-                result_vec.append(-1)
-        return result_vec
-
-    ls = list(map(only_nplus1, plot_data))
-    print(results_better(ls))  # TODO: Probably incorrect. `results_better` uses <=, but n+1 should use >=.
-    print(results_better_n_plus_1(ls, tcasii.tcas_num_cond))
-
-    for (hi, resultMap), t in zip(plot_data, t_list):
-        # Gnuplot:
-        chart_name = 'VS-{}.{}-{}-{}'.format(hs[hi](None, None, None).__class__.__name__, RNGseed, maxRounds, rngRounds)
-
-        with open('{}_resultMap.csv'.format(chart_name), 'w') as csvfile:
-            result_map_writer = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-            for col, rm in enumerate(resultMap.values()):
-                result_map_writer.writerow([col, rm])
-        plot(allKeys, chart_name, resultMap, t)
-    plt.show()  # Wait for windows
