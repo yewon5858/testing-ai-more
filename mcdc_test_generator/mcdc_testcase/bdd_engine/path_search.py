@@ -152,12 +152,11 @@ def find_partner_from_following(f, node, terminal, path, suffix, seen_nodes_on_o
 
 def ttff(node):
     # type: (BDDNode) -> int
+    assert node is BDDNODEONE or BDDNODEZERO
     if node is BDDNODEONE:
         return 1
     elif node is BDDNODEZERO:
         return 0
-    else:
-        assert False
 
 
 def independence_day_for_condition(f, v_c, t):
@@ -181,19 +180,6 @@ def independence_day_for_condition(f, v_c, t):
     yield from partners
 
 
-class UseFirst:
-    def __init__(self, f, c, _rng):
-        pass
-
-    @staticmethod
-    def pick_best(test_case_pairs, c, pair):
-        return pair
-
-    @staticmethod
-    def reconsider_best_of_the_worst(_test_case_pairs):
-        return None
-
-
 def random_ranked(cls, rng, choices, rank):
     # type: (object, list, list, callable) -> int
     """Pick some (random?) element from the best-ranked bucket."""
@@ -205,9 +191,19 @@ def random_ranked(cls, rng, choices, rank):
     els = list(els_it)
     i = rng.randint(0, len(els)-1)
     logger.debug("{}: Picking index {}/{}".format(cls.__class__.__name__, i, len(els)))
-    # print("{}: Picking index {}/{}".format(cls.__class__.__name__, i, len(els)))
     return els[i]
 
+class UseFirst:
+    def __init__(self, f, c, _rng):
+        pass
+
+    @staticmethod
+    def pick_best(test_case_pairs, c, pair):
+        return pair
+
+    @staticmethod
+    def reconsider_best_of_the_worst(_test_case_pairs):
+        return None
 
 class Reuser:
     """This class takes the first pair that has any reuse. Worst case is that we don't
@@ -504,7 +500,7 @@ def find_existing_candidates(f, c, test_case_pairs):
             if not b:
                 if val_2.is_one():
                     tc_x.origs = tc_x_orig_keys
-                    yield (tc, tc_x)
+                    yield tc, tc_x
                 else:
                     for res in val_2.satisfy_all():
                         val_2.restrict(res)
@@ -514,11 +510,11 @@ def find_existing_candidates(f, c, test_case_pairs):
                             tc_0.origs = tc.origs  # we had all that we needed
                             tc_1 = Path(dict(tc_x).update(res))
                             tc_1.origs = tc_x_orig_keys.union(res.keys())
-                            yield (tc_0, tc_1)
+                            yield tc_0, tc_1
             else:
                 if val_2.is_zero():
                     tc_x.origs = tc_x_orig_keys
-                    yield (tc_x, tc)
+                    yield tc_x, tc
                 else:
                     for res in unsatisfy_all(val_2):
                         val_2.restrict(res)
@@ -528,7 +524,7 @@ def find_existing_candidates(f, c, test_case_pairs):
                             tc_0.origs = tc_x_orig_keys.union(res.keys())
                             tc_1 = Path(dict(tc).update(res))
                             tc_1.origs = tc.origs
-                            yield (tc_0, tc_1)
+                            yield tc_0, tc_1
     return
 
 

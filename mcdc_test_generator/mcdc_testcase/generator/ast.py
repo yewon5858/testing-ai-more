@@ -8,9 +8,6 @@ from pysmt.typing import INT
 from pyeda.boolalg.bdd import expr2bdd
 from pyeda.boolalg.expr import expr
 
-from pathsearch import run_one_pathsearch, LongestMayMerge
-from sat_solver.cSolver import oSolver
-
 
 def foo(msg):
     # tokenizar el asunto
@@ -52,13 +49,13 @@ def handleBool(x):
     for a in ast.iter_child_nodes(x):
         # and, or
         print("bol ", a)
-        if (type(a) == ast.And):
+        if type(a) == ast.And:
             band = True
             continue
         else:
             res.append(a)
 
-    if (band):
+    if band:
         handleAnd(res)
     return res
 
@@ -66,10 +63,10 @@ def handleBool(x):
 def handleAnd(res):
     print(res)
     for i in res:
-        if (type(i) == ast.Name):
+        if type(i) == ast.Name:
             # We are in at and and the variable is a boolean...
             continue
-        elif (type(i) == ast.Compare):
+        elif type(i) == ast.Compare:
             # We need to tokenize the expression, only if both members are names
             print("aaa ", i.left, i)
 
@@ -129,7 +126,7 @@ def handle_post_request(expression: str, token_dict: dict):
                 # If it is a numeric expression...
                 if type(child) == ast.Expr and type(child.value) == ast.Compare:
                     comparisson = child.value
-                    if (type(comparisson.left) == ast.Name and type(comparisson.comparators[0]) == ast.Name):
+                    if type(comparisson.left) == ast.Name and type(comparisson.comparators[0]) == ast.Name:
                         cs.addVariable(comparisson.left.id)
                         cs.addVariable(comparisson.comparators[0].id)
 
@@ -159,7 +156,7 @@ def handle_post_request(expression: str, token_dict: dict):
                                 GE(Symbol(comparisson.left.id, INT), Symbol(comparisson.comparators[0].id, INT)))
 
 
-                    elif (type(comparisson.left) == ast.Constant and type(comparisson.comparators[0]) == ast.Name):
+                    elif type(comparisson.left) == ast.Constant and type(comparisson.comparators[0]) == ast.Name:
                         # cs.addVariable(comparisson.left.id)
                         cs.addVariable(comparisson.comparators[0].id)
 
@@ -188,7 +185,7 @@ def handle_post_request(expression: str, token_dict: dict):
                             cs.addConstraint(
                                 GE(Int(comparisson.left.value), Symbol(comparisson.comparators[0].id, INT)))
 
-                    elif (type(comparisson.left) == ast.Name and type(comparisson.comparators[0]) == ast.Constant):
+                    elif type(comparisson.left) == ast.Name and type(comparisson.comparators[0]) == ast.Constant:
                         cs.addVariable(comparisson.left.id)
                         # cs.addVariable(comparisson.comparators[0].id)
                         if type(comparisson.ops[0]) == ast.Eq and test[exp] == 1 or (
@@ -216,7 +213,7 @@ def handle_post_request(expression: str, token_dict: dict):
                             cs.addConstraint(
                                 GE(Symbol(comparisson.left.id, INT), Int(comparisson.comparators[0].value)))
 
-                    elif (type(comparisson.left) == ast.Constant and type(comparisson.comparators[0]) == ast.Constant):
+                    elif type(comparisson.left) == ast.Constant and type(comparisson.comparators[0]) == ast.Constant:
                         # cs.addVariable(comparisson.left.id)
                         # cs.addVariable(comparisson.comparators[0].id)
                         if type(comparisson.ops[0]) == ast.Eq and test[exp] == 1 or (
@@ -264,7 +261,3 @@ def no_duplicates(s):
         if i not in r:
             r.append(i)
     return r
-
-
-def remove_not_numeric(exp):
-    return exp

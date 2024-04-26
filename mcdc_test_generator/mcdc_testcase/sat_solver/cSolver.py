@@ -1,7 +1,5 @@
 from pysmt.shortcuts import *
 from pysmt.typing import *
-from pysmt.parsing import parse
-from pysmt.fnode import FNode
 
 
 class oSolver:

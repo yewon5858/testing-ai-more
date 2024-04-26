@@ -1,5 +1,8 @@
 from functools import reduce
 from more_itertools import partition
+from pyeda.boolalg.bdd import BDDZERO, BDDONE
+
+from mcdc_testcase.engine import logger
 
 
 class Path(dict):
@@ -34,7 +37,7 @@ def better_size(tcs, pairs):
 
         res = set()
         for p in tcs.values():
-             res.union(conditions(p[0]) | conditions(p[1]))
+            res.union(conditions(p[0]) | conditions(p[1]))
         return res
 
     p0, p1 = pairs
@@ -57,7 +60,7 @@ def better_size2(tcs, pairs):
 
         res = set()
         for p in tcs.values():
-             res.union(conditions(p[0]) | conditions(p[1]))
+            res.union(conditions(p[0]) | conditions(p[1]))
         return res
 
     p0, p1 = pairs
@@ -296,7 +299,6 @@ def replace_final_question_marks(test_case):
     # type: (dict) -> bool
     # Arbitrarily replaces remaining question marks with 1.
     # The result tells you if at least one ? had to be replaced.
-    conditions = test_case.keys()
     have_warned = False
     for cond in test_case:
         path_zero, path_one = test_case[cond]
@@ -379,7 +381,7 @@ def propagate(test_case):
         # type: (int, dict) -> (int, dict)
         c = count_none(path)
         if c < acc[0]:
-            return (c, path)
+            return c, path
         else:
             return acc
 
@@ -468,6 +470,12 @@ def instantiate(test_case):
     return test_case
 
 
+def test_to_str(test):
+    # type: (dict) -> str
+    # print(sorted(test))
+    # return "".join(str(c) for c in test.values())
+    return "".join(str(test[c]) if test[c] is not None else '?' for c in sorted(test))
+
 
 def printer(test_case, is_mcdc, num_test_cases, uniq_test):
     # type: (dict, bool, int, list) -> None
@@ -493,7 +501,7 @@ def printer(test_case, is_mcdc, num_test_cases, uniq_test):
         print("|{1}|1|\t\t({0})".format(cond, s1))
 
     psi = psi_gen(test_case, uniq_test)
-    psi_printer(psi, uniq_test)
+    psi_printer(psi)
 
 
 def psi_gen(test_case, uniq_test):
@@ -506,7 +514,7 @@ def psi_gen(test_case, uniq_test):
     return psi
 
 
-def psi_printer(psi, uniq_test):
+def psi_printer(psi):
     # type: (dict, list) -> None
     print("Psi:")
     for test in sorted(psi.keys()):

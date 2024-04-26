@@ -11,6 +11,7 @@ def equal(bddnode, condition):
     # type: (BDDNode, BDDVariable) -> bool
     return bddnode.root == condition.uniqid
 
+
 def path_via_node(fr, vc, to, conditions):
     # type: (BDDNode, BDDNode, BDDNode, iter) -> list
     # list of paths from the root to terminal node via intermediate node vc
@@ -21,6 +22,7 @@ def path_via_node(fr, vc, to, conditions):
     list_of_paths = [uniformize(_path2point(path), conditions)
                      for path in _iter_all_paths(fr, to) if vc in path]
     return list_of_paths
+
 
 def satisfy_mcdc(f, heuristic):
     # type: (BinaryDecisionDiagram, callable) -> (dict, int, list)
@@ -41,7 +43,6 @@ def satisfy_mcdc(f, heuristic):
         # path = {a: 1, ..., c: None}
         # The use of a dictionary guarantees singleton references to the same path, which is useful when instantiating
         # None values in the path (e.g., c: None) and the path is shared by several case of studies
-        tuple_2_dict = dict()
 
         # test_case is a dictionary of pairs
         test_case = dict()
@@ -62,8 +63,8 @@ def satisfy_mcdc(f, heuristic):
             logger.debug("current variable: {0}".format(c))
             logger.debug("______________________________________")
 
-            paths_to_zero = []
-            paths_to_one = []
+            paths_to_zero: list
+            paths_to_one: list
 
             c_nodes = [node for node in bdd_nodes if equal(node, c)]
             # TODO: Could be interesting to make the following loop a generator.
@@ -152,6 +153,7 @@ def calc_may_reuse(path, test_case_pairs):
     tcs = filter(lambda p: merge_Maybe_except_c_bool(None, path, p[0]) is not None
                            or merge_Maybe_except_c_bool(None, path, p[1]) is not None, test_case_pairs.values())
     return len(list(tcs))
+
 
 def paths_from_pair_is_reused(tcs, pair):
     # type: (dict, (dict, dict)) -> bool
