@@ -1,35 +1,15 @@
-from multiprocessing import Pool, Manager
-from math import factorial
-from random import randint, seed, Random
-import sys
-import time
+from itertools import chain, tee
 
-from itertools import permutations, repeat, product, chain, tee
-from sortedcontainers import SortedList
-
-from pyeda.boolalg.bdd import expr2bdd, bdd2expr, _iter_all_paths, _path2point, BDDNode, BDDNODEZERO, BDDNODEONE, \
-    BDDVariable, BinaryDecisionDiagram
-from pyeda.boolalg.expr import expr
-from pyeda.inter import bddvars
+from pyeda.boolalg.bdd import (_iter_all_paths, _path2point, BDDNode, BDDNODEZERO, BDDNODEONE, BDDVariable,
+                               BinaryDecisionDiagram)
 
 from mcdc_testcase.engine.mcdc_helpers import *
 from mcdc_testcase.engine import logger
 
 
-# noinspection PyUnreachableCode
-def no_mechanism(_f, _h):
-    assert False, "MP maybe not initialized correctly?"
-    exit(1)
-
-
-# MP: Things that need to be synced.
-# We use `None` to provoke a type-error if we ever get this wrong.
-# See `init_globals()`.
-# How many rounds:
-maxRounds = None
-rngRounds = None
-mechanism = no_mechanism
-
+def equal(bddnode, condition):
+    # type: (BDDNode, BDDVariable) -> bool
+    return bddnode.root == condition.uniqid
 
 def path_via_node(fr, vc, to, conditions):
     # type: (BDDNode, BDDNode, BDDNode, iter) -> list
@@ -41,12 +21,6 @@ def path_via_node(fr, vc, to, conditions):
     list_of_paths = [uniformize(_path2point(path), conditions)
                      for path in _iter_all_paths(fr, to) if vc in path]
     return list_of_paths
-
-
-def equal(bddnode, condition):
-    # type: (BDDNode, BDDVariable) -> bool
-    return bddnode.root == condition.uniqid
-
 
 def satisfy_mcdc(f, heuristic):
     # type: (BinaryDecisionDiagram, callable) -> (dict, int, list)
@@ -164,52 +138,6 @@ def satisfy_mcdc(f, heuristic):
     return test_case, num_test_cases, uniq_test
 
 
-def init_globals(_runs, _tcas, _tcas_num_cond, _mechanism):
-    # type: (int, dict, int, callable) -> None
-    # https://stackoverflow.com/a/28862472/60462
-    global maxRounds
-    global tcas
-    global tcas_num_cond
-    global mechanism
-    maxRounds = _runs
-    sys.setrecursionlimit(1500)  # Required e.g. for makeLarge(D15)
-    tcas = list(map(lambda x: expr2bdd(expr(x)), _tcas))
-    tcas_num_cond = _tcas_num_cond
-    mechanism = _mechanism
-
-
-def sample_one(l):
-    # type: (int) -> list
-    have = []
-    while len(have) < l:
-        j = randint(0, l - 1)
-        if j not in have:
-            have.append(j)
-    return have
-
-
-def gen_perm(l):
-    # type: (int) -> list
-    global maxRounds
-    return gen_perm_max(maxRounds, l)
-
-
-def gen_perm_max(maxRounds, l):
-    # type: (int, int) -> list
-    # If you're asking for more rounds than we have permutations,
-    #   we'll give them all to you.
-    if maxRounds >= factorial(l):
-        # Still hating MP with a vengeance. Force deep eval.
-        return list(map(lambda p: list(p), permutations(range(l))))
-    # Otherwise, we'll sample sloppily:
-    perms = []
-    for _ in range(maxRounds):
-        # `append`/` += [i]` seems to be the efficient choice here.
-        perms.append(sample_one(l))  # ignore duplicates for now XXX
-    return perms
-
-
-# Def. as per paper
 def calc_reuse(path, test_case_pairs):
     # type: (dict, dict) -> int
     # for p in test_case.values():
@@ -224,99 +152,6 @@ def calc_may_reuse(path, test_case_pairs):
     tcs = filter(lambda p: merge_Maybe_except_c_bool(None, path, p[0]) is not None
                            or merge_Maybe_except_c_bool(None, path, p[1]) is not None, test_case_pairs.values())
     return len(list(tcs))
-
-
-def hi_reuse_short_path(tcs, c, paths_to_zero, paths_to_one):
-    # type: (dict, BDDVariable, list, list) -> list
-    cartesian_product = product(paths_to_zero, paths_to_one)
-
-    # Choose path_zero and path_one that only differs on condition c
-    paths = ((path_zero, path_one) for (path_zero, path_one) in cartesian_product
-             if xor(path_zero, path_one, c))
-    return SortedList(paths, key=lambda path: (-calc_reuse(path[0], tcs) - calc_reuse(path[1], tcs),
-                                               # highest reuse/shortest path
-                                               size(path[0]) + size(path[1])))
-
-
-def hi_reuse_long_path(tcs, c, paths_to_zero, paths_to_one):
-    # type: (dict, BDDVariable, list, list) -> list
-    cartesian_product = product(paths_to_zero, paths_to_one)
-
-    # Choose path_zero and path_one that only differs on condition c
-    paths = ((path_zero, path_one) for (path_zero, path_one) in cartesian_product
-             if xor(path_zero, path_one, c))
-    return SortedList(paths, key=lambda path: (-calc_reuse(path[0], tcs) - calc_reuse(path[1], tcs),
-                                               # highest reuse/longest path
-                                               -size(path[0]) - size(path[1])))
-
-
-def hi_reuse_long_merged_path(tcs, c, paths_to_zero, paths_to_one):
-    # type: (dict, BDDVariable, list, list) -> list
-    cartesian_product = product(paths_to_zero, paths_to_one)
-
-    # Choose path_zero and path_one that only differs on condition c
-    paths = ((path_zero, path_one) for (path_zero, path_one) in cartesian_product
-             if xor(path_zero, path_one, c))
-    return SortedList(paths, key=lambda path: (-calc_may_reuse(path[0], tcs) - calc_may_reuse(path[1], tcs),
-                                               # highest reuse/longest path
-                                               -size(path[0]) - size(path[1])))
-
-
-def h3(tcs, c, paths_to_zero, paths_to_one):
-    # type: (dict, BDDVariable, list, list) -> list
-    # Not "very good", e.g. can't find optimal solution in general, here D3:
-    #    Num_Cond=7: min=8, |p|=5040, [(9, 5040)]
-    cartesian_product = product(paths_to_zero, paths_to_one)
-
-    # Choose path_zero and path_one that only differs on condition c
-    paths = ((path_zero, path_one) for (path_zero, path_one) in cartesian_product
-             if xor(path_zero, path_one, c))
-    return [paths.__next__()]
-
-
-def h3s(tcs, c, paths_to_zero, paths_to_one):
-    # type: (dict, BDDVariable, list, list) -> list
-    # Try to improve over H3 by pre-sorting. Ideally, we'd want to build the product "diagonally".
-    # Shortest path/highest reuse
-    # Still "meh" (of course[*]) as in "does not find n+1 at all": Num_Cond=7: min=8, |p|=5040, [(9, 5040)]
-    # Re: [*] "of course" -- or is it? Of course ORDER of solutions plays a role, since we're only
-    #    taking the first one once we return results here!
-    paths_to_zero = SortedList(paths_to_zero, key=lambda path: (size(path), -calc_reuse(path, tcs)))
-    paths_to_one = SortedList(paths_to_one, key=lambda path: (size(path), -calc_reuse(path, tcs)))
-    cartesian_product = product(paths_to_zero, paths_to_one)
-
-    # Choose path_zero and path_one that only differs on condition c
-    paths = ((path_zero, path_one) for (path_zero, path_one) in cartesian_product
-             if xor(path_zero, path_one, c))
-    return [paths.__next__()]
-
-
-def h3h(tcs, c, paths_to_zero, paths_to_one):
-    # type: (dict, BDDVariable, list, list) -> list
-    # highest reuse/shortest path
-    # Still fails D3
-    paths_to_zero = SortedList(paths_to_zero, key=lambda path: (-calc_reuse(path, tcs), size(path)))
-    paths_to_one = SortedList(paths_to_one, key=lambda path: (-calc_reuse(path, tcs), size(path)))
-    cartesian_product = product(paths_to_zero, paths_to_one)
-
-    # Choose path_zero and path_one that only differs on condition c
-    paths = ((path_zero, path_one) for (path_zero, path_one) in cartesian_product
-             if xor(path_zero, path_one, c))
-    return [paths.__next__()]
-
-
-def h3hl(tcs, c, paths_to_zero, paths_to_one):
-    # type: (dict, BDDVariable, list, list) -> list
-    # highest reuse/longest path
-    # Still fails D3
-    paths_to_zero = SortedList(paths_to_zero, key=lambda path: (-calc_reuse(path, tcs), -size(path)))
-    paths_to_one = SortedList(paths_to_one, key=lambda path: (-calc_reuse(path, tcs), -size(path)))
-    cartesian_product = product(paths_to_zero, paths_to_one)
-
-    # Choose path_zero and path_one that only differs on condition c
-    paths = filter(lambda p: xor(p[0], p[1], c), cartesian_product)
-    return [paths.__next__()]
-
 
 def paths_from_pair_is_reused(tcs, pair):
     # type: (dict, (dict, dict)) -> bool
