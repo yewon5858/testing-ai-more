@@ -6,7 +6,7 @@
 # pysmt-install --check
 # pysmt-install --msat
 
-from mcdc_testcase.engine.path_search import run_one_pathsearch
+from mcdc_testcase.bdd_engine.path_search import run_one_pathsearch
 from pyeda.boolalg.bdd import expr2bdd
 from pyeda.boolalg.expr import expr
 from random import Random

@@ -2,7 +2,7 @@ from functools import reduce
 from more_itertools import partition
 from pyeda.boolalg.bdd import BDDZERO, BDDONE
 
-from mcdc_testcase.engine import logger
+from mcdc_testcase.bdd_engine import logger
 
 
 class Path(dict):

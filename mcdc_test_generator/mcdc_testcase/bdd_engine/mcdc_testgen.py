@@ -3,8 +3,8 @@ from itertools import chain, tee
 from pyeda.boolalg.bdd import (_iter_all_paths, _path2point, BDDNode, BDDNODEZERO, BDDNODEONE, BDDVariable,
                                BinaryDecisionDiagram)
 
-from mcdc_testcase.engine.mcdc_helpers import *
-from mcdc_testcase.engine import logger
+from mcdc_testcase.bdd_engine.mcdc_helpers import *
+from mcdc_testcase.bdd_engine import logger
 
 
 def equal(bddnode, condition):

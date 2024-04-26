@@ -7,11 +7,11 @@ from typing import List
 from sortedcontainers import SortedList
 
 from pyeda.boolalg.bdd import _path2point, _iter_all_paths, BDDNODEZERO, BDDNODEONE, BDDZERO, BDDONE
-from mcdc_testcase.engine.mcdc_testgen import calc_reuse, calc_may_reuse
-from mcdc_testcase.engine.mcdc_helpers import uniformize, instantiate, unique_tests, size, merge_Maybe_except_c, negate, \
+from mcdc_testcase.bdd_engine.mcdc_testgen import calc_reuse, calc_may_reuse
+from mcdc_testcase.bdd_engine.mcdc_helpers import uniformize, instantiate, unique_tests, size, merge_Maybe_except_c, negate, \
     lrlr, xor, replace_final_question_marks, better_size2, Path
 
-from mcdc_testcase.engine import logger
+from mcdc_testcase.bdd_engine import logger
 
 def bfs_upto_c(f, c):
     # type: (BinaryDecisionDiagram, BDDNode) -> (List[BDDNode], BDDNode)
