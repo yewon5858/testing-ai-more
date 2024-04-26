@@ -7,7 +7,7 @@ if __name__ == '__main__':
     b: int
 
     # La condición que se desea estudiar es eq.
-    eq = (a > 10) & (b < 9)
+    eq = "(a > 10) & (b < 9)"
 
     rng = Random(100)
 

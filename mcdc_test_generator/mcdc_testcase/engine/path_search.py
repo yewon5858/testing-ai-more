@@ -1,7 +1,6 @@
 import collections
 import copy
 from itertools import chain, repeat, accumulate, takewhile, tee
-import functools
 import sys
 from typing import List
 
@@ -36,21 +35,6 @@ def bfs_upto_c(f, c):
                 queue.appendleft((path+[node.hi], node.hi))
 
 
-def memoized_generator(f):
-    # type: (BinaryDecisionDiagram) -> callable
-    # https://stackoverflow.com/a/53437323/60462
-    cache = {}
-
-    @functools.wraps(f)
-    def wrapper(*args, **kwargs):
-        k = args, frozenset(kwargs.items())
-        it = cache[k] if k in cache else f(*args, **kwargs)
-        cache[k], result = tee(it)
-        return result
-    return wrapper
-
-
-# @memoized_generator
 def terminals_via_bfs_from(node):
     # type: (BDDNode) -> ((List[BDDNode], List[BDDNode, bool]), BDDNode)
     # Pushed down `terms`, since it was constant anyway and couldn't be @cached.
@@ -74,7 +58,6 @@ def terminals_via_bfs_from(node):
                 queue.appendleft(((path+[node], trace+[(node.root, True)]), node.hi))
 
 
-# @memoized_generator
 def pairs_from_node(f, v_c):
     # type: (BinaryDecisionDiagram, BDDNode) -> _
     def _check_monotone(acc, t):
@@ -642,8 +625,8 @@ def run_one_pathsearch(f, reuse_h, rng):
         # assert set(result_ex_cand) <= set(result), "Not a proper subset" ---> unavaiable because 'dict's are not hashable
 
         # Auxiliar iterator
-        result_ex_cand, list_1 = itertools.tee(result_ex_cand)
-        result, list_2 = itertools.tee(result)
+        result_ex_cand, list_1 = tee(result_ex_cand)
+        result, list_2 = tee(result)
         llist_1 = list(list_1)
         llist_2 = list(list_2)
         # l1 = [(p0, p1), (p2, p3)]

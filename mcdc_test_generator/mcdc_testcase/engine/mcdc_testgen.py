@@ -7,17 +7,20 @@ import time
 from itertools import permutations, repeat, product, chain, tee
 from sortedcontainers import SortedList
 
-from pyeda.boolalg.bdd import expr2bdd, bdd2expr, _iter_all_paths, _path2point, BDDNode, BDDNODEZERO, BDDNODEONE, BDDVariable, BinaryDecisionDiagram
+from pyeda.boolalg.bdd import expr2bdd, bdd2expr, _iter_all_paths, _path2point, BDDNode, BDDNODEZERO, BDDNODEONE, \
+    BDDVariable, BinaryDecisionDiagram
 from pyeda.boolalg.expr import expr
 from pyeda.inter import bddvars
 
 from mcdc_testcase.engine.mcdc_helpers import *
 from mcdc_testcase.engine import logger
 
+
 # noinspection PyUnreachableCode
 def no_mechanism(_f, _h):
     assert False, "MP maybe not initialized correctly?"
     exit(1)
+
 
 # MP: Things that need to be synced.
 # We use `None` to provoke a type-error if we ever get this wrong.
@@ -26,6 +29,7 @@ def no_mechanism(_f, _h):
 maxRounds = None
 rngRounds = None
 mechanism = no_mechanism
+
 
 def path_via_node(fr, vc, to, conditions):
     # type: (BDDNode, BDDNode, BDDNode, iter) -> list
@@ -44,8 +48,8 @@ def equal(bddnode, condition):
     return bddnode.root == condition.uniqid
 
 
-def satisfy_mcdc(f, heuristic, _rng):
-    """ type: (BinaryDecisionDiagram, callable) -> (dict, int, list)"""
+def satisfy_mcdc(f, heuristic):
+    # type: (BinaryDecisionDiagram, callable) -> (dict, int, list)
 
     def select_paths_bdd(f):
         # type: (BinaryDecisionDiagram) -> dict
@@ -98,8 +102,10 @@ def satisfy_mcdc(f, heuristic, _rng):
             #     paths_to_one += path_via_node(root, vc, BDDNODEONE, conditions)
 
             # WARNING: iterators are exhausted once they are read
-            paths_to_zero, paths_to_zero_log = tee(chain.from_iterable(path_via_node(root, vc, BDDNODEZERO, conditions) for vc in c_nodes))
-            paths_to_one, paths_to_one_log = tee(chain.from_iterable(path_via_node(root, vc, BDDNODEONE, conditions) for vc in c_nodes))
+            paths_to_zero, paths_to_zero_log = tee(
+                chain.from_iterable(path_via_node(root, vc, BDDNODEZERO, conditions) for vc in c_nodes))
+            paths_to_one, paths_to_one_log = tee(
+                chain.from_iterable(path_via_node(root, vc, BDDNODEONE, conditions) for vc in c_nodes))
 
             logger.debug("paths_to_zero:\t{0}".format(paths_to_zero_log))
             logger.debug("paths_to_one:\t{0}".format(paths_to_one_log))
@@ -216,7 +222,7 @@ def calc_reuse(path, test_case_pairs):
 def calc_may_reuse(path, test_case_pairs):
     # type: (dict, dict) -> int
     tcs = filter(lambda p: merge_Maybe_except_c_bool(None, path, p[0]) is not None
-                        or merge_Maybe_except_c_bool(None, path, p[1]) is not None, test_case_pairs.values())
+                           or merge_Maybe_except_c_bool(None, path, p[1]) is not None, test_case_pairs.values())
     return len(list(tcs))
 
 
@@ -228,8 +234,8 @@ def hi_reuse_short_path(tcs, c, paths_to_zero, paths_to_one):
     paths = ((path_zero, path_one) for (path_zero, path_one) in cartesian_product
              if xor(path_zero, path_one, c))
     return SortedList(paths, key=lambda path: (-calc_reuse(path[0], tcs) - calc_reuse(path[1], tcs),
-            # highest reuse/shortest path
-            size(path[0]) + size(path[1])))
+                                               # highest reuse/shortest path
+                                               size(path[0]) + size(path[1])))
 
 
 def hi_reuse_long_path(tcs, c, paths_to_zero, paths_to_one):
@@ -312,21 +318,6 @@ def h3hl(tcs, c, paths_to_zero, paths_to_one):
     return [paths.__next__()]
 
 
-def processFP_with_time(args):
-    # type: (list) -> int
-    tic = time.process_time_ns()
-    i = args[0]
-    p = args[1]
-    h = args[2]
-    thread_time = args[3]
-    rng = Random(args[4])
-    value = processFP(i, p, h, rng)
-    toc = time.process_time_ns()
-    elapsed_time = toc - tic
-    thread_time.append(elapsed_time)
-    return value
-
-
 def paths_from_pair_is_reused(tcs, pair):
     # type: (dict, (dict, dict)) -> bool
     """Each path occurs only once, exactly for the pair we're looking at,
@@ -335,83 +326,3 @@ def paths_from_pair_is_reused(tcs, pair):
     r0 = calc_reuse(pair[0], tcs)
     r1 = calc_reuse(pair[1], tcs)
     return r0 + r1 > 2
-
-
-def processFP(i, p, heuristic, rng):
-    """type: () -> int"""
-    global mechanism
-    f1 = tcas[i]  # Back into the global data (MP)
-    fresh_var = 'f'  # apparently there's something weird going on if this name is used before, eg. in tcasii
-    assert fresh_var+"[0]" not in map(lambda x: str(x), f1.inputs)
-    X = bddvars(fresh_var, len(f1.inputs))  # Let's hope this ain't too expensive.
-    theMap = {sorted(f1.inputs, key=lambda c: c.uniqid)[t]: X[p[t]] for t in range(len(f1.inputs))}
-    f2 = f1.compose(theMap)
-    test_case, num_test_cases, uniq_test = mechanism(f2, heuristic, rng)
-    is_mcdc = test_mcdc(f2, test_case)
-    assert is_mcdc
-    # print('Round: {0} Number of Conditions: {1} Number of TCs: {2}'.format(RoundN, len(f1.inputs), num_test_cases))
-    assert len(f1.inputs) == len(f2.inputs)
-    if num_test_cases > len(f1.inputs)+1:
-        # Check if first condition was ever reused:
-        fs = sorted(f2.inputs, key=lambda c: c.uniqid)
-        first_cond = fs[0]
-        if not paths_from_pair_is_reused(test_case, test_case[first_cond]):
-            tcs_s = [(lrlr(fs, test_case[c][0]), lrlr(fs, test_case[c][1])) for c in fs]
-            # TODO: doesn't really work within MP :-/
-            logger = logging.getLogger(__name__)
-            logger.debug("Failed to reuse root node (h:"+str(heuristic)+":\n"+str(i)+'/'+str(num_test_cases)+':'+str(bdd2expr(f2))+'\n'+str(tcs_s))
-            # assert False
-
-    if num_test_cases <= len(f1.inputs) or not is_mcdc:
-        # inv_map = {v: k for k, v in theMap.items()}
-        num_test_cases = -1  # indicate that this set is useless
-        # TODO: I think this disappears in the final result?
-        # Not a problem since we show % in relation to maxRounds.
-    return num_test_cases
-
-
-def process_one(arg):
-    # type: ((int, (BinaryDecisionDiagram, int), int, Pool, list)) -> (set, list)
-    # enumerate(zip(tcas, tcas_num_cond)), perms, repeat(h), repeat(p), repeat(thread_time))
-    results = {}
-    i, (f1, num_cond) = (arg[0][0], (arg[0][1][0], arg[0][1][1]))
-    # Pity that with mp we can't share/reuse perms without more complications.
-    # TODO: Actually, after the "global pool" refactoring, we probably can again!
-    perms = arg[1]
-    h = arg[2]
-    pool = arg[3]
-    # thread_time = arg[4]
-    thread_time = Manager().list()
-    ntcs = []
-    # We run several rounds for each permutation, using positions from the first permutation as seed.
-    # Blows numbers a bit out of the water though...
-    for p in perms[0][:rngRounds]:
-        rng_seed = p
-        ntcs += pool.map(processFP_with_time, zip(repeat(i), perms, repeat(h), repeat(thread_time), repeat(rng_seed)))
-    for num_test_cases in ntcs:
-        try:
-            old = results[num_test_cases]
-        except KeyError:
-            old = 0
-        results[num_test_cases] = old + 1
-
-    # We keep these around for the CSV:
-    sr = sorted(results)
-    resultMap = [(k, results[k]) for k in sr]
-
-    if len(resultMap) == 0 or len(f1.inputs) + 1 < resultMap[0][0]:
-        print("We didn't find any n+1 solution")
-
-    print('Num_Cond={}: min={}, t_avg={} |p|={}'.format(num_cond, len(f1.inputs) + 1
-                                                              , (sum(thread_time)/(len(perms)*rngRounds))/1e9
-                                                              , factorial(len(f1.inputs))
-                                                              , resultMap))
-    arg[4].extend(thread_time)  # report time up the chain
-    # TODO: I don't think we need this print statement below in general, both values are included in the line above.
-    if num_cond != len(f1.inputs):
-        print('Decision with Masked conditions: D_' + str(i + 1))
-    # TODO: could (should?) be done outside? OTOH, doesn't really matter
-    # "Normalize" result; we don't want to know that we have 42 solutions of size 6,
-    # but rather that these are 42 of size (n+1)+m (where m=0 is the best).
-    myKeys = set(map(lambda v: v - len(f1.inputs) - 1, sr))
-    return myKeys, resultMap
