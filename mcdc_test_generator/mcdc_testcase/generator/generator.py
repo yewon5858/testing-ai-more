@@ -7,6 +7,8 @@
 # pysmt-install --msat
 
 from mcdc_testcase.bdd_engine.path_search import run_one_pathsearch
+from mcdc_testcase.generator import logger
+
 from pyeda.boolalg.bdd import expr2bdd
 from pyeda.boolalg.expr import expr
 from random import Random
@@ -42,8 +44,8 @@ def solve(eq, reuse_h, rng, path_to_test = None):
         # decrypt_dict = {"a0": (1 <= h), "a1": (h <= 10)}
         # new_test = {Not(1 <= h), Not(h <= 10)}
 
-        print("Test {0}".format(test))
-        print("Decrypt {0}".format(decrypt_dict))
+        logger.debug("Test {0}".format(test))
+        logger.debug("Decrypt {0}".format(decrypt_dict))
         new_test = []
         for key, val in test.items():
             if val == 1:
@@ -52,7 +54,7 @@ def solve(eq, reuse_h, rng, path_to_test = None):
                 # val == 0
                 new_test.append(Not(decrypt_dict[key]))
 
-        print(f"Test {new_test} fullfils {test}")
+        logger.debug(f"Test {new_test} fullfils {test}")
         return new_test
 
     def sat_solve(test, variables):
@@ -61,22 +63,22 @@ def solve(eq, reuse_h, rng, path_to_test = None):
         solution = dict()
         with Solver(logic="QF_LIA") as solver:
             for atom in test:
-                print(f"Adding assertion {atom} from {test}")
+                logger.debug(f"Adding assertion {atom} from {test}")
                 solver.add_assertion(atom)
                 # atom_vars = atom.get_free_variables()
             solver_solve = solver.solve()
-            print(f"Solving {test} with {solver_solve}")
+            logger.debug(f"Solving {test} with {solver_solve}")
             if not solver_solve:
-                print("Domain is not SAT!!!")
+                logger.debug("Domain is not SAT!!!")
                 return 'UNSAT'
                 #exit()
             if solver_solve:
                 for v in variables:
                     solution[v] = solver.get_value(v)
-                    # print("{0} = {1}".format(v, solution[v]))
+                    # logger.debug("{0} = {1}".format(v, solution[v]))
             else:
-                print("No solution found")
-        print("Solution: {0}\n".format(solution))
+                logger.debug("No solution found")
+        logger.debug("Solution: {0}\n".format(solution))
         # solution = {h: 10, ....}
         return solution
 
@@ -101,7 +103,7 @@ def solve(eq, reuse_h, rng, path_to_test = None):
     #  - "(10 >= h)" by "a1"
 
     atoms = list(formula.get_atoms())
-    print(f"Numerical atoms: {atoms}")
+    logger.debug(f"Numerical atoms: {atoms}")
 
     # Encrypt
     # formula           = (1 <= h) & (h <= 10)
@@ -109,7 +111,7 @@ def solve(eq, reuse_h, rng, path_to_test = None):
     bool_variables = set(Symbol("a" + str(i), BOOL) for (i, a) in enumerate(atoms))
     encrypt_dict = dict(zip(atoms, bool_variables))
     abstract_formula = formula.substitute(encrypt_dict)
-    print(f"Boolean atoms: {abstract_formula.get_atoms()}")
+    logger.debug(f"Boolean atoms: {abstract_formula.get_atoms()}")
 
     # Convert formula to BDD (pyeda) format
     f = expr(abstract_formula.serialize())
@@ -128,18 +130,18 @@ def solve(eq, reuse_h, rng, path_to_test = None):
     # Map atoms to tests
     # unique_tests = [{a0: 0, a1: 0}, {a0: 1, a1: 1}, ...]
     uniq_test = cast(uniq_test)
-    print(f"Decrypt dictionary: {decrypt_dict}")
-    print(f"Boolean test cases: {uniq_test}")
+    logger.debug(f"Decrypt dictionary: {decrypt_dict}")
+    logger.debug(f"Boolean test cases: {uniq_test}")
 
     solutions = []
     for test in uniq_test:
         # test = {"a0": 0, "a1": 0}
-        # print(f"Decrypting {test}")
+        # logger.debug(f"Decrypting {test}")
         test = preprocess(test, decrypt_dict)
-        # print(f"Into {test}")
+        # logger.debug(f"Into {test}")
 
         if path_to_test is not None:
-            print("test: ", test, " path_to_test: ", path_to_test)
+            logger.debug("test: ", test, " path_to_test: ", path_to_test)
         
         # test = {Not(1 <= h), Not(h <= 10)}
         sol = sat_solve(test, formula.get_free_variables())

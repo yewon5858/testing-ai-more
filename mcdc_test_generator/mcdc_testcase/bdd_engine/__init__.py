@@ -1,6 +1,5 @@
 import logging
 
 # Logging configuration
-
-logger = logging.getLogger("MCDC")
+logger = logging.getLogger("BDD Engine")
 logger.setLevel(logging.DEBUG)
