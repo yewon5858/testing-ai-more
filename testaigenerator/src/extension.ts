@@ -16,27 +16,15 @@ interface Configuration {
     apiKey : string
 }
 
-async function readConfig(): Promise<Configuration>{
-    const workspaceFolders = vscode.workspace.workspaceFolders;
-    if (!workspaceFolders || workspaceFolders.length === 0) {
-        vscode.window.showErrorMessage('No se encontraron carpetas en el espacio de trabajo.');
-        throw new Error('No se encontraron carpetas en el espacio de trabajo.');
-    }
-
-    const workspaceFolder = workspaceFolders[0];
-    const parentFolder = vscode.Uri.joinPath(workspaceFolder.uri, '../'); //Directorio padre
-    const configFilePath = vscode.Uri.joinPath(parentFolder, 'config.json');
-
-    //Read config.json
-    console.log(configFilePath); // Agregar esta línea para verificar la ruta
-
+async function readConfig(context: vscode.ExtensionContext): Promise<Configuration>{
+    const configFilePath = path.join(context.extensionPath, 'config.json');
     try {
-        const data = await fs.promises.readFile(configFilePath.fsPath, 'utf8');
+        const data = await fs.promises.readFile(configFilePath, 'utf8');
         const configDetails: Configuration = JSON.parse(data);
         return configDetails;
     } catch (error) {
-        vscode.window.showErrorMessage('Error al leer o parsear el archivo de configuración.');
-        throw new Error('Error al leer o parsear el archivo de configuración.');
+        console.error('Error al leer o parsear el archivo de configuración:', error);
+        throw new Error('Error reading or parsing config file');
     }
 }
 
@@ -57,14 +45,19 @@ function run_exec(context: vscode.ExtensionContext, eq: string) {
 
     //Registra un cambio en el archivo
     watcher.onDidChange((event) => {
-        // Leer el contenido del archivo
-        vscode.workspace.fs.readFile(rutaArchivo).then(data => {
-            const contenido = Buffer.from(data).toString('utf-8');
-            console.log(contenido);
-            vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): `+ contenido);
-        }, error => {
-            console.error('Error al leer el archivo:', error);
-        });
+        console.log('File changed!');
+        try {
+            // Leer el contenido del archivo
+            vscode.workspace.fs.readFile(rutaArchivo).then(data => {
+                const contenido = Buffer.from(data).toString('utf-8');
+                console.log(contenido);
+                vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): `+ contenido);
+            }, error => {
+                console.error('Error al leer el archivo:', error);
+            });
+        } catch (error) {
+            console.error('Error in watcher.onDidChange():', error);
+        }
     });
 
     // Dispose del watcher cuando el contexto se desactive
@@ -145,11 +138,7 @@ async function generateTestCases(configDetails:Configuration, eq: string) {
         // desplegable en la ventana creada 
         for (const choice of result.choices) {
             const answer = contenidoEntreCorchetes(choice.message.content);
-            vscode.window.showInformationMessage(`Casos de prueba generados (LLM): `+answer);
-            /*
-            twsl.show();
-            twsl.sendText(`echo `+answer);
-            */
+            vscode.window.showInformationMessage(`Casos de prueba generados (LLM): `+ answer);
         }
 
         // Mostrar la lista de valores de prueba en la consola
@@ -165,7 +154,7 @@ async function generateTestCases(configDetails:Configuration, eq: string) {
 //Extension main function----------------------------------------------------------------
 export async function activate(context: vscode.ExtensionContext) {
     //Al iniciar extension para prepara el entorno
-        const configDetails = await readConfig();
+        const configDetails = await readConfig(context);
         prepareEnvironment(configDetails);
 
     //PYMCDC------------------------------------------------------------------------------
