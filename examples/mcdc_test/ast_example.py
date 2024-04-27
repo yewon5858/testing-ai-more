@@ -87,7 +87,9 @@ class DisplayBoolOpVariables(ast.NodeVisitor):
         self.generic_visit(node)
     def visit_BoolOp(self, node):
         variables = [var.id for var in node.values if isinstance(var, ast.Name)]
+        print(f"variables: {variables}")
         self.variables = self.variables.union(variables)
+        self.generic_visit(node)
     #     print("node: {0}".format(astunparse.unparse(node)))
     #     comparators = []
     #     print(node.values)
@@ -116,10 +118,10 @@ class DisplayBoolOpVariables(ast.NodeVisitor):
 
 if __name__ == "__main__":
     # Código de ejemplo
-    code = "(a < 10) and (b > 10) or c"
+    equation = "(a < 10) and (b > 10) or c"
 
     # Analiza el código fuente
-    tree = ast.parse(code)
+    tree = ast.parse(equation)
 
     # Crea una instancia del transformador
     transformer = ComparisonTransformer()
@@ -128,7 +130,20 @@ if __name__ == "__main__":
     transformed_tree = transformer.visit(tree)
 
     # Revierte el árbol modificado a código fuente
-    modified_code = astunparse.unparse(transformed_tree)
+    modified_equation = astunparse.unparse(transformed_tree)
 
-    print(modified_code)
-    print(transformer.encrypt)
+    print(modified_equation)
+    print(f"Encrypt: {transformer.encrypt}")
+
+    #########################
+    # Analiza el código fuente
+    print(modified_equation.strip())
+    tree = ast.parse(modified_equation.strip())
+
+    # Crea una instancia del transformador
+    visualizer = DisplayBoolOpVariables()
+
+    # Aplica el transformador al árbol
+    visualizer.visit(tree)
+    print(f"Variables: {visualizer.variables}")
+
