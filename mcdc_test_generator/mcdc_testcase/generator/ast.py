@@ -8,6 +8,64 @@ from pysmt.typing import INT
 from pyeda.boolalg.bdd import expr2bdd
 from pyeda.boolalg.expr import expr
 
+import ast
+
+class ComparisonTransformer(ast.NodeTransformer):
+    def visit_BoolOp(self, node):
+        if isinstance(node.op, ast.And):
+            comparators = []
+            for value in node.values:
+                if isinstance(value, ast.Compare):
+                    if len(value.ops) == 1 and isinstance(value.ops[0], ast.Lt) and isinstance(value.comparators[0], ast.Num) and value.comparators[0].n == 10:
+                        left = value.left.id
+                        comparators.append(left)
+                    elif len(value.ops) == 1 and isinstance(value.ops[0], ast.Gt) and isinstance(value.comparators[0], ast.Num) and value.comparators[0].n == 10:
+                        right = value.comparators[0].id
+                        comparators.append(right)
+                    else:
+                        comparators.append(value)
+                else:
+                    comparators.append(value)
+            node.values = comparators
+        return node
+
+def encryt(eq: str):
+    # Replacement of integer expressions in equation by boolean expressions:
+    # Before:
+    #   equation = (1 <= h) & (10 >= h)
+    # After:
+    #   equation = a0 & a1
+
+    # Equation
+    # equation = "(1 <= h) & (10 >= h)".lower()
+    # formula = (1 <= h) & (10 >= h)
+    equation = eq.lower()
+    equation = equation.strip()
+    eq_ast = ast.parse(equation)
+
+    # for node in eq_ast:
+
+
+    # Declare variables
+    # Let's assume that all the variables are Integers and are named with with alphabet letters
+    int_variables = [Symbol(s, INT) for s in string.ascii_lowercase]  # ['a', 'b', 'c', ...]
+    formula = parse(equation)
+
+    # Replace atoms by symbolic variables.
+    # E.g.:
+    #  - "(1 <= h)" by "a0"
+    #  - "(10 >= h)" by "a1"
+
+    atoms = list(formula.get_atoms())
+    print(f"Numerical atoms: {atoms}")
+
+    # Encrypt
+    # formula           = (1 <= h) & (h <= 10)
+    # abstract_formula  = a0 & a1
+    bool_variables = set(Symbol("a" + str(i), BOOL) for (i, a) in enumerate(atoms))
+    encrypt_dict = dict(zip(atoms, bool_variables))
+    abstract_formula = formula.substitute(encrypt_dict)
+    print(f"Boolean atoms: {abstract_formula.get_atoms()}")
 
 def foo(msg):
     # tokenizar el asunto
