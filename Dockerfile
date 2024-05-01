@@ -16,15 +16,13 @@ RUN pysmt-install --check
 RUN echo "yes" | pysmt-install --confirm-agreement --msat
 
 WORKDIR /app
-COPY /mcdc_test_generator/requirements.txt /app
-RUN pip3 install --no-cache-dir -r requirements.txt 
-
 COPY . /app
-#RUN pip3 install --no-cache-dir -e .
+RUN pip3 install --no-cache-dir -r mcdc_test_generator/requirements.txt 
+RUN pip3 install --no-cache-dir -e mcdc_test_generator
 
 ENV FLASK_APP=/app/mcdc_test_generator/app.py
 ENV FLASK_ENV=production
-ENV PYTHONPATH=/app/mcdc_test
+ENV PYTHONPATH=/app/mcdc_test_generator
 
 EXPOSE 5000
 CMD ["gunicorn", "--workers=4", "--bind", "0.0.0.0:5000", "mcdc_test_generator.app:app"]
