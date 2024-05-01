@@ -2,6 +2,8 @@
 
 ## Open
 
+- [] Build endpoint to extract from a whole python script the expressions and send this the AzureChatGPT (partly in python/falsk and the other part in typescript)
+
 - [ ] Implement a needed datastructure
 - [ ] Implement a strict parser
 - [ ] Implement a JSON return type
