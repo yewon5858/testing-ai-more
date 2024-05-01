@@ -9,6 +9,7 @@ examples/
 Azure/
 ChatGPT/
 testaigenerator/
+postman_api_examples/
 
 # Exclude Python bytecode files + venv
 *.pyc
