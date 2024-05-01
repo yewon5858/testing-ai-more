@@ -2,6 +2,7 @@
 
 ## Open
 
+- [ ] Integrate the README.md of the students
 - [ ] Build endpoint to extract from a whole python script the expressions and send this the AzureChatGPT (partly in python/falsk and the other part in typescript)
 - [ ] Implement a needed datastructure
 - [ ] Implement a strict parser
