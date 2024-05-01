@@ -5,6 +5,7 @@ files/
 plugin/
 jupyter_notebook/
 bool_examples/
+examples/
 Azure/
 ChatGPT/
 testaigenerator/
@@ -35,3 +36,6 @@ Dockerfile
 *.log
 *.png
 install.sh
+README.md
+todo.md
+*.json
