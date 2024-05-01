@@ -1,0 +1,382 @@
+2024-05-01 19:12:26,876 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-01 19:12:26,876 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-01 19:12:26,878 - INFO -  * Restarting with stat
+2024-05-01 19:12:27,532 - WARNING -  * Debugger is active!
+2024-05-01 19:12:27,633 - INFO -  * Debugger PIN: 174-418-784
+2024-05-01 19:12:34,814 - INFO - 127.0.0.1 - - [01/May/2024 19:12:34] "GET /delete/logs HTTP/1.1" 200 -
+2024-05-01 19:12:42,610 - DEBUG - Numerical atoms: [(b < 9), (10 < a)]
+2024-05-01 19:12:42,611 - DEBUG - Boolean atoms: frozenset({a0, a1})
+2024-05-01 19:12:42,614 - DEBUG - LongestMayMerge: Picking index 1/2
+2024-05-01 19:12:42,617 - DEBUG - LongestMayMerge: Picking index 0/1
+2024-05-01 19:12:42,618 - DEBUG - Decrypt dictionary: {'a0': (b < 9), 'a1': (10 < a)}
+2024-05-01 19:12:42,619 - DEBUG - Boolean test cases: [{'a0': 0, 'a1': 1}, {'a0': 1, 'a1': 0}, {'a0': 0, 'a1': 0}]
+2024-05-01 19:12:42,620 - DEBUG - Test {'a0': 0, 'a1': 1}
+2024-05-01 19:12:42,621 - DEBUG - Decrypt {'a0': (b < 9), 'a1': (10 < a)}
+2024-05-01 19:12:42,622 - DEBUG - Test [(! (b < 9)), (10 < a)] fullfils {'a0': 0, 'a1': 1}
+2024-05-01 19:12:42,734 - DEBUG - Adding assertion (! (b < 9)) from [(! (b < 9)), (10 < a)]
+2024-05-01 19:12:42,735 - DEBUG - Adding assertion (10 < a) from [(! (b < 9)), (10 < a)]
+2024-05-01 19:12:42,737 - DEBUG - Solving [(! (b < 9)), (10 < a)] with True
+2024-05-01 19:12:42,738 - DEBUG - Solution: {a: 11, b: 9}
+
+2024-05-01 19:12:42,739 - DEBUG - Test {'a0': 1, 'a1': 0}
+2024-05-01 19:12:42,740 - DEBUG - Decrypt {'a0': (b < 9), 'a1': (10 < a)}
+2024-05-01 19:12:42,741 - DEBUG - Test [(b < 9), (! (10 < a))] fullfils {'a0': 1, 'a1': 0}
+2024-05-01 19:12:42,744 - DEBUG - Adding assertion (b < 9) from [(b < 9), (! (10 < a))]
+2024-05-01 19:12:42,745 - DEBUG - Adding assertion (! (10 < a)) from [(b < 9), (! (10 < a))]
+2024-05-01 19:12:42,747 - DEBUG - Solving [(b < 9), (! (10 < a))] with True
+2024-05-01 19:12:42,749 - DEBUG - Solution: {a: 0, b: 0}
+
+2024-05-01 19:12:42,751 - DEBUG - Test {'a0': 0, 'a1': 0}
+2024-05-01 19:12:42,752 - DEBUG - Decrypt {'a0': (b < 9), 'a1': (10 < a)}
+2024-05-01 19:12:42,753 - DEBUG - Test [(! (b < 9)), (! (10 < a))] fullfils {'a0': 0, 'a1': 0}
+2024-05-01 19:12:42,756 - DEBUG - Adding assertion (! (b < 9)) from [(! (b < 9)), (! (10 < a))]
+2024-05-01 19:12:42,757 - DEBUG - Adding assertion (! (10 < a)) from [(! (b < 9)), (! (10 < a))]
+2024-05-01 19:12:42,760 - DEBUG - Solving [(! (b < 9)), (! (10 < a))] with True
+2024-05-01 19:12:42,763 - DEBUG - Solution: {a: 0, b: 9}
+
+2024-05-01 19:12:42,767 - INFO - 127.0.0.1 - - [01/May/2024 19:12:42] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-05-01 19:13:01,098 - CRITICAL - An unexpected error occurred. Exception: 'or' is not defined!
+2024-05-01 19:13:01,101 - ERROR - Exception on /AnlayseExp [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 123, in get_symbol
+    return self.symbols[name]
+KeyError: 'or'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/singleexpressionconverter.py", line 54, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_testcase/generator/generator.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 375, in nud
+    parser.advance()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 496, in advance
+    self.token = next(self.tokenizer)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 74, in tokenize
+    yield symbol(capture)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 222, in identifier
+    return Identifier(read, env=self.env)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 326, in __init__
+    self.value = env.formula_manager.get_symbol(name)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 125, in get_symbol
+    raise UndefinedSymbolError(name)
+pysmt.exceptions.UndefinedSymbolError: 'or' is not defined!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/singleexpressionconverter.py", line 59, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-05-01 19:13:01,131 - INFO - 127.0.0.1 - - [01/May/2024 19:13:01] "[35m[1mPOST /AnlayseExp HTTP/1.1[0m" 500 -
+2024-05-01 19:13:15,680 - CRITICAL - An unexpected error occurred. Exception: 'or' is not defined!
+2024-05-01 19:13:15,681 - ERROR - Exception on /AnlayseExp [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 123, in get_symbol
+    return self.symbols[name]
+KeyError: 'or'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/singleexpressionconverter.py", line 54, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_testcase/generator/generator.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 375, in nud
+    parser.advance()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 496, in advance
+    self.token = next(self.tokenizer)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 74, in tokenize
+    yield symbol(capture)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 222, in identifier
+    return Identifier(read, env=self.env)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 326, in __init__
+    self.value = env.formula_manager.get_symbol(name)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 125, in get_symbol
+    raise UndefinedSymbolError(name)
+pysmt.exceptions.UndefinedSymbolError: 'or' is not defined!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/singleexpressionconverter.py", line 59, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-05-01 19:13:15,690 - INFO - 127.0.0.1 - - [01/May/2024 19:13:15] "[35m[1mPOST /AnlayseExp HTTP/1.1[0m" 500 -
+2024-05-01 19:13:16,837 - CRITICAL - An unexpected error occurred. Exception: 'or' is not defined!
+2024-05-01 19:13:16,839 - ERROR - Exception on /AnlayseExp [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 123, in get_symbol
+    return self.symbols[name]
+KeyError: 'or'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/singleexpressionconverter.py", line 54, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_testcase/generator/generator.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 375, in nud
+    parser.advance()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 496, in advance
+    self.token = next(self.tokenizer)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 74, in tokenize
+    yield symbol(capture)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 222, in identifier
+    return Identifier(read, env=self.env)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 326, in __init__
+    self.value = env.formula_manager.get_symbol(name)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 125, in get_symbol
+    raise UndefinedSymbolError(name)
+pysmt.exceptions.UndefinedSymbolError: 'or' is not defined!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/singleexpressionconverter.py", line 59, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-05-01 19:13:16,852 - INFO - 127.0.0.1 - - [01/May/2024 19:13:16] "[35m[1mPOST /AnlayseExp HTTP/1.1[0m" 500 -
+2024-05-01 19:13:48,575 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-01 19:13:48,576 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-01 19:13:48,579 - INFO -  * Restarting with stat
+2024-05-01 19:13:49,101 - WARNING -  * Debugger is active!
+2024-05-01 19:13:49,103 - INFO -  * Debugger PIN: 174-418-784
+2024-05-01 19:13:58,076 - CRITICAL - An unexpected error occurred. Exception: 'or' is not defined!
+2024-05-01 19:13:58,077 - ERROR - Exception on /AnlayseExp [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 123, in get_symbol
+    return self.symbols[name]
+KeyError: 'or'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/singleexpressionconverter.py", line 54, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_testcase/generator/generator.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 375, in nud
+    parser.advance()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 496, in advance
+    self.token = next(self.tokenizer)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 74, in tokenize
+    yield symbol(capture)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 222, in identifier
+    return Identifier(read, env=self.env)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 326, in __init__
+    self.value = env.formula_manager.get_symbol(name)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 125, in get_symbol
+    raise UndefinedSymbolError(name)
+pysmt.exceptions.UndefinedSymbolError: 'or' is not defined!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/singleexpressionconverter.py", line 59, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-05-01 19:13:58,102 - INFO - 127.0.0.1 - - [01/May/2024 19:13:58] "[35m[1mPOST /AnlayseExp HTTP/1.1[0m" 500 -
+2024-05-01 19:14:09,021 - CRITICAL - An unexpected error occurred. Exception: 'and' is not defined!
+2024-05-01 19:14:09,022 - ERROR - Exception on /AnlayseExp [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 123, in get_symbol
+    return self.symbols[name]
+KeyError: 'and'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/singleexpressionconverter.py", line 54, in post
+    result = solve(eq, reuse_h.value, rng)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_testcase/generator/generator.py", line 98, in solve
+    formula = parse(equation)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 34, in parse
+    return HRParser().parse(string)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 486, in parse
+    result = self.expression()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 469, in expression
+    left = t.nud(self)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 375, in nud
+    parser.advance()
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 496, in advance
+    self.token = next(self.tokenizer)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 74, in tokenize
+    yield symbol(capture)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 222, in identifier
+    return Identifier(read, env=self.env)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/parsing.py", line 326, in __init__
+    self.value = env.formula_manager.get_symbol(name)
+  File "/usr/local/lib/python3.10/dist-packages/pysmt/formula.py", line 125, in get_symbol
+    raise UndefinedSymbolError(name)
+pysmt.exceptions.UndefinedSymbolError: 'and' is not defined!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/singleexpressionconverter.py", line 59, in post
+    abort(500, message="An unexpected error occurred. Please try again later.")
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask_restful/__init__.py", line 32, in abort
+    original_flask_abort(http_status_code)
+  File "/home/lukas/.local/lib/python3.10/site-packages/flask/helpers.py", line 272, in abort
+    current_app.aborter(code, *args, **kwargs)
+  File "/home/lukas/.local/lib/python3.10/site-packages/werkzeug/exceptions.py", line 861, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.InternalServerError: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-05-01 19:14:09,030 - INFO - 127.0.0.1 - - [01/May/2024 19:14:09] "[35m[1mPOST /AnlayseExp HTTP/1.1[0m" 500 -
+2024-05-01 19:14:14,618 - DEBUG - Numerical atoms: [(b < 9), (10 < a)]
+2024-05-01 19:14:14,620 - DEBUG - Boolean atoms: frozenset({a0, a1})
+2024-05-01 19:14:14,622 - DEBUG - LongestMayMerge: Picking index 1/2
+2024-05-01 19:14:14,623 - DEBUG - LongestMayMerge: Picking index 0/1
+2024-05-01 19:14:14,624 - DEBUG - Decrypt dictionary: {'a0': (b < 9), 'a1': (10 < a)}
+2024-05-01 19:14:14,625 - DEBUG - Boolean test cases: [{'a0': 0, 'a1': 1}, {'a0': 1, 'a1': 0}, {'a0': 0, 'a1': 0}]
+2024-05-01 19:14:14,626 - DEBUG - Test {'a0': 0, 'a1': 1}
+2024-05-01 19:14:14,627 - DEBUG - Decrypt {'a0': (b < 9), 'a1': (10 < a)}
+2024-05-01 19:14:14,627 - DEBUG - Test [(! (b < 9)), (10 < a)] fullfils {'a0': 0, 'a1': 1}
+2024-05-01 19:14:14,694 - DEBUG - Adding assertion (! (b < 9)) from [(! (b < 9)), (10 < a)]
+2024-05-01 19:14:14,696 - DEBUG - Adding assertion (10 < a) from [(! (b < 9)), (10 < a)]
+2024-05-01 19:14:14,698 - DEBUG - Solving [(! (b < 9)), (10 < a)] with True
+2024-05-01 19:14:14,701 - DEBUG - Solution: {a: 11, b: 9}
+
+2024-05-01 19:14:14,702 - DEBUG - Test {'a0': 1, 'a1': 0}
+2024-05-01 19:14:14,704 - DEBUG - Decrypt {'a0': (b < 9), 'a1': (10 < a)}
+2024-05-01 19:14:14,706 - DEBUG - Test [(b < 9), (! (10 < a))] fullfils {'a0': 1, 'a1': 0}
+2024-05-01 19:14:14,709 - DEBUG - Adding assertion (b < 9) from [(b < 9), (! (10 < a))]
+2024-05-01 19:14:14,710 - DEBUG - Adding assertion (! (10 < a)) from [(b < 9), (! (10 < a))]
+2024-05-01 19:14:14,712 - DEBUG - Solving [(b < 9), (! (10 < a))] with True
+2024-05-01 19:14:14,713 - DEBUG - Solution: {a: 0, b: 0}
+
+2024-05-01 19:14:14,714 - DEBUG - Test {'a0': 0, 'a1': 0}
+2024-05-01 19:14:14,715 - DEBUG - Decrypt {'a0': (b < 9), 'a1': (10 < a)}
+2024-05-01 19:14:14,717 - DEBUG - Test [(! (b < 9)), (! (10 < a))] fullfils {'a0': 0, 'a1': 0}
+2024-05-01 19:14:14,719 - DEBUG - Adding assertion (! (b < 9)) from [(! (b < 9)), (! (10 < a))]
+2024-05-01 19:14:14,721 - DEBUG - Adding assertion (! (10 < a)) from [(! (b < 9)), (! (10 < a))]
+2024-05-01 19:14:14,723 - DEBUG - Solving [(! (b < 9)), (! (10 < a))] with True
+2024-05-01 19:14:14,725 - DEBUG - Solution: {a: 0, b: 9}
+
+2024-05-01 19:14:14,729 - INFO - 127.0.0.1 - - [01/May/2024 19:14:14] "POST /AnlayseExp HTTP/1.1" 200 -
+2024-05-01 19:15:30,797 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/examplerequest.py', reloading
+2024-05-01 19:15:30,856 - INFO -  * Restarting with stat
+2024-05-01 19:15:31,427 - WARNING -  * Debugger is active!
+2024-05-01 19:15:31,428 - INFO -  * Debugger PIN: 174-418-784
+2024-05-01 19:15:34,144 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/examplerequest.py', reloading
+2024-05-01 19:15:34,218 - INFO -  * Restarting with stat
+2024-05-01 19:15:34,897 - WARNING -  * Debugger is active!
+2024-05-01 19:15:34,899 - INFO -  * Debugger PIN: 174-418-784
+2024-05-01 19:15:43,580 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/examplerequest.py', reloading
+2024-05-01 19:15:43,652 - INFO -  * Restarting with stat
+2024-05-01 19:15:44,249 - WARNING -  * Debugger is active!
+2024-05-01 19:15:44,250 - INFO -  * Debugger PIN: 174-418-784
+2024-05-01 19:15:51,415 - INFO -  * Detected change in '/home/lukas/_Projects/_Bachelor_Master/testing-ai/mcdc_test_generator/mcdc_api/apibuilder.py', reloading
+2024-05-01 19:15:51,479 - INFO -  * Restarting with stat
+2024-05-01 19:15:52,590 - WARNING -  * Debugger is active!
+2024-05-01 19:15:52,592 - INFO -  * Debugger PIN: 174-418-784
+2024-05-01 19:15:56,642 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-01 19:15:56,643 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-01 19:15:56,645 - INFO -  * Restarting with stat
+2024-05-01 19:15:57,275 - WARNING -  * Debugger is active!
+2024-05-01 19:15:57,277 - INFO -  * Debugger PIN: 174-418-784
