@@ -2,7 +2,7 @@ from flask import request, jsonify
 from flask_restful import Resource, abort
 from random import Random
 
-from mcdc_test.setta_extension_minimal import solve
+from mcdc_testcase.generator.generator import solve
 from random import Random
 
 from mcdc_api.helpers.fnodeconverter import convert_fnode_to_string
