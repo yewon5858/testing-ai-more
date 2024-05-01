@@ -11,7 +11,7 @@ class Example_Request(Resource):
     def get(self):
         try: 
             reuse_h = LongestMayMerge
-            eq = '(a > 10) and (b < 9)' # and --> &
+            eq = '(a > 10) & (b < 9)' # and --> &
             rng = Random(100)
             result = solve(eq, reuse_h, rng)
             converted_list = convert_fnode_to_string(result)
