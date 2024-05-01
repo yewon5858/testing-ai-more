@@ -6,7 +6,7 @@ plugin/
 jupyter_notebook/
 bool_examples/
 Azure/
-gotogpt/
+ChatGPT/
 testaigenerator/
 
 # Exclude Python bytecode files + venv
