@@ -1,5 +1,5 @@
 from enum import Enum
-from mcdc_test.pathsearch import LongestMayMerge, LongestPath, LongestBool, LongestBoolMay, BetterSize, RandomReuser
+from mcdc_testcase.bdd_engine.path_search import LongestMayMerge, LongestPath, LongestBool, LongestBoolMay, BetterSize, RandomReuser
 
 class MyEnum(Enum):
     LONGEST_MAY_MERGE = LongestMayMerge
