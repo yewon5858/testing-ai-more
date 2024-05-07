@@ -34,10 +34,14 @@ Herramientas de analisis de codigo:
 +-- eslint@8.56.0  
 
 ## Dependencias en el entorno de wsl  
-  
+Instaladas con la creacion de un entorno con python 3.8    
 |Package           |   Version|  
 |-------------------|-----------|
 | python             |3.8.18  |
+|setuptools          |56.0.0  |
+|pip                 |23.0.1  |
+|Package           |   Version|  
+|-------------------|-----------|
  |gcc                 |11.4.0 |   
  |make                |4.3|
  |gmp                | 3|
@@ -55,7 +59,7 @@ Herramientas de analisis de codigo:
 |packaging           |24.0  |
 |pandas              |2.0.3  |
 |pillow              |10.3.0  |
-|pip                 |23.0.1  |
+
 |pluggy              |1.5.0  |
 |pyeda               |0.29.0  |
 |pyparsing           |3.1.2  |
@@ -63,7 +67,7 @@ Herramientas de analisis de codigo:
 |pytest              |8.1.1  |
 |python-dateutil     |2.9.0.post0|  
 |pytz                |2024.1  |
-|setuptools          |56.0.0  |
+
 |six                 |1.16.0  |
 |sortedcontainers    |2.4.0  |
 |tomli               |2.0.1  |
