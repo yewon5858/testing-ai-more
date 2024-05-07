@@ -25,7 +25,7 @@ Desarrollo en Typescript:
 +-- @types/node@18.19.17  
 +-- @types/vscode@1.86.0  
 +-- @typescript-eslint/eslint-plugin@6.21.0  
-+-- @typescript-eslint/parser@6.21.0 
++-- @typescript-eslint/parser@6.21.0   
 `-- typescript@5.3.3  
 Herramientas de prueba:  
 +-- @vscode/test-cli@0.0.4  
