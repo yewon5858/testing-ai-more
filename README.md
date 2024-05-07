@@ -19,16 +19,20 @@ Uso de Python 3.8
 ## Dependencias de la extension
 Para emplear la conexion con Azure  
 +-- @azure/openai@1.0.0-beta.12   
-Para el funcionamiento de la extension en visual   
+Para el funcionamiento de la extension en visual    
+Desarrollo en Typescript:   
 +-- @types/mocha@10.0.6  
 +-- @types/node@18.19.17  
 +-- @types/vscode@1.86.0  
 +-- @typescript-eslint/eslint-plugin@6.21.0  
-+-- @typescript-eslint/parser@6.21.0  
++-- @typescript-eslint/parser@6.21.0 
+`-- typescript@5.3.3  
+Herramientas de prueba:  
 +-- @vscode/test-cli@0.0.4  
 +-- @vscode/test-electron@2.3.9  
+Herramientas de analisis de codigo:  
 +-- eslint@8.56.0  
-`-- typescript@5.3.3
+
 ## Dependencias en el entorno de wsl  
   
 |Package           |   Version|  
