@@ -4,7 +4,7 @@
 sudo apt-get install -y gcc make  libgmp3-dev
 
 # Instalar Requisitos // mirar si funciona con .
-pip install -r requirements.txt
+pip install .
 # Instalar solver MSat en pysmt 
 pysmt-install --msat
 pysmt-install --check
