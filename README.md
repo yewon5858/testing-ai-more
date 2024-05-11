@@ -118,7 +118,8 @@ Desde el archivo extension.ts entrar en modo depuracion usando el F5.Seleccionar
 Seleccionar el metodo de generacion de casos de prueba que deseamos emplear  
 - [ ] Generate testcases (LLM) 
 - [ ] Generate testcases (pyMCDC)   
-Se nos mostrara la salida con los casos de prueba en un popup abajo a la derecha de la ventana de depuracion.  
+Se nos mostrara la salida con los casos de prueba en un popup abajo a la derecha de la ventana de depuracion.    
+![](https://github.com/TGF-2023-24/testing-ai/assets/79473853/9b25189e-85a8-4373-85e3-cb51ecbe17ce)  
 
 ### Licencia MIT
 ---
