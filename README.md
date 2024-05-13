@@ -40,8 +40,6 @@ Instaladas con la creacion de un entorno con python 3.8
 | python             |3.8.18  |
 |setuptools          |56.0.0  |
 |pip                 |23.0.1  |
-|Package           |   Version|  
-|-------------------|-----------|
 |more-itertools      |10.2.0  |
 |pyeda               |0.29.0  |
 |PySMT               |0.9.5  |
