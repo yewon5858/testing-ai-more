@@ -43,7 +43,8 @@ Instaladas con la creacion de un entorno con python 3.8
 |more-itertools      |10.2.0  |
 |pyeda               |0.29.0  |
 |PySMT               |0.9.5  |
-|sortedcontainers    |2.4.0  |  
+|sortedcontainers    |2.4.0  |
+|TFG-testing-ai      |0.1.0|  
 
  ## Preparacion del entorno de wsl de manera automatica  
 - [ ] Primero debemos crear nuestro entorno con python -->`pyenv virtualenv 3.8 <nombre del entorno>`
