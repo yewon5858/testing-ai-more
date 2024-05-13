@@ -48,7 +48,8 @@ Instaladas con la creacion de un entorno con python 3.8
 
  ## Preparacion del entorno de wsl de manera automatica  
 - [ ] Primero debemos crear nuestro entorno con python -->`pyenv virtualenv 3.8 <nombre del entorno>`
-- [ ] En caso de no activares el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`   
+- [ ] En caso de no activares el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`
+- [ ] Debemos estar presentes en el directorio ../mcdc_test_generator     
 - [ ] Segundo paso transformar nuestro install.sh con el comando -->`dos2unix install.sh`  
 - [ ] Tercer paso ejecutar el archivo .sh -->`./install.sh`
 - [ ] Saltara un mensaje de ¿continuar?, debemos responder que si.  
@@ -57,7 +58,9 @@ Instaladas con la creacion de un entorno con python 3.8
 En nuestro caso al emplear windows como sistema operativo hemos empleado la herramienta wsl para poder crear entornos virtuales con el sistema operativo Linux, pues resultaba más comodo para ejecutar el codigo de mcdc_test.  
 Para el correcto funcionamiento de este entorno hemos empleado los siguientes pasos:
 - [ ] Creamos un entorno virtual con python 3.8 --> `pyenv virtualenv 3.8 <nombre del entorno>`  
-- [ ] En caso de no activares el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`  
+- [ ] En caso de no activarse el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`
+- [ ] Debemos estar presentes en el directorio ../mcdc_test_generator
+- [ ] Para instalar la libreria de tfg-testing-ai usamos el comando -->`pip install .`
 - [ ] Para instalar todas las dependencias necesarias usamos el comando -->`pip install -r requirements.txt`
 - [ ] Emplear los comandos siguientes para instalar las terminaciones necesarias para el Solver del codigo (Necesitamos permisos de administrador por lo tanto todo comando sera precedido por sudo ):  
      - [ ] `apt-get install gcc`  
