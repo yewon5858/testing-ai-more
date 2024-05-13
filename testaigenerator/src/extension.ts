@@ -16,27 +16,15 @@ interface Configuration {
     apiKey : string
 }
 
-async function readConfig(): Promise<Configuration>{
-    const workspaceFolders = vscode.workspace.workspaceFolders;
-    if (!workspaceFolders || workspaceFolders.length === 0) {
-        vscode.window.showErrorMessage('No se encontraron carpetas en el espacio de trabajo.');
-        throw new Error('No se encontraron carpetas en el espacio de trabajo.');
-    }
-
-    const workspaceFolder = workspaceFolders[0];
-    const parentFolder = vscode.Uri.joinPath(workspaceFolder.uri, '../'); //Directorio padre
-    const configFilePath = vscode.Uri.joinPath(parentFolder, 'config.json');
-
-    //Read config.json
-    console.log(configFilePath); // Agregar esta línea para verificar la ruta
-
+async function readConfig(context: vscode.ExtensionContext): Promise<Configuration>{
+    const configFilePath = path.join(context.extensionPath, 'config.json');
     try {
-        const data = await fs.promises.readFile(configFilePath.fsPath, 'utf8');
+        const data = await fs.promises.readFile(configFilePath, 'utf8');
         const configDetails: Configuration = JSON.parse(data);
         return configDetails;
     } catch (error) {
-        vscode.window.showErrorMessage('Error al leer o parsear el archivo de configuración.');
-        throw new Error('Error al leer o parsear el archivo de configuración.');
+        console.error('Error al leer o parsear el archivo de configuración:', error);
+        throw new Error('Error reading or parsing config file');
     }
 }
 
@@ -47,28 +35,29 @@ let twsl: vscode.Terminal;
 //Ejecutar py-MCDC + argumento
 function run_exec(context: vscode.ExtensionContext, eq: string) {
     // Ejecutar el script Python en el terminal
-    twsl.sendText(`python exec.py ${eq} | tail -n 1 > out.txt`);
+    twsl.sendText(`python exec.py ${eq} > out.txt`);
+    
+    const filePath = context.extensionPath + '/mcdc_test/out.txt';
 
-    //Obtener salida por mensaje informativo
-    const rutaArchivo = vscode.Uri.file(path.join(context.extensionPath, '/mcdc_test/out.txt'));
-
-    //Creacion de watcher para el fichero de salida
-    const watcher = vscode.workspace.createFileSystemWatcher(rutaArchivo.fsPath);
-
-    //Registra un cambio en el archivo
-    watcher.onDidChange((event) => {
-        // Leer el contenido del archivo
-        vscode.workspace.fs.readFile(rutaArchivo).then(data => {
-            const contenido = Buffer.from(data).toString('utf-8');
-            console.log(contenido);
-            vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): `+ contenido);
-        }, error => {
-            console.error('Error al leer el archivo:', error);
-        });
+    // Crea un Watcher para el archivo de salida
+    const watcher = fs.watch(filePath, (event, filename) => {
+        if (event === 'change') {
+            fs.readFile(filePath, 'utf8', (err, data) => {
+                if (err) {
+                    console.error('Error al leer el archivo:', err);
+                    return;
+                }
+                // Muestra el contenido del archivo en un mensaje informativo
+                vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): ${data}`);
+            });
+        }
     });
 
-    // Dispose del watcher cuando el contexto se desactive
-    context.subscriptions.push(watcher);
+    // Dispose del watcher
+    const disposeWatcher = () => {
+        watcher.close();
+    };
+    context.subscriptions.push({ dispose: disposeWatcher }); 
 }
 
 //Prepare terminal and environment
@@ -145,11 +134,7 @@ async function generateTestCases(configDetails:Configuration, eq: string) {
         // desplegable en la ventana creada 
         for (const choice of result.choices) {
             const answer = contenidoEntreCorchetes(choice.message.content);
-            vscode.window.showInformationMessage(`Casos de prueba generados (LLM): `+answer);
-            /*
-            twsl.show();
-            twsl.sendText(`echo `+answer);
-            */
+            vscode.window.showInformationMessage(`Casos de prueba generados (LLM): `+ answer);
         }
 
         // Mostrar la lista de valores de prueba en la consola
@@ -165,7 +150,7 @@ async function generateTestCases(configDetails:Configuration, eq: string) {
 //Extension main function----------------------------------------------------------------
 export async function activate(context: vscode.ExtensionContext) {
     //Al iniciar extension para prepara el entorno
-        const configDetails = await readConfig();
+        const configDetails = await readConfig(context);
         prepareEnvironment(configDetails);
 
     //PYMCDC-----------------------------------------------------------------------------
