@@ -59,7 +59,7 @@ En nuestro caso al emplear windows como sistema operativo hemos empleado la herr
 Para el correcto funcionamiento de este entorno hemos empleado los siguientes pasos:
 - [ ] Creamos un entorno virtual con python 3.8 --> `pyenv virtualenv 3.8 <nombre del entorno>`  
 - [ ] En caso de no activarse el entorno directamente emplear el comando -->`pyenv activate <nombre del entorno>`
-- [ ] Debemos estar presentes en el directorio ../mcdc_test_generator
+- [ ] Debemos estar presentes en el directorio [mcdc_test_generator](/mcdc_test_generator/)   
 - [ ] Para instalar la libreria de tfg-testing-ai usamos el comando -->`pip install .`
 - [ ] Para instalar todas las dependencias necesarias usamos el comando -->`pip install -r requirements.txt`
 - [ ] Emplear los comandos siguientes para instalar las terminaciones necesarias para el Solver del codigo (Necesitamos permisos de administrador por lo tanto todo comando sera precedido por sudo ):  
