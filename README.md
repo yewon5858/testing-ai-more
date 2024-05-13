@@ -79,8 +79,8 @@ Para la ejecucion del proyecto empleamos el entorno virtual wsl.
 En este caso se ha creado un entorno preciso para asegurar su correcto desarrollo.    
 Toda esta informacion esta presente en el archivo config.json en el cual tenemos estos apartados:    
 - [ ] "terminalName": "TestAI_Gen", un nombre para diferenciar la terminal que se emplea para el desarrollo de nuestra expresion   
-- [ ] "shellPath": "wsl",  se refleja el uso de wsl   
-- [ ] "pyenvActivation": "(nombre del entorno creado en wsl)",   activamos el entorno para tener todas las dependencias instaladas  
+- [ ] "shellPath": "wsl", para la creacion de una terminal que use wsl       
+- [ ] "pyenvActivation": "(nombre del entorno creado en wsl)", activaremos el entorno para tener todas las dependencias de la generacion por pyMCDC instaladas  
 - [ ] "directoryPath": "ruta a /testaigenerator/mcdc_test",    
 - [ ] "endpoint" : "https://test-ia.openai.azure.com/", el endpoint proporcionado por Azure    
 - [ ] "apiKey" : "ac73454962444b47b2edb042e4033cd7"  la apikey obtenida a traves de Azure  
