@@ -35,55 +35,7 @@ let twsl: vscode.Terminal;
 //Ejecutar py-MCDC + argumento
 function run_exec(context: vscode.ExtensionContext, eq: string) {
     // Ejecutar el script Python en el terminal
-    twsl.sendText(`python exec.py ${eq} > out.txt`);
-/*
-    //Obtener salida por mensaje informativo
-    //const rutaArchivo = vscode.Uri.file(path.join(context.extensionPath, '/mcdc_test/out.txt'));
-    const rutaArchivo = vscode.Uri.file(path.join(context.extensionPath, '/mcdc_test/out.txt'));
-    
-    //Creacion de watcher para el fichero de salida
-    const watcher = vscode.workspace.createFileSystemWatcher(rutaArchivo.fsPath);
-
-    //Registra un cambio en el archivo
-    watcher.onDidChange((event) => {
-        console.log('File changed!');
-        try {
-            // Leer el contenido del archivo
-            vscode.workspace.fs.readFile(rutaArchivo).then(data => {
-                const contenido = Buffer.from(data).toString('utf-8');
-                console.log(contenido);
-                vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): `+ contenido);
-            }, error => {
-                console.error('Error al leer el archivo:', error);
-            });
-        } catch (error) {
-            console.error('Error in watcher.onDidChange():', error);
-        }
-    });
-*/
-    const filePath = context.extensionPath + '/mcdc_test/out.txt';
-
-    // Crea un FileSystemWatcher para observar cambios en el archivo
-    const watcher = fs.watch(filePath, (event, filename) => {
-        if (event === 'change') {
-            fs.readFile(filePath, 'utf8', (err, data) => {
-                if (err) {
-                    console.error('Error al leer el archivo:', err);
-                    return;
-                }
-                // Muestra el contenido del archivo en un mensaje informativo
-                vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): ${data}`);
-            });
-        }
-    });
-
-    // Dispose del watcher cuando el contexto se desactive
-    const disposeWatcher = () => {
-        watcher.close(); // Cierra el watcher cuando la extensión se desactive
-    };
-
-    // Agrega la función de limpieza al contexto de la extensión
-    context.subscriptions.push({ dispose: disposeWatcher });
+    twsl.sendText(`python exec.py ${eq} > out.txt`); 
 }
 
 //Prepare terminal and environment
@@ -110,8 +62,33 @@ function prepareEnvironment(configDetails: Configuration){
 }
 
 //LLMs-----------------------------------------------------------------------------------
-function contenidoEntreCorchetes(texto: string): string[] {
-    const contenido: string[] = [];
+
+//Comprobacion MC/DC
+/*
+function esVariable(caracter: string): boolean {
+    return /[a-zA-Z]/.test(caracter);
+}
+
+function comprobacion_mcdc(entrada: string, salida:string): boolean {
+    let contV = 0;
+    let contCasos = 0;
+    for(const c of entrada){
+        if(esVariable(c)){
+            contV++;
+        }
+    }
+    for(const c of salida){
+        if(c === '{'){
+            contCasos++;
+        }
+    }
+    if(contV + 1 === contCasos) { return true; }
+    return false;
+}
+*/
+
+function contenidoEntreCorchetes(texto: string): string {
+    let contenido = "";
     let dentroCorchetes = false;
     let contenidoActual = '';
 
@@ -123,14 +100,13 @@ function contenidoEntreCorchetes(texto: string): string[] {
         else if (caracter === ']') {
             dentroCorchetes = false;
             contenidoActual += ']'; // Corchete de cierre
-            contenido.push(contenidoActual);
+            contenido += contenidoActual;
             contenidoActual = ''; 
         } 
         else if (dentroCorchetes) {
             contenidoActual += caracter;
         }
     }
-
     return contenido;
 }
 
@@ -161,6 +137,14 @@ async function generateTestCases(configDetails:Configuration, eq: string) {
         for (const choice of result.choices) {
             const answer = contenidoEntreCorchetes(choice.message.content);
             vscode.window.showInformationMessage(`Casos de prueba generados (LLM): `+ answer);
+            /*
+            if(comprobacion_mcdc(eq, answer)) {
+                vscode.window.showInformationMessage(`El conjunto de casos SI cumple MC/DC.`);
+            }
+            else{
+                vscode.window.showInformationMessage(`El conjunto de casos NO cumple MC/DC.`);
+            }
+            */
         }
 
         // Mostrar la lista de valores de prueba en la consola
@@ -180,6 +164,28 @@ export async function activate(context: vscode.ExtensionContext) {
         prepareEnvironment(configDetails);
 
     //PYMCDC-----------------------------------------------------------------------------
+
+    //Watcher para out.txt
+    const filePath = context.extensionPath + '/mcdc_test/out.txt';
+
+    const watcher = fs.watch(filePath, (event, filename) => {
+        if (event === 'change') {
+            fs.readFile(filePath, 'utf8', (err, data) => {
+                if (err) {
+                    console.error('Error al leer el archivo:', err);
+                    return;
+                }
+                // Muestra el contenido del archivo en un mensaje informativo
+                vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): ${data}`);
+            });
+        }
+    });
+
+    // Dispose del watcher
+    const disposeWatcher = () => {
+        watcher.close();
+    };
+    context.subscriptions.push({ dispose: disposeWatcher });
 
     //Comando llamada solve + argumento SELECCION
     let exec_select = vscode.commands.registerCommand('testaigenerator.exec_select', async () => {
