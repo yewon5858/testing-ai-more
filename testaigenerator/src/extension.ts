@@ -36,10 +36,34 @@ let twsl: vscode.Terminal;
 function run_exec(context: vscode.ExtensionContext, eq: string) {
     // Ejecutar el script Python en el terminal
     twsl.sendText(`python exec.py ${eq} > out.txt`);
+/*
+    //Obtener salida por mensaje informativo
+    //const rutaArchivo = vscode.Uri.file(path.join(context.extensionPath, '/mcdc_test/out.txt'));
+    const rutaArchivo = vscode.Uri.file(path.join(context.extensionPath, '/mcdc_test/out.txt'));
     
+    //Creacion de watcher para el fichero de salida
+    const watcher = vscode.workspace.createFileSystemWatcher(rutaArchivo.fsPath);
+
+    //Registra un cambio en el archivo
+    watcher.onDidChange((event) => {
+        console.log('File changed!');
+        try {
+            // Leer el contenido del archivo
+            vscode.workspace.fs.readFile(rutaArchivo).then(data => {
+                const contenido = Buffer.from(data).toString('utf-8');
+                console.log(contenido);
+                vscode.window.showInformationMessage(`Casos de prueba generados (pyMCDC): `+ contenido);
+            }, error => {
+                console.error('Error al leer el archivo:', error);
+            });
+        } catch (error) {
+            console.error('Error in watcher.onDidChange():', error);
+        }
+    });
+*/
     const filePath = context.extensionPath + '/mcdc_test/out.txt';
 
-    // Crea un Watcher para el archivo de salida
+    // Crea un FileSystemWatcher para observar cambios en el archivo
     const watcher = fs.watch(filePath, (event, filename) => {
         if (event === 'change') {
             fs.readFile(filePath, 'utf8', (err, data) => {
@@ -53,11 +77,13 @@ function run_exec(context: vscode.ExtensionContext, eq: string) {
         }
     });
 
-    // Dispose del watcher
+    // Dispose del watcher cuando el contexto se desactive
     const disposeWatcher = () => {
-        watcher.close();
+        watcher.close(); // Cierra el watcher cuando la extensión se desactive
     };
-    context.subscriptions.push({ dispose: disposeWatcher }); 
+
+    // Agrega la función de limpieza al contexto de la extensión
+    context.subscriptions.push({ dispose: disposeWatcher });
 }
 
 //Prepare terminal and environment
