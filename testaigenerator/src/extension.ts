@@ -53,39 +53,21 @@ function prepareEnvironment(configDetails: Configuration){
         twsl.sendText('clear');
 
         //Environment ready to use
-        vscode.window.showInformationMessage(`Entorno preparado, no cerrar el terminal ${twsl.name}`);
+        vscode.window.showInformationMessage(`Preparando entorno, no cerrar el terminal ${twsl.name}`);
     }
     catch{
         vscode.window.showInformationMessage('Error al preparar el entorno');
-
     }
 }
 
 //LLMs-----------------------------------------------------------------------------------
 
 //Comprobacion MC/DC
-/*
-function esVariable(caracter: string): boolean {
-    return /[a-zA-Z]/.test(caracter);
-}
 
-function comprobacion_mcdc(entrada: string, salida:string): boolean {
-    let contV = 0;
-    let contCasos = 0;
-    for(const c of entrada){
-        if(esVariable(c)){
-            contV++;
-        }
-    }
-    for(const c of salida){
-        if(c === '{'){
-            contCasos++;
-        }
-    }
-    if(contV + 1 === contCasos) { return true; }
-    return false;
+function comprobacion_mcdc(context: vscode.ExtensionContext, eq: string, answer: string) {
+    // Ejecutar el script Python en el terminal
+    twsl.sendText(`python comprob.py "${eq}" "${answer}"`); 
 }
-*/
 
 function contenidoEntreCorchetes(texto: string): string {
     let contenido = "";
@@ -110,7 +92,7 @@ function contenidoEntreCorchetes(texto: string): string {
     return contenido;
 }
 
-async function generateTestCases(configDetails:Configuration, eq: string) {   
+async function generateTestCases(context: vscode.ExtensionContext, configDetails:Configuration, eq: string) {   
     try {
 
         const endpoint = configDetails.endpoint;
@@ -121,7 +103,7 @@ async function generateTestCases(configDetails:Configuration, eq: string) {
             { role: "user", content: "I need help with test case generation, that satisfy the MC/DC coverage criterion" },
             { role: "assistant", content: "Okay, I'm an expert in that criterion. Tell me what I need to do ?" },
             { role: "user", content: "I provide you an example, in this case the boolean expression is (a<10)&(b<9)." },
-            { role: "user", content: "And the output I get is in the style [{a: 0, b: 0}, {a: 11, b: 0}, {a: 11, b: 9}]." },
+            { role: "user", content: "And the output I get is in the style [{'a': 0, 'b': 0}, {'a': 11, 'b': 0}, {'a': 11, 'b': 9}]." },
             { role: "user", content: "Giving you boolean expressions, can you provide me with responses in the same style as the one I just showed you?" },        
             { role: "assistant", content: "Of course! What type of test cases are you trying to generate?" },
             { role: "user", content: "I want to generate the minimum test cases that satisfy the MC/DC coverage criterion for a boolean expression." },
@@ -137,14 +119,9 @@ async function generateTestCases(configDetails:Configuration, eq: string) {
         for (const choice of result.choices) {
             const answer = contenidoEntreCorchetes(choice.message.content);
             vscode.window.showInformationMessage(`Casos de prueba generados (LLM): `+ answer);
-            /*
-            if(comprobacion_mcdc(eq, answer)) {
-                vscode.window.showInformationMessage(`El conjunto de casos SI cumple MC/DC.`);
-            }
-            else{
-                vscode.window.showInformationMessage(`El conjunto de casos NO cumple MC/DC.`);
-            }
-            */
+            
+            comprobacion_mcdc(context, eq, answer);
+
         }
 
         // Mostrar la lista de valores de prueba en la consola
@@ -223,7 +200,7 @@ export async function activate(context: vscode.ExtensionContext) {
             vscode.window.showErrorMessage('No hay texto seleccionado.');
             return;
         }
-		generateTestCases(configDetails, expresion);
+		generateTestCases(context, configDetails, expresion);
 		
     });
 	context.subscriptions.push(llmGenerator);
@@ -241,7 +218,7 @@ export async function activate(context: vscode.ExtensionContext) {
         if (eq !== undefined) {
             vscode.window.showInformationMessage(`La eq a estudiar es: ${eq}`);
             run_exec(context, "'"+eq+"'");
-            generateTestCases(configDetails, eq);
+            generateTestCases(context, configDetails, eq);
         } else {
             vscode.window.showErrorMessage('No se ingresó ningún parámetro.');
         }
