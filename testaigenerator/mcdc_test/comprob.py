@@ -1,5 +1,4 @@
 import sys
-from pyeda.boolalg.expr import expr, exprvar
 
 def eval_python(eq: str, test: dict) -> bool:
 
@@ -15,7 +14,23 @@ def eval_python(eq: str, test: dict) -> bool:
     # Devuelve False/True en función del resultado de la evaluación
     return eval(eq)
 
-def comprob_valores_diferentes(listT, listaF):
+def comprob_valores_diferentes_nueva(variables: set, listT: list, listaF: list) -> bool:
+    exists_pair_for_var = dict.fromkeys(variables, False)
+    for var in variables:
+        for testT in listT:
+            # Tests que hacen falsa la expresion booleana. El valor de la variable var debe cambiar.
+            test_to_false_with_diff_var_value = [testF for testF in listaF if testT[var] != testF[var]]
+            # Para algun test que hace cierta la expresion booleana, existe algun test que la falsea en el que var
+            # cambia de valor numerico
+            exists_pair_for_var[var] = exists_pair_for_var[var] or (len(test_to_false_with_diff_var_value) > 0)
+
+    print(f"ListT: {listT}")
+    print(f"ListF: {listaF}")
+    print(f"exists_pair_for_var: {exists_pair_for_var}")
+    # Toda varible de la expresion booleana tiene una pareja de casos de prueba (T, F)
+    return all(exists_pair_for_var)
+
+def comprob_valores_diferentes(listT: list, listaF: list) -> bool:
     for testT in listT:
         for var in testT:
             encontrado = False
@@ -28,9 +43,9 @@ def comprob_valores_diferentes(listT, listaF):
                 return False
     return True
 
-if __name__ == '__main__': 
 
-    if len(sys.argv) > 2 :
+if __name__ == '__main__':
+    if len(sys.argv) > 2:
         eq = sys.argv[1]
         testList = sys.argv[2]
     else:
@@ -41,10 +56,15 @@ if __name__ == '__main__':
     data = eval(testList)
 
     # La condición que se desea estudiar es eq.
-    #eq1 = "(a > 10) & (b < 9)" formato de la condición
+    # El formato de la condición
+    # eq = "(a > 10) & (b < 9)"
+
+    # Casos de prueba que hacen cierta o falsa la formula booleana
     trueList = []
     falseList = []
-    variables = set() #cjto de todas las variables
+
+    # Conjunto de todas las variables
+    variables = set()
 
     for test in data:
         variables.update(test.keys())
@@ -56,11 +76,6 @@ if __name__ == '__main__':
 
     nTests = len(data)
     nVar = len(variables)
-    nTestsAdecuado: bool
+    nTestsAdecuado: bool = (nVar + 1 <= nTests <= 2 * nVar)
 
-    if(nVar+1 <= nTests and nTests <= 2*nVar):
-        nTestsAdecuado = True
-    else:
-        nTestsAdecuado = False
-
-    print("Cumple con MC/DC: " + str(comprob_valores_diferentes(trueList, falseList) and nTestsAdecuado))
+    print("Cumple con MC/DC: " + str(comprob_valores_diferentes_nueva(variables, trueList, falseList) and nTestsAdecuado))
