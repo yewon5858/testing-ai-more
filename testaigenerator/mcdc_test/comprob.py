@@ -7,19 +7,7 @@ def eval_python(eq: str, test: dict) -> bool:
     eq = eq.replace("&", "and")
     eq = eq.replace("|", "or")
     eq = eq.replace("!", "not")
-
-    for var, val in test.items():
-        exec(f"{var} = {val}")
-
-    # Devuelve False/True en función del resultado de la evaluación
-    return eval(eq)
-
-def eval_python_var(eq: str, test: dict) :
-
-    # Todo: reemplazar los simbolos &|! de pyeda por and, or y not en python
-    eq = eq.replace("&", "and")
-    eq = eq.replace("|", "or")
-    eq = eq.replace("!", "not")
+    eq = eq.replace("=", "==")
 
     for var, val in test.items():
         exec(f"{var} = {val}")
