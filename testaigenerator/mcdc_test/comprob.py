@@ -1,4 +1,5 @@
 import sys
+from pyeda.boolalg.expr import expr, exprvar
 
 def eval_python(eq: str, test: dict) -> bool:
 
@@ -6,7 +7,7 @@ def eval_python(eq: str, test: dict) -> bool:
     eq = eq.replace("&", "and")
     eq = eq.replace("|", "or")
     eq = eq.replace("!", "not")
-    eq = eq.replace("=", "==")
+    #eq = eq.replace("=", "==")
 
     for var, val in test.items():
         exec(f"{var} = {val}")
@@ -30,7 +31,7 @@ def comprob_valores_diferentes_nueva(variables: set, listT: list, listaF: list) 
     # Toda varible de la expresion booleana tiene una pareja de casos de prueba (T, F)
     return all(exists_pair_for_var)
 
-def comprob_valores_diferentes(listT: list, listaF: list) -> bool:
+def comprob_valores_diferentes(listT, listaF):
     for testT in listT:
         for var in testT:
             encontrado = False
@@ -43,9 +44,9 @@ def comprob_valores_diferentes(listT: list, listaF: list) -> bool:
                 return False
     return True
 
+if __name__ == '__main__': 
 
-if __name__ == '__main__':
-    if len(sys.argv) > 2:
+    if len(sys.argv) > 2 :
         eq = sys.argv[1]
         testList = sys.argv[2]
     else:
@@ -56,15 +57,10 @@ if __name__ == '__main__':
     data = eval(testList)
 
     # La condición que se desea estudiar es eq.
-    # El formato de la condición
-    # eq = "(a > 10) & (b < 9)"
-
-    # Casos de prueba que hacen cierta o falsa la formula booleana
+    #eq1 = "(a > 10) & (b < 9)" formato de la condición
     trueList = []
     falseList = []
-
-    # Conjunto de todas las variables
-    variables = set()
+    variables = set() #cjto de todas las variables
 
     for test in data:
         variables.update(test.keys())
@@ -76,6 +72,24 @@ if __name__ == '__main__':
 
     nTests = len(data)
     nVar = len(variables)
-    nTestsAdecuado: bool = (nVar + 1 <= nTests <= 2 * nVar)
+    nTestsAdecuado: bool
 
-    print("Cumple con MC/DC: " + str(comprob_valores_diferentes_nueva(variables, trueList, falseList) and nTestsAdecuado))
+    if(nVar+1 <= nTests and nTests <= 2*nVar):
+        nTestsAdecuado = True
+    else:
+        nTestsAdecuado = False
+
+    if(nTestsAdecuado):
+        if(comprob_valores_diferentes(trueList, falseList)):
+            print(str(True))
+        else:
+            print("2")
+    else:
+        if(not comprob_valores_diferentes(trueList, falseList)):
+            print("3")
+        else:
+            print("1")
+    
+    #print(str(comprob_valores_diferentes(trueList, falseList) and nTestsAdecuado))
+
+    #Codigos de fallo: 1 -> El numero de tests no es el correcto. ; 2 -> alguna variable no hace .... ; 3 -> las dos cosas
