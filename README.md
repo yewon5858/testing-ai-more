@@ -95,9 +95,8 @@ Seleccionar el metodo de generacion de casos de prueba que deseamos emplear
 - [ ] Generate testcases (LLM) 
 - [ ] Generate testcases (pyMCDC)   
 Se nos mostrara la salida con los casos de prueba en un popup abajo a la derecha de la ventana de depuracion.
-Ademas en caso de generarse una solucion incorrecta se nos informara que se esta generando otra
-![](https://github.com/TGF-2023-24/testing-ai/assets/79473853/5895f30e-80ab-48a5-8bf0-e5fbdd567ffc)  
-      
+Ademas en caso de generarse una solucion incorrecta se nos informara que se esta generando otra  
+![](https://github.com/TGF-2023-24/testing-ai/assets/79473853/5895f30e-80ab-48a5-8bf0-e5fbdd567ffc)      
 ![](https://github.com/TGF-2023-24/testing-ai/assets/79473853/9b25189e-85a8-4373-85e3-cb51ecbe17ce)  
 
 ### Licencia MIT
