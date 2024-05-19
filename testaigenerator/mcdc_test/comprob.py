@@ -1,3 +1,4 @@
+import re
 import sys
 from pyeda.boolalg.expr import expr, exprvar
 
@@ -7,8 +8,9 @@ def eval_python(eq: str, test: dict) -> bool:
     eq = eq.replace("&", "and")
     eq = eq.replace("|", "or")
     eq = eq.replace("!", "not")
-    #eq = eq.replace("=", "==")
-
+    # Utilizar expresiones regulares para reemplazar '=' solo si no está seguido por otro '='
+    eq = re.sub(r'([^<>])=', r'\1==', eq)
+   
     for var, val in test.items():
         exec(f"{var} = {val}")
 
