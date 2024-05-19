@@ -14,7 +14,7 @@ def eval_python(eq: str, test: dict) -> bool:
 
     # Devuelve False/True en función del resultado de la evaluación
     return eval(eq)
-
+#otra 
 def comprob_valores_diferentes_nueva(variables: set, listT: list, listaF: list) -> bool:
     exists_pair_for_var = dict.fromkeys(variables, False)
     for var in variables:
@@ -25,12 +25,12 @@ def comprob_valores_diferentes_nueva(variables: set, listT: list, listaF: list) 
             # cambia de valor numerico
             exists_pair_for_var[var] = exists_pair_for_var[var] or (len(test_to_false_with_diff_var_value) > 0)
 
-    print(f"ListT: {listT}")
-    print(f"ListF: {listaF}")
-    print(f"exists_pair_for_var: {exists_pair_for_var}")
+    #print(f"ListT: {listT}")
+    #print(f"ListF: {listaF}")
+    #print(f"exists_pair_for_var: {exists_pair_for_var}")
     # Toda varible de la expresion booleana tiene una pareja de casos de prueba (T, F)
     return all(exists_pair_for_var)
-
+#funcion mas simple para comprobar que todas las variables tienen valor True y False
 def comprob_valores_diferentes(listT, listaF):
     for testT in listT:
         for var in testT:
@@ -78,18 +78,16 @@ if __name__ == '__main__':
         nTestsAdecuado = True
     else:
         nTestsAdecuado = False
-
+        
     if(nTestsAdecuado):
-        if(comprob_valores_diferentes(trueList, falseList)):
+        if(comprob_valores_diferentes_nueva(variables,trueList, falseList)):
             print(str(True))
         else:
             print("2")
     else:
-        if(not comprob_valores_diferentes(trueList, falseList)):
-            print("3")
-        else:
+        if(comprob_valores_diferentes_nueva(variables,trueList, falseList)):
             print("1")
+        else:
+            print("3")
     
-    #print(str(comprob_valores_diferentes(trueList, falseList) and nTestsAdecuado))
-
-    #Codigos de fallo: 1 -> El numero de tests no es el correcto. ; 2 -> alguna variable no hace .... ; 3 -> las dos cosas
+    #Codigos de fallo: 1 -> El numero de casos de prueba no es correcto. ; 2 -> no toda variable tiene un caso de prueba para cierto y otro para falso. ; 3 -> las dos cosas
