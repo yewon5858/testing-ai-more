@@ -105,10 +105,9 @@ function contenidoEntreCorchetes(texto: string): string {
     }
     return contenido;
 }
-
+//variable global para poder ser usada en el renvio en caso de fallo 
 let answer: string;
-let respuestaanterior:string;
-async function generateTestCases(context: vscode.ExtensionContext, client:any, eq: string, wrong: boolean, fallo: string) {   
+async function generateTestCases(context: vscode.ExtensionContext, client:any, eq: string, wrong: boolean, fail: string) {   
     let result: any;
     const deploymentId = "generacion-de-casos";
     const messages = [
@@ -131,6 +130,7 @@ async function generateTestCases(context: vscode.ExtensionContext, client:any, e
         { role: "user", content: "Please provide the list in Python format without additional explanations." },
         { role: "assistant", content: "Understood, the expression you provided is:"+eq+". Is it correct?" }
     ];
+    //si es una respuesta correcta 
     if(!wrong){
         try {
             console.log("== RESPUESTA DEL CHAT==");
@@ -141,16 +141,21 @@ async function generateTestCases(context: vscode.ExtensionContext, client:any, e
             vscode.window.showErrorMessage('Failed to generate test cases. See console for details.');
         }
     }
+    // si es una respuesta erronea
     else{
-        // decirle su respuesta anterior
+        
         try {
+            // creamos dos mensajes nuevos con la respuesta erronea y el motivo del fallo 
             const extra=[
-                { role: "user", content: "Your previous response \"" + respuestaanterior + "\" appears to be incorrect. The reason for the error may be due to: " + fallo + ". Please review your response and make the necessary corrections." },
+                { role: "user", content: "Your previous response \"" + answer + "\" appears to be incorrect. The reason for the error may be due to: " + fail + ". Please review your response and make the necessary corrections." },
                 { role: "user", content: "Make sure to follow the correct format and logic when providing your response." }
             ];
+            // juntamos los mensajes anteriores con los nuevos para volver a pedir solucion
             const messages2=[...messages,...extra ];
+            //para visionar todo el conjunto de mensajes
             console.log("== MENSAJE AL CHAT CUANDO ESTA MAL ==");
             console.log(messages2);
+            // nueva respuesta 
             result = await client.getChatCompletions(deploymentId, messages2);
         }
         catch (error) {
@@ -161,14 +166,13 @@ async function generateTestCases(context: vscode.ExtensionContext, client:any, e
 
     // desplegable en la ventana creada 
     for (const choice of result.choices) {
+        // nos quedamos solo con la lista de los casos de prueba
         answer = contenidoEntreCorchetes(choice.message.content);
-
+        // comprobamos si la solucion cumnple los criterios que queremos entorno a MCDC
         comprobacion_mcdc(context, eq, answer);
-        respuestaanterior=answer 
-        console.log("LA RESPUESTA ES "+respuestaanterior);
     }
 
-    // Mostrar la lista de valores de prueba en la consola
+    // Mostrar la respuesta completa del chat por consola por si quiere visionarse de manera mas amplia
     const testCasesMessage = result.choices[result.choices.length - 1].message.content
     console.log(testCasesMessage);
 
@@ -245,23 +249,23 @@ export async function activate(context: vscode.ExtensionContext) {
                  if(data.trim() === "1" ||data.trim() ===  "2" ||data.trim() ===  "3"){      
                     intentos = intentos + 1;
                     //Explicacion del fallo
-                    let fallo = "";
+                    let fail = "";
                     switch(data.trim()){
                         case "1":
-                            fallo = "Failure because the number of test cases generated exceeds the maximum allowed (2n) or does not reach the minimum (n+1)";
+                            fail = "Failure because the number of test cases generated exceeds the maximum allowed (2n) or does not reach the minimum (n+1)";
                             break;
                         case "2":
-                            fallo = "Failure because some variable does not have a test case for both true and false ";
+                            fail = "Failure because some variable does not have a test case for both true and false ";
                             break;
                         case "3":
-                            fallo = "Failure because the number of test cases generated exceeds the maximum allowed (2n) or does not reach the minimum (n+1) and because some variable does not have a test case for both true and false ";
+                            fail = "Failure because the number of test cases generated exceeds the maximum allowed (2n) or does not reach the minimum (n+1) and because some variable does not have a test case for both true and false ";
                             break;
                     }
                     
                     //Llamada a funcion
                     vscode.window.showErrorMessage('Generando una respuesta válida...');
                     if(intentos <= 2){ // 3 intentos   
-                        generateTestCases(context, client, exprLLM, true, fallo);
+                        generateTestCases(context, client, exprLLM, true, fail);
                     }
                     else{   
                         vscode.window.showErrorMessage('Numero de intentos excedido.');
