@@ -90,7 +90,7 @@ o podemos hacerlo a traves de la barra de comandos
 Tras seleccionar un metodo de generacion ya directamente nos saldra la respuesta a nuestra expresion en formato lista de python con cada elemento formado por los casos de prueba  
 ## Ejemplo
 Desde el archivo extension.ts entrar en modo depuracion usando el F5.Seleccionar una expresion booleana de enteros, emplear el boton derecho para abrir el menu contextual     
-![](https://github.com/TGF-2023-24/testing-ai/assets/79473853/0d61cf5b-303e-4bb2-9d1e-fb4718c98ea9)  
+![](https://github.com/TGF-2023-24/testing-ai/assets/79473853/f530735e-24e7-43f7-95e9-8791a2e5d46f)  
 Seleccionar el metodo de generacion de casos de prueba que deseamos emplear  
 - [ ] Generate testcases (LLM) 
 - [ ] Generate testcases (pyMCDC)   
