@@ -111,24 +111,31 @@ async function generateTestCases(context: vscode.ExtensionContext, client:any, e
     let result: any;
     const deploymentId = "generacion-de-casos";
     const messages = [
-        { role: "system", content: "You are an expert generating test cases that satisfy the MC/DC coverage criterion." },
-        { role: "user", content: "I need help with test case generation, that satisfy the MC/DC coverage criterion" },
-        { role: "assistant", content: "Okay, I'm an expert in that criterion. Tell me what I need to do ?" },
-        { role: "user", content: "I provide you an example, in this case the boolean expression is (a<10)&(b<9)." },
-        { role: "user", content: "And the output I get is in the style [{'a': 0, 'b': 0}, {'a': 11, 'b': 0}, {'a': 11, 'b': 9}],The list provided follows the format of a list of dictionaries in Python."+
+        { role: "system", content: "You're an expert at generating test cases that satisfy the MC/DC coverage criterion.." },
+        { role: "user", content: "I need help generating test cases that satisfy the MC/DC coverage criterion." },
+        { role: "user", content: "The MC/DC coverage criterion stands out for its high reliability in systems with complex decision structures and only requires n+1 test cases for decisions with n conditions."+
+             "MC/DC coverage ensures that the program meets the following criteria:"+
+            "Each entry and exit point of the program is executed at least once."+
+            "Every condition in a program decision has been evaluated to both true and false at least once."+
+            "Every decision in the program has been evaluated to both true and false at least once."+
+            "Each condition in a decision independently affects the decision's evaluation." },
+        { role: "assistant", content: "Sure thing! I'm an expert in that. What do you need help with?" },
+        { role: "user", content: "I'll give you an example. Let's say the boolean expression is (a<10)&(b<9)." },
+        { role: "user", content: "The output I get follows this format [{'a': 0, 'b': 0}, {'a': 11, 'b': 0}, {'a': 11, 'b': 9}]"+
          "Each element of the list is a dictionary containing key-value pairs. In this case, the keys are 'a' and 'b', and their corresponding values are integers."+
         "Here's the detailed explanation of the list:"+
         "{'a': 0, 'b': 0}: This is the first dictionary in the list. It represents a set of values where the value of 'a' is 0 and the value of 'b' is also 0. "+
         "{'a': 11, 'b': 0}: This is the second dictionary in the list. Here, the value of 'a' is 11 and the value of 'b' is 0."+
         "{'a': 11, 'b': 9}: This is the third dictionary in the list. In this case, the value of 'a' is 11 and the value of 'b' is 9."+
        "In summary, the provided list contains three sets of values represented as dictionaries, where each dictionary has keys 'a' and 'b' with specific values associated with them" },
-        { role: "user", content: "Giving you boolean expressions, can you provide me with responses in the same style as the one I just showed you?" },        
-        { role: "assistant", content: "Of course! What type of test cases are you trying to generate?" },
+        { role: "user", content: "Can you provide responses in the same style for other boolean expressions?" },        
+        { role: "assistant", content:"Absolutely! What specific test cases are you looking to generate?" },
         { role: "user", content: "I want to generate the minimum test cases that satisfy the MC/DC coverage criterion for a boolean expression." },
-        { role: "assistant", content: "Understood. Please provide the boolean expression for which you want to generate test cases." },
-        { role: "user", content: "The boolean expression is as follows: "+eq+"." },
+        { role: "assistant", content: "Got it. Could you please provide the boolean expression you're working with?" },
+        { role: "user", content: "The boolean expression is : "+eq+"." },
         { role: "user", content: "Please provide the list in Python format without additional explanations." },
-        { role: "assistant", content: "Understood, the expression you provided is:"+eq+". Is it correct?" }
+        { role: "assistant", content: "Understood, the expression you provided is:"+eq+". Is it correct?" },
+        { role: "user", content: "Yes it is" },
     ];
     //si es una respuesta correcta 
     if(!wrong){
