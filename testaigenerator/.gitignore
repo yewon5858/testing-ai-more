@@ -1,0 +1,2 @@
+### Do not save the compiled .js .map files
+out/

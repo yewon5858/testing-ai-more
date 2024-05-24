@@ -1,8 +1,8 @@
 {
     "terminalName": "TestAI_Gen",
     "shellPath": "wsl",
-    "pyenvActivation": "TFG",
-    "directoryPath": "/mnt/c/TFG/testaigenerator/mcdc_test",
+    "pyenvActivation": "ultima",
+    "directoryPath": "/mnt/c/Users/Usuario01/Desktop/Universidad/CUARTO-QUINTO AÑO/TFG/ULTIMA PRUEBA/testing-ai-pruebas (2)/testing-ai-pruebas/testaigenerator/mcdc_test",
     "endpoint" : "https://test-ia.openai.azure.com/",
     "apiKey" : "ac73454962444b47b2edb042e4033cd7"
 }

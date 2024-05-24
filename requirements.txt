@@ -1,4 +1,0 @@
-more-itertools
-sortedcontainers
-pyeda
-pysmt
