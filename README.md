@@ -1,6 +1,6 @@
 # TFG: Generación automática de casos de prueba mediante el uso de redes neuronales/ Automatic test case generation using neural network
 ## Estado  
-En desarrollo
+En evaluación
 ## Autores
 Este proyecto esta realizado por **Gonzalo Contreras Gordo** e **Ismael Barahona Cánovas**
 ## Resumen
