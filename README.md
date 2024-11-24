@@ -29,19 +29,19 @@ conda create -n jupyterlab-tfm-ext --override-channels --strict-channel-priority
 
 After that, we need to install all python dependencies of the jupyter environment:
 
-pip install -ve .
+`pip install -ve`
 
 Then we need to activate the conda environment previously created:
 
-conda activate jupyterlab-tfm-ext
+`conda activate jupyterlab-tfm-ext`
 
 From this environment we need to deploy the interface and start a jupyter lab instance, so from to different terminals we should run:
 
-jlpm run watch
+`jlpm run watch`
 
 and 
 
-jupyter lab
+`jupyter lab`
 
 Note that the watch command must be run inside the plugin directory, while the jupyter instance can be initialiced from any directory.
 
