@@ -25,7 +25,7 @@ Empleada una conexion a Azure Microsoft
 # Plugin
 To open the interface it is necesary to create a conda environment:
 
-conda create -n jupyterlab-tfm-ext --override-channels --strict-channel-priority -c conda-forge -c nodefaults jupyterlab=4 nodejs=18 git copier jinja2-time
+`conda create -n jupyterlab-tfm-ext --override-channels --strict-channel-priority -c conda-forge -c nodefaults jupyterlab=4 nodejs=18 git copier jinja2-time`
 
 After that, we need to install all python dependencies of the jupyter environment:
 
